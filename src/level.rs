@@ -8,7 +8,7 @@ use bevy::prelude::*;
 
 use crate::actor::{Health, Player, Stunned};
 use crate::ascii::{AsciiArt, AsciiSprite, CELL, Layer, palette};
-use crate::backdrop::{Building, Sign, Theme};
+use crate::backdrop::{Building, Scene, Sign, Theme};
 use crate::combat::{Damaged, Lifetime};
 use crate::physics::{Collider, Falls, Ghost, KILL_Y, OneWay, Solid, Velocity, overlap};
 use crate::state::{AppSet, GameMode, GameState, arena_live};
@@ -134,7 +134,11 @@ pub trait Level: Send + Sync + 'static {
     fn signs(&self) -> &'static [Sign];
     /// Fundo tematico da arena.
     fn theme(&self) -> Theme {
-        Theme::City
+        self.scene().theme()
+    }
+    /// Pintura concreta do fundo; mapas do mesmo tema nao compartilham cartao.
+    fn scene(&self) -> Scene {
+        Scene::City
     }
 
     /// Topo do apoio mais alto que fica abaixo de `from`, na coluna dela.
@@ -656,8 +660,8 @@ impl Level for Arena01 {
 
     fn signs(&self) -> &'static [Sign] {
         const SIGNS: [Sign; 2] = [
-            ("[ KNOCKOUT DISTRICT ]", 188.0, palette::BLOOD, 0.0),
-            ("PUNCH // CLIMB // SURVIVE", 164.0, palette::GOLD, 2.3),
+            ("[ KNOCKOUT DISTRICT ]", 188.0, palette::SCENE_RED, 0.0),
+            ("PUNCH // CLIMB // SURVIVE", 164.0, palette::SCENE_GOLD, 2.3),
         ];
         &SIGNS
     }
@@ -789,8 +793,8 @@ impl Level for Arena02 {
 
     fn signs(&self) -> &'static [Sign] {
         const SIGNS: [Sign; 2] = [
-            ("[ SCRAP TOWER 7 ]", 188.0, palette::MOSS, 1.1),
-            ("MIND THE GAP", 164.0, palette::BLOOD, 0.4),
+            ("[ SCRAP TOWER 7 ]", 188.0, palette::SCENE_TOXIC, 1.1),
+            ("MIND THE GAP", 164.0, palette::SCENE_RED, 0.4),
         ];
         &SIGNS
     }
@@ -894,8 +898,8 @@ impl Level for Arena03 {
 
     fn signs(&self) -> &'static [Sign] {
         const SIGNS: [Sign; 2] = [
-            ("[ THE VAULT ]", 188.0, palette::GOLD, 0.7),
-            ("NO EXIT // NO FALLS", 164.0, palette::BLOOD, 1.9),
+            ("[ THE VAULT ]", 188.0, palette::SCENE_GOLD, 0.7),
+            ("NO EXIT // NO FALLS", 164.0, palette::SCENE_RED, 1.9),
         ];
         &SIGNS
     }
@@ -907,7 +911,7 @@ struct ThemedArena(&'static StageDef);
 
 struct StageDef {
     name: &'static str,
-    theme: Theme,
+    scene: Scene,
     spawns: &'static [Vec2],
     drops: &'static [Vec2],
     pieces: &'static [Piece],
@@ -934,8 +938,8 @@ impl Level for ThemedArena {
     fn signs(&self) -> &'static [Sign] {
         self.0.signs
     }
-    fn theme(&self) -> Theme {
-        self.0.theme
+    fn scene(&self) -> Scene {
+        self.0.scene
     }
 }
 
@@ -980,17 +984,41 @@ const ORIENTAL_SKY: [Building; 5] = [
     (520.0, -20.0, 14, 8),
 ];
 
-const LAVA_SIGNS: [Sign; 2] = [
-    ("[ MAGMA SECTOR ]", 188.0, palette::BLOOD, 0.0),
-    ("THE FLOOR BITES BACK", 164.0, palette::GOLD, 1.7),
+const CALDERA_SIGNS: [Sign; 2] = [
+    ("[ CALDERA // 01 ]", 188.0, palette::SCENE_RED, 0.0),
+    ("THE MOUNTAIN IS AWAKE", 164.0, palette::SCENE_GOLD, 1.7),
+];
+const BRIDGE_SIGNS: [Sign; 2] = [
+    ("[ BASALT CROSSING ]", 188.0, palette::SCENE_FIRE, 0.6),
+    ("NO GROUND BELOW", 164.0, palette::IRON, 2.0),
+];
+const FORGE_SIGNS: [Sign; 2] = [
+    ("[ FORGE CORE // 03 ]", 188.0, palette::SCENE_FIRE, 1.1),
+    ("PRESSURE AT MAXIMUM", 164.0, palette::SCENE_RED, 2.4),
 ];
 const ACID_SIGNS: [Sign; 2] = [
-    ("[ BIOHAZARD WORKS ]", 188.0, palette::MOSS, 0.4),
-    ("CORROSIVE // KEEP MOVING", 164.0, palette::GOLD, 2.1),
+    ("[ ACID WORKS // 01 ]", 188.0, palette::SCENE_TOXIC, 0.4),
+    ("CORROSIVE // KEEP MOVING", 164.0, palette::IRON, 2.1),
 ];
-const ORIENTAL_SIGNS: [Sign; 2] = [
-    ("[ TIAN XIA // ╬╪╫ ]", 188.0, palette::GOLD, 0.8),
-    ("RED SUN FIGHTING GARDEN", 164.0, palette::BLOOD, 2.6),
+const REACTOR_SIGNS: [Sign; 2] = [
+    ("[ REACTOR 02 // ONLINE ]", 188.0, palette::SCENE_BLUE, 0.9),
+    ("CORE LOAD UNSTABLE", 164.0, palette::IRON, 2.5),
+];
+const DRAIN_SIGNS: [Sign; 2] = [
+    ("[ DRAINAGE // LEVEL -3 ]", 188.0, palette::SCENE_TOXIC, 1.4),
+    ("WATER NOT SAFE", 164.0, palette::SCENE_BLUE, 2.8),
+];
+const RED_GATE_SIGNS: [Sign; 2] = [
+    ("[ RED GATE // ╬╪╫ ]", 188.0, palette::SCENE_RED, 0.8),
+    ("ENTER WITH RESPECT", 164.0, palette::IRON, 2.6),
+];
+const PAGODA_SIGNS: [Sign; 2] = [
+    ("[ SUNSET PAGODA ]", 188.0, palette::SCENE_GOLD, 1.2),
+    ("FIVE ROOFS // ONE WINNER", 164.0, palette::SCENE_RED, 2.1),
+];
+const DRAGON_SIGNS: [Sign; 2] = [
+    ("[ STONE DRAGON GARDEN ]", 188.0, palette::SCENE_TOXIC, 1.6),
+    ("WAKE NOTHING", 164.0, palette::SCENE_GOLD, 2.9),
 ];
 
 const LAVA_1: [Piece; 8] = [
@@ -1368,10 +1396,10 @@ const EAST_3: [Piece; 9] = [
 ];
 
 macro_rules! stage {
-    ($name:literal, $theme:expr, $spawns:expr, $pieces:expr, $sky:expr, $signs:expr) => {
+    ($name:literal, $scene:expr, $spawns:expr, $pieces:expr, $sky:expr, $signs:expr) => {
         StageDef {
             name: $name,
-            theme: $theme,
+            scene: $scene,
             spawns: $spawns,
             drops: &DROPS,
             pieces: $pieces,
@@ -1383,31 +1411,31 @@ macro_rules! stage {
 
 const CALDERA: StageDef = stage!(
     "LAVA 01 - CALDERA",
-    Theme::Volcano,
+    Scene::Caldera,
     &SPAWNS_WIDE,
     &LAVA_1,
     &VOLCANO_SKY,
-    &LAVA_SIGNS
+    &CALDERA_SIGNS
 );
 const MAGMA_BRIDGE: StageDef = stage!(
     "LAVA 02 - MAGMA BRIDGE",
-    Theme::Volcano,
+    Scene::MagmaBridge,
     &SPAWNS_INNER,
     &LAVA_2,
     &VOLCANO_SKY,
-    &LAVA_SIGNS
+    &BRIDGE_SIGNS
 );
 const FORGE_CORE: StageDef = stage!(
     "LAVA 03 - FORGE CORE",
-    Theme::Volcano,
+    Scene::ForgeCore,
     &SPAWNS_WIDE,
     &LAVA_3,
     &VOLCANO_SKY,
-    &LAVA_SIGNS
+    &FORGE_SIGNS
 );
 const ACID_WORKS: StageDef = stage!(
     "INDUSTRIAL 01 - ACID WORKS",
-    Theme::Industrial,
+    Scene::AcidWorks,
     &SPAWNS_WIDE,
     &ACID_1,
     &INDUSTRIAL_SKY,
@@ -1415,43 +1443,43 @@ const ACID_WORKS: StageDef = stage!(
 );
 const REACTOR: StageDef = stage!(
     "INDUSTRIAL 02 - REACTOR",
-    Theme::Industrial,
+    Scene::Reactor,
     &SPAWNS_INNER,
     &ACID_2,
     &INDUSTRIAL_SKY,
-    &ACID_SIGNS
+    &REACTOR_SIGNS
 );
 const DRAINAGE: StageDef = stage!(
     "INDUSTRIAL 03 - DRAINAGE",
-    Theme::Industrial,
+    Scene::Drainage,
     &SPAWNS_INNER,
     &ACID_3,
     &INDUSTRIAL_SKY,
-    &ACID_SIGNS
+    &DRAIN_SIGNS
 );
 const RED_GATE: StageDef = stage!(
     "ORIENTAL 01 - RED GATE",
-    Theme::Oriental,
+    Scene::RedGate,
     &SPAWNS_WIDE,
     &EAST_1,
     &ORIENTAL_SKY,
-    &ORIENTAL_SIGNS
+    &RED_GATE_SIGNS
 );
 const SUNSET_PAGODA: StageDef = stage!(
     "ORIENTAL 02 - SUNSET PAGODA",
-    Theme::Oriental,
+    Scene::SunsetPagoda,
     &SPAWNS_INNER,
     &EAST_2,
     &ORIENTAL_SKY,
-    &ORIENTAL_SIGNS
+    &PAGODA_SIGNS
 );
 const DRAGON_GARDEN: StageDef = stage!(
     "ORIENTAL 03 - DRAGON GARDEN",
-    Theme::Oriental,
+    Scene::DragonGarden,
     &SPAWNS_INNER,
     &EAST_3,
     &ORIENTAL_SKY,
-    &ORIENTAL_SIGNS
+    &DRAGON_SIGNS
 );
 
 /// Catalogo de fases, na ordem em que o menu as lista.
@@ -1506,7 +1534,7 @@ fn build_level(mut commands: Commands, level: Res<CurrentLevel>) {
         &mut commands,
         level.0.skyline(),
         level.0.signs(),
-        level.0.theme(),
+        level.0.scene(),
     );
 
     let mut next_chain = 0u8;
@@ -1870,6 +1898,7 @@ mod tests {
     #[test]
     fn cada_tema_novo_tem_tres_mapas_e_spawn_seguro() {
         let mut themes = [0; 3];
+        let mut scenes = Vec::new();
         for build in &CATALOG[3..] {
             let level = build();
             themes[match level.theme() {
@@ -1878,6 +1907,12 @@ mod tests {
                 Theme::Oriental => 2,
                 Theme::City => panic!("mapa novo sem tema"),
             }] += 1;
+            assert!(
+                !scenes.contains(&level.scene()),
+                "{} reutiliza a pintura de outro mapa",
+                level.name()
+            );
+            scenes.push(level.scene());
 
             let hazards: Vec<(f32, f32)> = level
                 .pieces()
@@ -1897,6 +1932,7 @@ mod tests {
             }
         }
         assert_eq!(themes, [3, 3, 3]);
+        assert_eq!(scenes.len(), 9);
     }
 
     #[test]

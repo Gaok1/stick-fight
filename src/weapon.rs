@@ -107,12 +107,16 @@ pub enum WeaponStyle {
     Pistol,
     Shotgun,
     Rifle,
-    /// Arma de contato: nao atira, bate.
-    Blunt,
+    /// Cano pesado, empunhado com as duas maos.
+    Pipe,
     /// Arremessavel: sai da mao em arco.
     Bomb,
-    /// Lamina curta: corta perto e voa longe.
-    Blade,
+    /// Lamina curta: estocadas rapidas e cortes curtos.
+    Knife,
+    /// Lamina longa: cortes amplos com as duas maos.
+    Katana,
+    /// Dois bastoes ligados: golpes circulares e muito rapidos.
+    Nunchaku,
 }
 
 impl WeaponStyle {
@@ -124,11 +128,13 @@ impl WeaponStyle {
     pub fn reach(self) -> f32 {
         match self {
             WeaponStyle::Unarmed | WeaponStyle::Bomb => 0.0,
-            WeaponStyle::Blade => 4.0,
+            WeaponStyle::Knife => 4.0,
+            WeaponStyle::Katana => 15.0,
+            WeaponStyle::Nunchaku => 11.0,
             WeaponStyle::Pistol => 2.0,
             WeaponStyle::Shotgun => 7.0,
             WeaponStyle::Rifle => 10.0,
-            WeaponStyle::Blunt => 9.0,
+            WeaponStyle::Pipe => 10.0,
         }
     }
 }
@@ -275,7 +281,7 @@ impl Weapon for Shotgun {
         "\u{2550}\u{2550}\u{2550}\u{2550}\u{2550}\n \u{2514}"
     }
     fn cooldown(&self) -> f32 {
-        0.75
+        0.38
     }
     fn ammo(&self) -> u32 {
         4
@@ -289,7 +295,7 @@ impl Weapon for Shotgun {
                 velocity: Vec2::from_angle(*spread).rotate(dir) * 700.0,
                 glyph: "\u{00B7}",
                 color: palette::GOLD,
-                damage: 7,
+                damage: 10,
                 knockback: dir * 300.0 + Vec2::new(0.0, 150.0),
                 life: 0.5,
                 kind: ShotKind::Straight,
@@ -299,9 +305,9 @@ impl Weapon for Shotgun {
     fn recoil(&self) -> Recoil {
         // O coice da 12: te arranca do lugar e joga o cano pro alto.
         Recoil {
-            push: 540.0,
-            kick: 0.95,
-            shake: 0.52,
+            push: 720.0,
+            kick: 1.20,
+            shake: 0.68,
         }
     }
     fn melee(&self, step: u8) -> MeleeMove {
@@ -563,7 +569,211 @@ impl Weapon for Knives {
         }
     }
     fn style(&self) -> WeaponStyle {
-        WeaponStyle::Blade
+        WeaponStyle::Knife
+    }
+}
+
+/// Faca de combate: alcance minimo, mas o combo mais rapido do arsenal.
+pub struct Knife;
+
+impl Weapon for Knife {
+    fn name(&self) -> &'static str {
+        "KNIFE"
+    }
+    fn held_art(&self) -> &'static str {
+        "o\u{2500}>"
+    }
+    fn ground_art(&self) -> &'static str {
+        "o\u{2500}\u{2500}>"
+    }
+    fn cooldown(&self) -> f32 {
+        0.48
+    }
+    fn ammo(&self) -> u32 {
+        0
+    }
+    fn shots(&self, _dir: Vec2) -> Vec<Shot> {
+        Vec::new()
+    }
+    fn recoil(&self) -> Recoil {
+        Recoil {
+            push: 0.0,
+            kick: 0.0,
+            shake: 0.0,
+        }
+    }
+    fn melee(&self, step: u8) -> MeleeMove {
+        match step % 3 {
+            0 => MeleeMove {
+                damage: 10,
+                reach: 30.0,
+                knockback: Vec2::new(205.0, 70.0),
+                duration: 0.13,
+                contact: 0.24,
+            },
+            1 => MeleeMove {
+                damage: 11,
+                reach: 33.0,
+                knockback: Vec2::new(230.0, 105.0),
+                duration: 0.14,
+                contact: 0.22,
+            },
+            _ => MeleeMove {
+                damage: 17,
+                reach: 36.0,
+                knockback: Vec2::new(325.0, 190.0),
+                duration: 0.21,
+                contact: 0.34,
+            },
+        }
+    }
+    fn heavy(&self) -> Option<MeleeMove> {
+        Some(MeleeMove {
+            damage: 23,
+            reach: 43.0,
+            knockback: Vec2::new(385.0, 120.0),
+            duration: 0.32,
+            contact: 0.42,
+        })
+    }
+    fn style(&self) -> WeaponStyle {
+        WeaponStyle::Knife
+    }
+}
+
+/// Katana: cortes longos de duas maos, fortes e deliberados.
+pub struct Katana;
+
+impl Weapon for Katana {
+    fn name(&self) -> &'static str {
+        "KATANA"
+    }
+    fn held_art(&self) -> &'static str {
+        "o====>"
+    }
+    fn ground_art(&self) -> &'static str {
+        "o\u{2550}\u{2550}\u{2550}\u{2550}\u{2550}>"
+    }
+    fn cooldown(&self) -> f32 {
+        0.92
+    }
+    fn ammo(&self) -> u32 {
+        0
+    }
+    fn shots(&self, _dir: Vec2) -> Vec<Shot> {
+        Vec::new()
+    }
+    fn recoil(&self) -> Recoil {
+        Recoil {
+            push: 0.0,
+            kick: 0.0,
+            shake: 0.0,
+        }
+    }
+    fn melee(&self, step: u8) -> MeleeMove {
+        match step % 3 {
+            0 => MeleeMove {
+                damage: 14,
+                reach: 49.0,
+                knockback: Vec2::new(285.0, 100.0),
+                duration: 0.25,
+                contact: 0.32,
+            },
+            1 => MeleeMove {
+                damage: 16,
+                reach: 53.0,
+                knockback: Vec2::new(320.0, 145.0),
+                duration: 0.28,
+                contact: 0.34,
+            },
+            _ => MeleeMove {
+                damage: 24,
+                reach: 58.0,
+                knockback: Vec2::new(445.0, 245.0),
+                duration: 0.39,
+                contact: 0.45,
+            },
+        }
+    }
+    fn heavy(&self) -> Option<MeleeMove> {
+        Some(MeleeMove {
+            damage: 32,
+            reach: 66.0,
+            knockback: Vec2::new(520.0, 80.0),
+            duration: 0.58,
+            contact: 0.54,
+        })
+    }
+    fn style(&self) -> WeaponStyle {
+        WeaponStyle::Katana
+    }
+}
+
+/// Nunchaku: alcance de corrente com cadencia alta e pouco empurrao.
+pub struct Nunchaku;
+
+impl Weapon for Nunchaku {
+    fn name(&self) -> &'static str {
+        "NUNCHAKU"
+    }
+    fn held_art(&self) -> &'static str {
+        "o~o"
+    }
+    fn ground_art(&self) -> &'static str {
+        "o~~\n  o"
+    }
+    fn cooldown(&self) -> f32 {
+        0.56
+    }
+    fn ammo(&self) -> u32 {
+        0
+    }
+    fn shots(&self, _dir: Vec2) -> Vec<Shot> {
+        Vec::new()
+    }
+    fn recoil(&self) -> Recoil {
+        Recoil {
+            push: 0.0,
+            kick: 0.0,
+            shake: 0.0,
+        }
+    }
+    fn melee(&self, step: u8) -> MeleeMove {
+        match step % 3 {
+            0 => MeleeMove {
+                damage: 7,
+                reach: 42.0,
+                knockback: Vec2::new(210.0, 75.0),
+                duration: 0.14,
+                contact: 0.22,
+            },
+            1 => MeleeMove {
+                damage: 8,
+                reach: 45.0,
+                knockback: Vec2::new(225.0, 105.0),
+                duration: 0.15,
+                contact: 0.20,
+            },
+            _ => MeleeMove {
+                damage: 15,
+                reach: 50.0,
+                knockback: Vec2::new(350.0, 205.0),
+                duration: 0.23,
+                contact: 0.34,
+            },
+        }
+    }
+    fn heavy(&self) -> Option<MeleeMove> {
+        Some(MeleeMove {
+            damage: 20,
+            reach: 55.0,
+            knockback: Vec2::new(390.0, 155.0),
+            duration: 0.36,
+            contact: 0.46,
+        })
+    }
+    fn style(&self) -> WeaponStyle {
+        WeaponStyle::Nunchaku
     }
 }
 
@@ -579,10 +789,10 @@ impl Weapon for Pipe {
         "PIPE"
     }
     fn held_art(&self) -> &'static str {
-        "\u{2550}\u{2550}\u{2564}"
+        "o\u{2550}\u{2550}\u{2550}\u{2564}"
     }
     fn ground_art(&self) -> &'static str {
-        "\u{2550}\u{2550}\u{2550}\u{2564}"
+        "o\u{2550}\u{2550}\u{2550}\u{2550}\u{2564}"
     }
     fn cooldown(&self) -> f32 {
         // O M2 e o golpe pesado; este e o intervalo entre dois deles.
@@ -606,25 +816,25 @@ impl Weapon for Pipe {
     fn melee(&self, step: u8) -> MeleeMove {
         match step % 3 {
             0 => MeleeMove {
-                damage: 12,
-                reach: 40.0,
-                knockback: Vec2::new(270.0, 110.0),
-                duration: 0.22,
-                contact: 0.30,
+                damage: 14,
+                reach: 43.0,
+                knockback: Vec2::new(295.0, 100.0),
+                duration: 0.24,
+                contact: 0.32,
             },
             1 => MeleeMove {
-                damage: 13,
-                reach: 44.0,
-                knockback: Vec2::new(300.0, 150.0),
-                duration: 0.25,
-                contact: 0.28,
+                damage: 15,
+                reach: 47.0,
+                knockback: Vec2::new(330.0, 145.0),
+                duration: 0.28,
+                contact: 0.31,
             },
             _ => MeleeMove {
-                damage: 20,
-                reach: 48.0,
-                knockback: Vec2::new(420.0, 260.0),
-                duration: 0.34,
-                contact: 0.42,
+                damage: 23,
+                reach: 52.0,
+                knockback: Vec2::new(455.0, 260.0),
+                duration: 0.38,
+                contact: 0.43,
             },
         }
     }
@@ -632,15 +842,15 @@ impl Weapon for Pipe {
     /// mais longa. Quem erra fica devendo meio segundo.
     fn heavy(&self) -> Option<MeleeMove> {
         Some(MeleeMove {
-            damage: 26,
-            reach: 46.0,
-            knockback: Vec2::new(330.0, -120.0),
-            duration: 0.46,
-            contact: 0.55,
+            damage: 31,
+            reach: 55.0,
+            knockback: Vec2::new(390.0, -140.0),
+            duration: 0.56,
+            contact: 0.56,
         })
     }
     fn style(&self) -> WeaponStyle {
-        WeaponStyle::Blunt
+        WeaponStyle::Pipe
     }
 }
 
@@ -653,6 +863,9 @@ pub const ARSENAL: &[fn() -> Box<dyn Weapon>] = &[
     || Box::new(Shotgun),
     || Box::new(Rifle),
     || Box::new(Pipe),
+    || Box::new(Nunchaku),
+    || Box::new(Katana),
+    || Box::new(Knife),
     || Box::new(PipeBomb),
     || Box::new(Knives),
 ];
@@ -693,6 +906,20 @@ pub struct WeaponIcon;
 pub struct Recoiling {
     timer: Timer,
     kick: f32,
+}
+
+/// Aplica o coice a mira visual. Bracos e arma consomem o mesmo vetor para o
+/// cano nunca subir sozinho.
+pub fn animated_aim(
+    intent: &Intent,
+    facing: &Facing,
+    recoiling: Option<&Recoiling>,
+) -> (Vec2, f32) {
+    let recoil = recoiling.map_or(0.0, |r| r.kick * (1.0 - r.timer.fraction()));
+    let aim = aim_dir(intent, facing);
+    let local = Vec2::new(aim.x * facing.0, aim.y);
+    let kicked = Vec2::from_angle(recoil).rotate(local);
+    (Vec2::new(kicked.x * facing.0, kicked.y), recoil)
 }
 
 /// Reticulo desenhado sobre o cursor.
@@ -1215,52 +1442,59 @@ fn clear_weapon_icon(
 
 /// Mantem o icone da arma do lado para o qual o boneco olha.
 fn animate_weapon_icon(
-    players: Query<(
-        &Facing,
-        &Pose,
-        &Intent,
-        &Held,
-        Option<&MeleeAttack>,
-        Option<&Recoiling>,
-        &Children,
-    )>,
-    mut icons: Query<(&mut Transform, &mut AsciiSprite), With<WeaponIcon>>,
+    players: Query<
+        (
+            &Facing,
+            &Pose,
+            &Intent,
+            &Transform,
+            &Held,
+            Option<&MeleeAttack>,
+            Option<&Recoiling>,
+            &Children,
+        ),
+        With<Player>,
+    >,
+    mut icons: Query<(&mut Transform, &mut AsciiSprite), (With<WeaponIcon>, Without<Player>)>,
 ) {
-    for (facing, pose, intent, held, melee, recoiling, children) in &players {
-        let aim = aim_dir(intent, facing);
+    use crate::actor::pose::MeleeKind;
+
+    for (facing, pose, intent, root, held, melee, recoiling, children) in &players {
+        let (aim, recoil) = animated_aim(intent, facing, recoiling);
         let flipped = facing.0 < 0.0;
-        // Decai do golpe para zero ao longo do timer.
-        let kick = recoiling.map_or(0.0, |r| r.kick * (1.0 - r.timer.fraction()));
+        let gait = pose.run_frame().map_or(0.0, |_| {
+            -(root.translation.x / (9.0 * crate::actor::rig::RUN.len() as f32)
+                * std::f32::consts::TAU)
+                .cos()
+        });
+        let (kind, step) = melee.map_or((MeleeKind::Chain, 0), |m| (m.kind, m.step));
+        let weapon_side = if pose.melee_phase().is_some() {
+            crate::actor::pose::weapon_side(kind, step, held.weapon.style())
+        } else {
+            1.0
+        };
+        let rigging = crate::actor::rig::Rigging {
+            side: weapon_side,
+            facing: facing.0,
+            gait,
+            aim,
+            strike: pose.melee_phase().map(|phase| {
+                (
+                    crate::actor::pose::strike_for(step, kind, held.weapon.style()),
+                    phase,
+                )
+            }),
+            reach: melee.map_or(0.0, |m| m.style.reach()),
+            cycle: root.translation.y / 32.0 * std::f32::consts::TAU,
+            air: 0.0,
+        };
+        let arm = crate::actor::rig::armed_joints(*pose, held.weapon.style(), recoil, &rigging);
         for child in children.iter() {
             if let Ok((mut transform, mut sprite)) = icons.get_mut(child) {
-                let f = facing.0;
-                use crate::actor::pose::MeleeKind;
-                let (kind, step) = melee.map_or((MeleeKind::Chain, 0), |m| (m.kind, m.step));
-                let (x, y, angle) = match crate::actor::pose::weapon_hand(*pose, kind, step) {
-                    // Golpe, guarda ou queda: a arma vai exatamente aonde a
-                    // mao da frente vai, apontada na linha do antebraco. Ela
-                    // le a coreografia em vez de ter numeros proprios, senao
-                    // volta a descolar do corpo a cada golpe novo.
-                    Some(arm) => {
-                        let elbow = Vec2::new(f * arm.elbow.x, arm.elbow.y);
-                        let hand = Vec2::new(f * arm.hand.x, arm.hand.y);
-                        let along = (hand - elbow).normalize_or(Vec2::new(f, 0.0));
-                        (hand.x, hand.y, aim_angle(along, flipped))
-                    }
-                    // Fora disso a arma vive apontada para a mira, recuando na
-                    // mao a cada coice.
-                    None => {
-                        // Mesma altura de ombro que o braco le em `animate_limbs`:
-                        // agachado, a arma desce junto com a mao.
-                        let hold = crate::actor::rig::aim_anchor(*pose)
-                            + aim * (20.0 - kick * 9.0);
-                        let lift = if flipped { -kick } else { kick };
-                        (hold.x, hold.y, aim_angle(aim, flipped) + lift)
-                    }
-                };
-                transform.translation.x = x;
-                transform.translation.y = y;
-                transform.rotation = Quat::from_rotation_z(angle);
+                let along = (arm.hand - arm.elbow).normalize_or(Vec2::new(facing.0, 0.0));
+                transform.translation.x = arm.hand.x;
+                transform.translation.y = arm.hand.y;
+                transform.rotation = Quat::from_rotation_z(aim_angle(along, flipped));
                 sprite.flip_x = flipped;
                 let art = AsciiArt::solid(held.weapon.held_art(), palette::GOLD);
                 if sprite.art != art {

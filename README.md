@@ -133,14 +133,13 @@ princípio na altura. As mudanças de pose são misturadas nos `Transform`s dos
 membros; salto abre perto do ápice, queda prepara o corpo e o pouso aplica um
 squash curto, tudo visual e sem alterar collider ou timing de combate.
 
-A arma na mão lê **a mesma** coreografia, via `pose::weapon_hand` — ela não tem
-posições próprias. Duas listas de posição de mão sempre divergem: a segunda foi
-escrita quando todo soco era o mesmo arco, e quando o combo virou três golpes
-distintos, mais rasteira e voadora, a arma passou a flutuar longe da mão sem que
-nada reclamasse. Dois testes seguram isso agora — um exige que a arma esteja
-exatamente onde a mão está em todo golpe, e outro que cada golpe a leve a um
-ponto diferente, porque golpes que coincidem são o sinal de que ela voltou a ter
-número próprio.
+A arma e os membros passam pela mesma montagem, `rig::armed_joints`. Durante o
+golpe ela lê a coreografia de `pose::strike_for`; fora dele, o estilo escolhe a
+empunhadura: pistola, faca, bomba e nunchaku deixam a mão livre em guarda,
+enquanto rifle, escopeta, cano e katana usam apoio de duas mãos. Corrida acrescenta
+o balanço da passada e o coice recolhe e levanta braço e arma pelo mesmo vetor.
+Assim escalada, queda, espelhamento e mira inclinada não deixam a arma flutuando
+fora da mão.
 
 Perder a janela de encadeamento derruba o combo de volta pro `JAB`. No modo
 treino o painel nomeia o elo que acabou de acertar, que é o que ensina a
@@ -206,7 +205,11 @@ as pegar recebe a munição que restava.
 | `PISTOL`  | Combo curto                 | Tiro reto, preciso              |
 | `SHOTGUN` | Combo pesado                | Leque de chumbos, forte de perto |
 | `RIFLE`   | Combo longo                 | Cadência alta                   |
-| `PIPE`    | Combo mais lento e mais longo que o punho | `SMASH`: pancada de cima pra baixo |
+| `PIPE`    | Investida, gancho e uppercut de duas mãos | `SMASH`: pancada de cima pra baixo |
+| `NUNCHAKU`| Combo circular mais rápido  | `CYCLONE`: giro amplo           |
+| `KATANA`  | Saque e cortes longos       | `EXECUTE`: corte vertical       |
+| `KNIFE`   | Estocadas curtas e rápidas  | `LUNGE`: avanço perfurante      |
+| `KNIVES`  | Combo de faca               | Arremessa facas que ficam cravadas |
 | `BOMB`    | Combo fraco (é pra jogar, não pra bater) | Arremesso em arco, estoura em área |
 
 O `PIPE` é a primeira arma que não atira. Ela existe pra dar a quem pega uma
@@ -214,7 +217,7 @@ escolha diferente de "aponte e clique": alcance e dano de arma com o risco de
 ter que chegar perto. Não gasta nada, então nunca vira peso morto — só sai da
 mão arremessada.
 
-O `SMASH` é o maior dano do jogo (26) com a preparação mais longa (0,46s), e
+O `SMASH` causa 31 de dano com 0,56s de preparação, e
 corta qualquer combo em andamento: ele é o fim da sequência, não mais um elo
 dela. Encadeá-lo faria dele a única coisa que vale apertar.
 

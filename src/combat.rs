@@ -676,14 +676,17 @@ fn launch_melee(
                 }
             }
             WeaponStyle::Pistol => "-)>",
-            // Corte, nao pancada: o rastro da faca e um talho fino.
-            WeaponStyle::Blade => "/)",
+            // Cortes curtos, arco longo de lamina e giro de corrente tem
+            // silhuetas proprias para o estilo ser legivel no contato.
+            WeaponStyle::Knife => "/)",
+            WeaponStyle::Katana => "====/)",
+            WeaponStyle::Nunchaku => "o~)))",
             WeaponStyle::Shotgun => "==)>",
             WeaponStyle::Rifle => "---)>",
             WeaponStyle::Bomb => ")",
             // A pancada pesada desce, entao o rastro dela e mais largo que o
             // do combo normal do cano.
-            WeaponStyle::Blunt => {
+            WeaponStyle::Pipe => {
                 if attack.kind == MeleeKind::Heavy {
                     "=))))"
                 } else {
@@ -875,9 +878,9 @@ fn resolve_hits(
                 dir: hitbox.knockback.normalize_or_zero(),
                 // Um hitbox de soco nasce enquanto o dono ainda esta no golpe,
                 // entao da pra perguntar a ele qual elo do combo era.
-                move_name: attackers
-                    .get(hitbox.owner)
-                    .map_or("", |attack| crate::actor::pose::strike(attack.step).name),
+                move_name: attackers.get(hitbox.owner).map_or("", |attack| {
+                    crate::actor::pose::strike_for(attack.step, attack.kind, attack.style).name
+                }),
                 explosive,
             });
 

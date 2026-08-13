@@ -16,6 +16,7 @@ use bevy::prelude::*;
 use super::pose::{Arm, BODY_COLS, BODY_ROWS, DOWNED_ARM, PARRY_ARM, Pose, Strike};
 use super::skin::Tone;
 use crate::ascii::CELL;
+use crate::weapon::WeaponStyle;
 
 // --- clipes -----------------------------------------------------------------
 
@@ -234,6 +235,48 @@ impl Rigging {
     pub fn front(&self) -> bool {
         self.side > 0.0
     }
+}
+
+/// Monta a pose e aplica a empunhadura da arma quando ela nao manda nos
+/// bracos. Membros e icone da arma usam esta mesma resposta.
+pub fn armed_joints(pose: Pose, style: WeaponStyle, recoil: f32, r: &Rigging) -> Joints {
+    let mut joints = Joints::gait(r);
+    (def(pose).rig)(&mut joints, r);
+    if def(pose).owns_arms {
+        return joints;
+    }
+
+    let (main, support) = match style {
+        WeaponStyle::Pistol => (20.0, None),
+        WeaponStyle::Shotgun => (24.0, Some(15.0)),
+        WeaponStyle::Rifle => (26.0, Some(17.0)),
+        WeaponStyle::Pipe => (22.0, Some(14.0)),
+        WeaponStyle::Bomb => (15.0, None),
+        WeaponStyle::Knife => (18.0, None),
+        WeaponStyle::Katana => (22.0, Some(14.0)),
+        WeaponStyle::Nunchaku => (19.0, None),
+        WeaponStyle::Unarmed => return joints,
+    };
+    let bounce = if pose.run_frame().is_some() {
+        r.gait.abs() * 1.6
+    } else {
+        0.0
+    };
+    let anchor = aim_anchor(pose) + Vec2::Y * bounce;
+
+    if r.front() {
+        let reach = (main - recoil * 9.0).max(11.0);
+        joints.elbow = anchor + r.aim * (reach * 0.48);
+        joints.hand = anchor + r.aim * reach;
+    } else if let Some(reach) = support {
+        joints.elbow = anchor - Vec2::Y * 2.0 + r.aim * (reach * 0.46);
+        joints.hand = anchor - Vec2::Y * 2.0 + r.aim * reach;
+    } else if pose.run_frame().is_none() {
+        // Armas de uma mao deixam a outra em guarda; na corrida ela bombeia.
+        joints.reach(Arm::new(-4.0, 11.0, -2.0, 18.0), r.facing);
+    }
+
+    joints
 }
 
 /// Alcance de um braco totalmente estendido num golpe.
@@ -577,6 +620,7 @@ const POSES: [(Pose, PoseDef); Pose::COUNT] = [
             rig: recoil,
             tone: Tone::Hurt,
             locks: true,
+            owns_arms: true,
             ..standing(Body::STILL)
         },
     ),
@@ -601,6 +645,7 @@ const POSES: [(Pose, PoseDef); Pose::COUNT] = [
             rig: limp,
             tone: Tone::Gone,
             locks: true,
+            owns_arms: true,
             ..standing(Body::STILL)
         },
     ),
@@ -949,6 +994,32 @@ mod tests {
             aim_anchor(Pose::Crouch).y < aim_anchor(Pose::IdleA).y - 5.0,
             "agachado, a arma continua na altura de quem esta em pe"
         );
+    }
+
+    /// Cada familia tem peso e apoio legiveis, e o coice recolhe mao e arma
+    /// pelo mesmo caminho.
+    #[test]
+    fn a_empunhadura_muda_com_a_arma_e_o_coice() {
+        let rig = |side| Rigging {
+            side,
+            facing: 1.0,
+            gait: 0.0,
+            aim: Vec2::X,
+            strike: None,
+            reach: 0.0,
+            cycle: 0.0,
+            air: 0.0,
+        };
+        let pistola_livre = armed_joints(Pose::IdleA, WeaponStyle::Pistol, 0.0, &rig(-1.0));
+        let rifle_apoio = armed_joints(Pose::IdleA, WeaponStyle::Rifle, 0.0, &rig(-1.0));
+        assert!(
+            rifle_apoio.hand.x > pistola_livre.hand.x + 10.0,
+            "rifle perdeu a mao de apoio"
+        );
+
+        let rifle = armed_joints(Pose::IdleA, WeaponStyle::Rifle, 0.0, &rig(1.0));
+        let com_coice = armed_joints(Pose::IdleA, WeaponStyle::Rifle, 0.8, &rig(1.0));
+        assert!(com_coice.hand.x < rifle.hand.x - 5.0, "coice nao recolhe a arma");
     }
 
     /// A passada padrao tem que ser simetrica: com a fase zerada, os dois lados

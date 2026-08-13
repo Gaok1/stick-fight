@@ -56,6 +56,17 @@ pub const SUNSET: Color = Color::srgb(0.95, 0.28, 0.12);
 /// Roxo distante para silhuetas no poente.
 pub const HAZE: Color = Color::srgb(0.30, 0.18, 0.34);
 
+// --- cenario colorido ------------------------------------------------------
+
+/// Acentos do fundo ficam deliberadamente abaixo das cores de gameplay.
+/// Assim P2 continua laranja sobre lava/poente e P4 continua verde na fabrica.
+pub const SCENE_FIRE: Color = Color::srgb(0.48, 0.13, 0.06);
+pub const SCENE_GOLD: Color = Color::srgb(0.48, 0.34, 0.10);
+pub const SCENE_RED: Color = Color::srgb(0.46, 0.09, 0.12);
+pub const SCENE_TOXIC: Color = Color::srgb(0.17, 0.38, 0.23);
+pub const SCENE_BLUE: Color = Color::srgb(0.14, 0.31, 0.38);
+pub const SCENE_HAZE: Color = Color::srgb(0.24, 0.14, 0.28);
+
 /// Cor de cada jogador por indice, para HUD e bonecos baterem.
 pub fn player(id: u8) -> Color {
     match id {

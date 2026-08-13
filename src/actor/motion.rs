@@ -15,7 +15,7 @@ use crate::physics::{
     Collider, DropThrough, Ghost, Grounded, KILL_Y, Velocity, Weightless, overlap,
 };
 use crate::state::{AppSet, GameState};
-use crate::weapon::Held;
+use crate::weapon::{Held, Recoiling};
 
 #[derive(Component)]
 struct ChainRelease(Timer);
@@ -299,7 +299,9 @@ fn animate_body(
         // que o golpe faz. O `rise` vem do golpe em curso pelo tipo dele, e nao
         // so pelo elo do combo -- enquanto vinha so pelo elo, a rasteira era
         // animada com o `rise` de um soco e o corpo dela nao abaixava.
-        let rise = melee.map_or(1.0, |m| super::pose::strike_for(m.step, m.kind).rise);
+        let rise = melee.map_or(1.0, |m| {
+            super::pose::strike_for(m.step, m.kind, m.style).rise
+        });
         let (mut scale, angle) = rig::def(*pose).body.resolve(&Swaying {
             pulse: (time.elapsed_secs() * 5.0 + phase.0).sin(),
             facing: facing.0,
@@ -369,6 +371,7 @@ fn animate_limbs(
             Option<&Velocity>,
             Option<&MeleeAttack>,
             Option<&Held>,
+            Option<&Recoiling>,
         ),
         Without<ActorLimb>,
     >,
@@ -378,21 +381,24 @@ fn animate_limbs(
 ) {
     let dt = time.delta_secs().min(0.05);
     for (limb, mut motion, mut transform) in &mut limbs {
-        let Ok((pose, facing, intent, root, velocity, melee, held)) = actors.get(limb.owner) else {
+        let Ok((pose, facing, intent, root, velocity, melee, held, recoiling)) =
+            actors.get(limb.owner)
+        else {
             continue;
         };
         let def = rig::def(*pose);
         let gait = pose.run_frame().map_or(0.0, |_| {
             -(root.translation.x / (9.0 * rig::RUN.len() as f32) * std::f32::consts::TAU).cos()
         });
+        let (aim, recoil) = crate::weapon::animated_aim(intent, facing, recoiling);
         let rigging = Rigging {
             side: limb.side,
             facing: facing.0,
             gait,
-            aim: crate::weapon::aim_dir(intent, facing),
+            aim,
             strike: pose.melee_phase().map(|phase| {
                 let choreo = melee.map_or(super::pose::strike(0), |m| {
-                    super::pose::strike_for(m.step, m.kind)
+                    super::pose::strike_for(m.step, m.kind, m.style)
                 });
                 (choreo, phase)
             }),
@@ -402,18 +408,14 @@ fn animate_limbs(
             air: velocity.map_or(0.0, |v| (v.y / JUMP_SPEED).clamp(-1.4, 1.0)),
         };
 
-        let mut joints = Joints::gait(&rigging);
-        (def.rig)(&mut joints, &rigging);
-
-        // Arma na mao fora do combate ja fica na linha da mira -- a nao ser que
-        // a pose mande nos bracos, como a guarda e a escalada. A altura sai do
-        // ombro da propria pose, senao quem agacha mira com o braco na altura
-        // do peito de quem esta em pe.
-        if held.is_some() && !def.owns_arms {
-            let anchor = rig::aim_anchor(*pose) + Vec2::new(0.0, limb.side * 2.0);
-            joints.elbow = anchor + rigging.aim * 8.0;
-            joints.hand = anchor + rigging.aim * 17.0;
-        }
+        let joints = held.map_or_else(
+            || {
+                let mut joints = Joints::gait(&rigging);
+                (def.rig)(&mut joints, &rigging);
+                joints
+            },
+            |held| rig::armed_joints(*pose, held.weapon.style(), recoil, &rigging),
+        );
 
         let (a, b) = match limb.kind {
             LimbKind::UpperArm => (joints.shoulder, joints.elbow),

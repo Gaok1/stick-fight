@@ -39,6 +39,37 @@ pub enum Theme {
     Oriental,
 }
 
+/// Composicao visual de uma arena.
+///
+/// `Theme` ainda agrupa clima e linguagem; `Scene` escolhe o lugar concreto.
+/// Os tres mapas de um tema deixam de ser a mesma pintura com plataformas
+/// diferentes.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub enum Scene {
+    #[default]
+    City,
+    Caldera,
+    MagmaBridge,
+    ForgeCore,
+    AcidWorks,
+    Reactor,
+    Drainage,
+    RedGate,
+    SunsetPagoda,
+    DragonGarden,
+}
+
+impl Scene {
+    pub const fn theme(self) -> Theme {
+        match self {
+            Self::City => Theme::City,
+            Self::Caldera | Self::MagmaBridge | Self::ForgeCore => Theme::Volcano,
+            Self::AcidWorks | Self::Reactor | Self::Drainage => Theme::Industrial,
+            Self::RedGate | Self::SunsetPagoda | Self::DragonGarden => Theme::Oriental,
+        }
+    }
+}
+
 // --- profundidade -----------------------------------------------------------
 
 /// Profundidade de um plano: quanto ele acompanha a briga.
@@ -110,7 +141,11 @@ struct Focus(Vec2);
 ///
 /// Suavizado porque o alvo pula: alguem que morre e renasce do outro lado da
 /// arena moveria a media de uma vez, e o ceu inteiro daria um tranco.
-fn track_focus(time: Res<Time>, mut focus: ResMut<Focus>, players: Query<&Transform, With<Player>>) {
+fn track_focus(
+    time: Res<Time>,
+    mut focus: ResMut<Focus>,
+    players: Query<&Transform, With<Player>>,
+) {
     let mut sum = Vec2::ZERO;
     let mut count = 0.0;
     for transform in &players {
@@ -122,9 +157,7 @@ fn track_focus(time: Res<Time>, mut focus: ResMut<Focus>, players: Query<&Transf
     } else {
         Vec2::ZERO
     };
-    focus.0 = focus
-        .0
-        .lerp(target, 1.0 - (-time.delta_secs() * 2.2).exp());
+    focus.0 = focus.0.lerp(target, 1.0 - (-time.delta_secs() * 2.2).exp());
 }
 
 /// Poe cada peca no lugar: casa + bamboleio + deslize do plano.
@@ -142,7 +175,10 @@ fn drift_planes(
     for (plane, sway, mut transform) in &mut planes {
         let wobble = sway.map_or(Vec2::ZERO, |sway| {
             let wave = now * sway.speed + sway.phase;
-            Vec2::new(wave.sin() * sway.travel.x, (wave * 0.73).cos() * sway.travel.y)
+            Vec2::new(
+                wave.sin() * sway.travel.x,
+                (wave * 0.73).cos() * sway.travel.y,
+            )
         });
         let at = plane.home + wobble + drift * plane.depth;
         transform.translation.x = at.x;
@@ -520,6 +556,67 @@ const SUN: &str = "   ▄██████▄
  ▀██████████▀
    ▀██████▀";
 
+/// Ponte de basalto suspensa sobre duas quedas de magma.
+const BASALT_BRIDGE: &str = r"███████████████████████████████████████████████
+██▓▓▒▒░       o=================o       ░▒▒▓▓██
+██▓▒░        /|                 |\        ░▒▓██
+██▓▒        / |                 | \        ▒▓██
+██▓▒   ~~  /  |                 |  \  ~~   ▒▓██
+██▓▒   ≈≈ /   |                 |   \ ≈≈   ▒▓██
+███████████████████████████████████████████████";
+
+/// Boca mecanica da forja: massa escura, dentes e nucleo quente.
+const FORGE_MOUTH: &str = "        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+     ▄██▓▓▒▒▒▒▒▒▒▒▒▓▓██▄
+   ▄██▓▒   ╔═══════╗   ▒▓██▄
+  ██▓▒    ║ ≈≈≈≈≈ ║    ▒▓██
+  ██▓▒    ║≈█████≈║    ▒▓██
+  ██▓▒    ║ ≈≈≈≈≈ ║    ▒▓██
+  ████▄▄▄▄╩═══════╝▄▄▄▄████
+     ███████████████████";
+
+/// Anel do reator, com nucleo vazado para manter espaco negativo.
+const REACTOR_CORE: &str = r"       .----[ 02 ]----.
+    .-'      ____      '-.
+   /      .-'    '-.      \
+  |      /  ░▒▓▒░  \      |
+==O=====|  ▒▓█▓▒  |=====O==
+  |      \  ░▒▓▒░  /      |
+   \      '-.____.-'      /
+    '-.      ||      .-'
+       '----=OO=----'";
+
+/// Galeria baixa da drenagem; arcos repetidos leem como subsolo, nao skyline.
+const SEWER: &str = r"▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+██▓▓▒▒░   .--------.   ░▒▒▓▓██▓▓▒▒░   .--------.   ░▒▒▓▓██
+██▓▒     /          \     ▒▓██▓▒     /          \     ▒▓██
+██▓     /            \     ▓██▓     /            \     ▓██
+██▓    |              |    ▓██▓    |              |    ▓██
+███▄▄▄▄|__≈≈≈≈≈≈≈≈__|▄▄▄▄█████▄▄▄▄|__≈≈≈≈≈≈≈≈__|▄▄▄▄███";
+
+/// Lua vazada do jardim, bem menos luminosa que o sol do pagode.
+const MOON_GATE: &str = "    ▄▄▄▄▄
+  ▄██▀▀▀██▄
+ ██▀       ▀██
+██           ██
+██           ██
+ ██▄       ▄██
+  ▀██▄▄▄██▀
+    ▀▀▀▀▀";
+
+/// Dragao de pedra horizontal: uma unica linha de gesto e poucos detalhes.
+const STONE_DRAGON: &str = r"        __      /\                 _
+  _____/  \____/  \__       ___.-' '-.
+<____  o     _   _   '-----'  _      /
+     \______/ \_/ \__________/ \____/
+        /_/                 \_\";
+
+const BAMBOO: &str = " |   |      |   |
+-O-  |     -O-  |
+ |  -O-     |  -O-
+-O-  |     -O-  |
+ |   |      |   |";
+
 // --- a composicao de cada tema ----------------------------------------------
 
 /// Serra distante do vulcao. Os numeros sao alturas em linhas.
@@ -548,9 +645,9 @@ const CITY_FAR: [Building; 9] = [
 ///
 /// De tras para frente, e tudo apoiado em [`GROUND`]: cenario nasce no chao da
 /// arena, nao numa altura escrita a mao que ninguem sabe conferir.
-fn scene(theme: Theme) -> Vec<Panel> {
-    match theme {
-        Theme::City => vec![
+fn panels(scene: Scene) -> Vec<Panel> {
+    match scene {
+        Scene::City => vec![
             // Morros baixos atras da cidade: eles so aparecem nos vaos entre um
             // predio e outro, e e isso que da fundo ao horizonte.
             Panel::footed(
@@ -559,7 +656,7 @@ fn scene(theme: Theme) -> Vec<Panel> {
                 SKY,
             ),
             Panel::new(
-                AsciiArt::solid(MOON, palette::BONE),
+                AsciiArt::solid(MOON, palette::ASH),
                 Vec2::new(-420.0, 150.0),
                 SKY,
             ),
@@ -594,7 +691,7 @@ fn scene(theme: Theme) -> Vec<Panel> {
         ],
         // A cratera nao esta aqui: quem a desenha e a propria boca, em
         // `vents`, porque a cor dela e o aviso de que a montanha vai estourar.
-        Theme::Volcano => vec![
+        Scene::Caldera => vec![
             Panel::new(
                 smog(SPAN, 5, palette::COAL),
                 Vec2::new(0.0, ARENA_HALF_H - 24.0),
@@ -605,18 +702,79 @@ fn scene(theme: Theme) -> Vec<Panel> {
                 Vec2::new(0.0, GROUND),
                 SKY,
             ),
-            Panel::footed(cone(palette::IRON, palette::EMBER), VOLCANO_FOOT, MID),
+            Panel::footed(cone(palette::IRON, palette::SCENE_FIRE), VOLCANO_FOOT, MID),
             // Chao derretido correndo na linha do horizonte, na frente da
             // montanha: e o que deixa claro que a arena inteira esta dentro da
             // caldeira, e nao so olhando para ela de longe.
             Panel::footed(
-                AsciiArt::fill('▄', SPAN, 1, palette::BLOOD)
-                    .stamp(&AsciiArt::fill('▀', SPAN, 1, palette::EMBER), 0, 1),
+                AsciiArt::fill('▄', SPAN, 1, palette::SCENE_RED).stamp(
+                    &AsciiArt::fill('▀', SPAN, 1, palette::SCENE_FIRE),
+                    0,
+                    1,
+                ),
                 Vec2::new(0.0, GROUND),
                 NEAR,
             ),
         ],
-        Theme::Industrial => vec![
+        Scene::MagmaBridge => vec![
+            Panel::new(
+                smog(SPAN, 3, palette::COAL),
+                Vec2::new(0.0, ARENA_HALF_H - 22.0),
+                SKY,
+            ),
+            Panel::footed(
+                ridge(&[3, 7, 4, 11, 6, 2, 8, 3, 9, 4, 3], SPAN, palette::COAL),
+                Vec2::new(0.0, GROUND),
+                SKY,
+            ),
+            Panel::footed(
+                AsciiArt::build(
+                    BASALT_BRIDGE,
+                    &Accent {
+                        base: palette::IRON,
+                        accent: palette::SCENE_FIRE,
+                        on: LAVA,
+                    },
+                ),
+                Vec2::new(0.0, GROUND + 18.0),
+                MID,
+            ),
+        ],
+        Scene::ForgeCore => vec![
+            Panel::new(
+                smog(SPAN, 6, palette::COAL),
+                Vec2::new(0.0, ARENA_HALF_H - 28.0),
+                SKY,
+            ),
+            Panel::footed(
+                gantry(12, palette::COAL),
+                Vec2::new(0.0, GROUND + 250.0),
+                FAR,
+            ),
+            Panel::footed(
+                AsciiArt::build(
+                    FORGE_MOUTH,
+                    &Accent {
+                        base: palette::IRON,
+                        accent: palette::SCENE_FIRE,
+                        on: LAVA,
+                    },
+                ),
+                Vec2::new(170.0, GROUND + 12.0),
+                MID,
+            ),
+            Panel::footed(
+                AsciiArt::fill('║', 1, 24, palette::IRON),
+                Vec2::new(-470.0, GROUND),
+                NEAR,
+            ),
+            Panel::footed(
+                AsciiArt::fill('║', 1, 24, palette::IRON),
+                Vec2::new(470.0, GROUND),
+                NEAR,
+            ),
+        ],
+        Scene::AcidWorks => vec![
             Panel::new(
                 smog(SPAN, 4, palette::COAL),
                 Vec2::new(0.0, ARENA_HALF_H - 20.0),
@@ -627,36 +785,47 @@ fn scene(theme: Theme) -> Vec<Panel> {
                 Vec2::new(0.0, GROUND),
                 SKY,
             ),
-            Panel::footed(gantry(12, palette::IRON), Vec2::new(0.0, GROUND + 250.0), FAR),
             Panel::footed(AsciiArt::solid(REFINERY, palette::IRON), REFINERY_AT, MID),
             Panel::footed(
-                AsciiArt::solid(PLANT, palette::MOSS),
+                AsciiArt::solid(PLANT, palette::SCENE_TOXIC),
                 Vec2::new(0.0, GROUND + 10.0),
+                MID,
+            ),
+        ],
+        Scene::Reactor => vec![
+            Panel::footed(
+                gantry(12, palette::IRON),
+                Vec2::new(0.0, GROUND + 250.0),
+                FAR,
+            ),
+            Panel::new(
+                AsciiArt::solid(REACTOR_CORE, palette::SCENE_BLUE),
+                Vec2::new(0.0, 58.0),
                 MID,
             ),
             Panel::footed(drains(SPAN, palette::COAL), Vec2::new(0.0, GROUND), NEAR),
         ],
-        Theme::Oriental => vec![
-            Panel::new(
-                AsciiArt::solid(SUN, palette::SUNSET),
-                Vec2::new(-250.0, 95.0),
+        Scene::Drainage => vec![
+            Panel::footed(
+                AsciiArt::solid(SEWER, palette::IRON),
+                Vec2::new(0.0, GROUND + 8.0),
+                MID,
+            ),
+            Panel::footed(
+                AsciiArt::fill('~', SPAN, 1, palette::SCENE_TOXIC),
+                Vec2::new(0.0, GROUND),
+                NEAR,
+            ),
+        ],
+        Scene::RedGate => vec![
+            Panel::footed(
+                ridge(&[2, 3, 5, 4, 6, 3, 5, 2], SPAN, palette::SCENE_HAZE),
+                Vec2::new(0.0, GROUND),
                 SKY,
             ),
-            // Nuvem de poente por cima do sol: e ela que faz o disco parecer
-            // baixo no ceu em vez de pendurado no vazio.
-            Panel::new(
-                smog(SPAN, 3, palette::HAZE),
-                Vec2::new(0.0, ARENA_HALF_H - 16.0),
-                FAR,
-            ),
             Panel::footed(
-                ridge(&EAST_RIDGE, SPAN, palette::HAZE),
-                Vec2::new(0.0, GROUND),
-                FAR,
-            ),
-            Panel::footed(
-                AsciiArt::solid(PAGODA, palette::GOLD),
-                Vec2::new(230.0, GROUND + 60.0),
+                AsciiArt::solid(TORII, palette::SCENE_RED),
+                Vec2::new(0.0, GROUND + 12.0),
                 MID,
             ),
             Panel::new(
@@ -664,9 +833,48 @@ fn scene(theme: Theme) -> Vec<Panel> {
                 Vec2::new(-450.0, 185.0),
                 NEAR,
             ),
+        ],
+        Scene::SunsetPagoda => vec![
+            Panel::new(
+                AsciiArt::solid(SUN, palette::SCENE_RED),
+                Vec2::new(-315.0, 95.0),
+                SKY,
+            ),
+            Panel::new(
+                smog(SPAN, 3, palette::SCENE_HAZE),
+                Vec2::new(0.0, ARENA_HALF_H - 16.0),
+                FAR,
+            ),
             Panel::footed(
-                AsciiArt::solid(TORII, palette::BLOOD),
-                Vec2::new(-190.0, GROUND),
+                ridge(&EAST_RIDGE, SPAN, palette::SCENE_HAZE),
+                Vec2::new(0.0, GROUND),
+                FAR,
+            ),
+            Panel::footed(
+                AsciiArt::solid(PAGODA, palette::SCENE_GOLD),
+                Vec2::new(250.0, GROUND + 48.0),
+                MID,
+            ),
+        ],
+        Scene::DragonGarden => vec![
+            Panel::new(
+                AsciiArt::solid(MOON_GATE, palette::IRON),
+                Vec2::new(320.0, 92.0),
+                SKY,
+            ),
+            Panel::footed(
+                ridge(&[2, 5, 3, 4, 2, 6, 3, 5, 2], SPAN, palette::COAL),
+                Vec2::new(0.0, GROUND),
+                FAR,
+            ),
+            Panel::footed(
+                AsciiArt::solid(STONE_DRAGON, palette::ASH),
+                Vec2::new(0.0, GROUND + 56.0),
+                MID,
+            ),
+            Panel::new(
+                AsciiArt::solid(BAMBOO, palette::SCENE_TOXIC),
+                Vec2::new(-470.0, 42.0),
                 NEAR,
             ),
         ],
@@ -718,7 +926,7 @@ fn weather(theme: Theme) -> Weather {
         },
         Theme::Volcano => Weather {
             glyphs: &['·', '°', '∙', ','],
-            colors: &[palette::ASH, palette::IRON, palette::EMBER],
+            colors: &[palette::ASH, palette::IRON, palette::SCENE_FIRE],
             count: 46,
             fall: -46.0,
             slant: -14.0,
@@ -727,7 +935,7 @@ fn weather(theme: Theme) -> Weather {
         },
         Theme::Industrial => Weather {
             glyphs: &['·', '.', '∙'],
-            colors: &[palette::IRON, palette::COAL, palette::MOSS],
+            colors: &[palette::IRON, palette::COAL, palette::SCENE_TOXIC],
             count: 34,
             fall: -62.0,
             slant: 18.0,
@@ -736,7 +944,7 @@ fn weather(theme: Theme) -> Weather {
         },
         Theme::Oriental => Weather {
             glyphs: &['*', ',', '°', '·'],
-            colors: &[palette::BLOOD, palette::SUNSET, palette::HAZE],
+            colors: &[palette::SCENE_RED, palette::SCENE_GOLD, palette::SCENE_HAZE],
             count: 40,
             fall: -54.0,
             slant: -26.0,
@@ -829,7 +1037,7 @@ const BLAST_TIME: f32 = 3.4;
 const BLAST_RUSH: f32 = 5.0;
 
 /// Tons da cratera, do descanso ao estouro.
-const HEAT: [Color; 3] = [palette::BLOOD, palette::EMBER, palette::MAGMA];
+const HEAT: [Color; 3] = [palette::SCENE_RED, palette::SCENE_FIRE, palette::SCENE_GOLD];
 
 /// Uma baforada, do nascimento a dissipacao.
 const PUFF: [&str; 6] = [
@@ -843,8 +1051,8 @@ const PUFF: [&str; 6] = [
 
 /// Cor de cada quadro da fumaca quente: sai brasa e vira cinza.
 const SOOT: [Color; 6] = [
-    palette::EMBER,
-    palette::BLOOD,
+    palette::SCENE_FIRE,
+    palette::SCENE_RED,
     palette::IRON,
     palette::IRON,
     palette::COAL,
@@ -852,7 +1060,7 @@ const SOOT: [Color; 6] = [
 ];
 /// Cor de cada quadro do vapor.
 const STEAM: [Color; 6] = [
-    palette::BONE,
+    palette::ASH,
     palette::ASH,
     palette::ASH,
     palette::IRON,
@@ -883,9 +1091,9 @@ struct LavaBomb {
 /// durar o suficiente para ser visto do outro lado da arena.
 const BOMB_GRAVITY: f32 = 300.0;
 
-fn vents(commands: &mut Commands, theme: Theme) {
-    match theme {
-        Theme::Volcano => {
+fn vents(commands: &mut Commands, scene: Scene) {
+    match scene {
+        Scene::Caldera => {
             commands.spawn((
                 LevelGeometry,
                 Parallax {
@@ -905,7 +1113,47 @@ fn vents(commands: &mut Commands, theme: Theme) {
                 Transform::from_translation(CRATER.extend(-MID)),
             ));
         }
-        Theme::Industrial => {
+        Scene::MagmaBridge => {
+            for x in [-310.0, 310.0] {
+                let at = Vec2::new(x, GROUND + 115.0);
+                commands.spawn((
+                    LevelGeometry,
+                    Parallax {
+                        home: at,
+                        depth: MID,
+                    },
+                    Vent {
+                        puff: Timer::from_seconds(0.9, TimerMode::Repeating),
+                        hot: true,
+                        power: 0.55,
+                        blast: 0.0,
+                        erupt: None,
+                        tone: 0,
+                    },
+                    Transform::from_translation(at.extend(-MID)),
+                ));
+            }
+        }
+        Scene::ForgeCore => {
+            let at = Vec2::new(170.0, GROUND + 150.0);
+            commands.spawn((
+                LevelGeometry,
+                Parallax {
+                    home: at,
+                    depth: MID,
+                },
+                Vent {
+                    puff: Timer::from_seconds(0.58, TimerMode::Repeating),
+                    hot: true,
+                    power: 0.72,
+                    blast: 0.0,
+                    erupt: None,
+                    tone: 0,
+                },
+                Transform::from_translation(at.extend(-MID)),
+            ));
+        }
+        Scene::AcidWorks => {
             // Em cima dos canos, que e o topo da arte da refinaria.
             let top = REFINERY_AT.y + REFINERY.lines().count() as f32 * CELL.y;
             for (i, dx) in STACKS.into_iter().enumerate() {
@@ -928,7 +1176,32 @@ fn vents(commands: &mut Commands, theme: Theme) {
                 ));
             }
         }
-        Theme::City | Theme::Oriental => {}
+        Scene::Reactor => {
+            for x in [-190.0, 190.0] {
+                let at = Vec2::new(x, GROUND + 180.0);
+                commands.spawn((
+                    LevelGeometry,
+                    Parallax {
+                        home: at,
+                        depth: FAR,
+                    },
+                    Vent {
+                        puff: Timer::from_seconds(1.15, TimerMode::Repeating),
+                        hot: false,
+                        power: 0.48,
+                        blast: 0.0,
+                        erupt: None,
+                        tone: 0,
+                    },
+                    Transform::from_translation(at.extend(-FAR)),
+                ));
+            }
+        }
+        Scene::City
+        | Scene::Drainage
+        | Scene::RedGate
+        | Scene::SunsetPagoda
+        | Scene::DragonGarden => {}
     }
 }
 
@@ -945,7 +1218,10 @@ fn puff(commands: &mut Commands, at: Vec2, depth: f32, power: f32, hot: bool) {
             frame: 0,
             hot,
         },
-        AsciiSprite::new(AsciiArt::solid(PUFF[0], if hot { SOOT[0] } else { STEAM[0] })),
+        AsciiSprite::new(AsciiArt::solid(
+            PUFF[0],
+            if hot { SOOT[0] } else { STEAM[0] },
+        )),
         Layer::Background,
         Transform::from_translation(at.extend(-depth)),
     ));
@@ -1056,8 +1332,7 @@ fn drift_smoke(
         smoke.rise *= 1.0 - dt * 0.6;
         smoke.drift += dt * 9.0;
 
-        let frame =
-            ((smoke.age / smoke.life * PUFF.len() as f32) as usize).min(PUFF.len() - 1);
+        let frame = ((smoke.age / smoke.life * PUFF.len() as f32) as usize).min(PUFF.len() - 1);
         if frame != smoke.frame {
             smoke.frame = frame;
             let tone = if smoke.hot { SOOT[frame] } else { STEAM[frame] };
@@ -1130,19 +1405,17 @@ fn flicker_neon(time: Res<Time>, mut signs: Query<(&mut NeonSign, &mut AsciiSpri
 // --- montagem ---------------------------------------------------------------
 
 /// Predios do tema, com janelas acesas.
-fn towers(commands: &mut Commands, skyline: &[Building], theme: Theme) {
-    if !matches!(theme, Theme::City | Theme::Industrial) {
-        return;
-    }
-    let window = if theme == Theme::Industrial {
-        palette::MOSS
-    } else {
-        palette::IRON
+fn towers(commands: &mut Commands, skyline: &[Building], scene: Scene) {
+    let window = match scene {
+        Scene::City => palette::IRON,
+        Scene::AcidWorks => palette::SCENE_TOXIC,
+        Scene::Reactor => palette::SCENE_BLUE,
+        _ => return,
     };
 
     // Os distantes nao tem janela acesa: e a falta dela, mais que o tamanho,
     // que os empurra para longe.
-    if theme == Theme::City {
+    if scene == Scene::City {
         for &(x, y, cols, rows) in &CITY_FAR {
             raise(
                 commands,
@@ -1167,9 +1440,9 @@ fn towers(commands: &mut Commands, skyline: &[Building], theme: Theme) {
 }
 
 /// O que balanca no fundo do tema: brasa, faisca, lanterna.
-fn ambience(commands: &mut Commands, theme: Theme) {
-    match theme {
-        Theme::City => {
+fn ambience(commands: &mut Commands, scene: Scene) {
+    match scene {
+        Scene::City => {
             // Luz de aeronave piscando sobre a antena mais alta.
             for (i, at) in [Vec2::new(470.0, 190.0), Vec2::new(-250.0, 145.0)]
                 .into_iter()
@@ -1189,7 +1462,7 @@ fn ambience(commands: &mut Commands, theme: Theme) {
                 );
             }
         }
-        Theme::Volcano => {
+        Scene::Caldera => {
             // Brasas subindo em torno da montanha.
             for i in 0..16 {
                 let hot = i % 3 == 0;
@@ -1197,7 +1470,11 @@ fn ambience(commands: &mut Commands, theme: Theme) {
                     commands,
                     if hot { '*' } else { '·' },
                     Vec2::new(-560.0 + i as f32 * 74.0, -30.0 + (i % 5) as f32 * 44.0),
-                    if hot { palette::EMBER } else { palette::ASH },
+                    if hot {
+                        palette::SCENE_FIRE
+                    } else {
+                        palette::ASH
+                    },
                     Sway {
                         phase: i as f32 * 0.73,
                         speed: 0.45 + (i % 4) as f32 * 0.08,
@@ -1207,7 +1484,23 @@ fn ambience(commands: &mut Commands, theme: Theme) {
                 );
             }
         }
-        Theme::Industrial => {
+        Scene::MagmaBridge | Scene::ForgeCore => {
+            for i in 0..12 {
+                spark(
+                    commands,
+                    if i % 4 == 0 { '*' } else { '·' },
+                    Vec2::new(-500.0 + i as f32 * 92.0, -80.0 + (i % 4) as f32 * 48.0),
+                    palette::SCENE_FIRE,
+                    Sway {
+                        phase: i as f32 * 0.61,
+                        speed: 0.62,
+                        travel: Vec2::new(14.0, 24.0),
+                    },
+                    MID,
+                );
+            }
+        }
+        Scene::AcidWorks | Scene::Reactor => {
             for (i, x) in [-430.0, -115.0, 215.0, 470.0].into_iter().enumerate() {
                 spark(
                     commands,
@@ -1223,7 +1516,23 @@ fn ambience(commands: &mut Commands, theme: Theme) {
                 );
             }
         }
-        Theme::Oriental => {
+        Scene::Drainage => {
+            for (i, x) in [-420.0, -210.0, 15.0, 250.0, 460.0].into_iter().enumerate() {
+                spark(
+                    commands,
+                    if i % 2 == 0 { '·' } else { '\'' },
+                    Vec2::new(x, 155.0 - (i % 3) as f32 * 22.0),
+                    palette::SCENE_BLUE,
+                    Sway {
+                        phase: i as f32,
+                        speed: 0.36,
+                        travel: Vec2::new(2.0, 18.0),
+                    },
+                    MID,
+                );
+            }
+        }
+        Scene::RedGate | Scene::SunsetPagoda => {
             // Lanternas penduradas, cada uma com a propria brasa dentro.
             for (i, x) in [-260.0, -120.0, 255.0, 405.0].into_iter().enumerate() {
                 let at = Vec2::new(x, 22.0 + (i % 2) as f32 * 18.0);
@@ -1235,13 +1544,29 @@ fn ambience(commands: &mut Commands, theme: Theme) {
                     commands,
                     if i % 2 == 0 { '•' } else { '·' },
                     at,
-                    palette::GOLD,
+                    palette::SCENE_GOLD,
                     Sway {
                         phase: i as f32,
                         speed: 0.55,
                         travel: Vec2::new(6.0, 4.0),
                     },
                     MID,
+                );
+            }
+        }
+        Scene::DragonGarden => {
+            for (i, x) in [-390.0, -180.0, 120.0, 360.0].into_iter().enumerate() {
+                spark(
+                    commands,
+                    '·',
+                    Vec2::new(x, 70.0 + (i % 2) as f32 * 45.0),
+                    palette::SCENE_GOLD,
+                    Sway {
+                        phase: i as f32 * 1.7,
+                        speed: 0.38,
+                        travel: Vec2::new(22.0, 10.0),
+                    },
+                    FAR,
                 );
             }
         }
@@ -1253,13 +1578,14 @@ fn ambience(commands: &mut Commands, theme: Theme) {
 /// Um lugar so monta tudo, na ordem de tras para frente. As fases nao spawnam
 /// fundo por conta propria, entao nao existe mapa com uma serra na frente do
 /// jogador porque alguem escreveu o `z` errado.
-pub fn build(commands: &mut Commands, skyline: &[Building], signs: &[Sign], theme: Theme) {
-    for panel in scene(theme) {
+pub fn build(commands: &mut Commands, skyline: &[Building], signs: &[Sign], scene: Scene) {
+    let theme = scene.theme();
+    for panel in panels(scene) {
         raise(commands, panel);
     }
-    towers(commands, skyline, theme);
-    ambience(commands, theme);
-    vents(commands, theme);
+    towers(commands, skyline, scene);
+    ambience(commands, scene);
+    vents(commands, scene);
     seed_weather(commands, &weather(theme));
 
     for &(text, y, bright, phase) in signs {
@@ -1320,6 +1646,18 @@ mod tests {
         Theme::Industrial,
         Theme::Oriental,
     ];
+    const SCENES: [Scene; 10] = [
+        Scene::City,
+        Scene::Caldera,
+        Scene::MagmaBridge,
+        Scene::ForgeCore,
+        Scene::AcidWorks,
+        Scene::Reactor,
+        Scene::Drainage,
+        Scene::RedGate,
+        Scene::SunsetPagoda,
+        Scene::DragonGarden,
+    ];
 
     /// A arte que nasce durante a partida, e por isso nao passa por [`scene`].
     fn loose_art() -> Vec<&'static str> {
@@ -1334,12 +1672,12 @@ mod tests {
     /// E o unico jeito de conferir fundo sem abrir o jogo: um `Panel` fora do
     /// lugar nao quebra nada, nao falha teste nenhum, e so aparece como uma
     /// montanha atravessada na tela.
-    fn preview(theme: Theme) -> String {
+    fn preview(scene: Scene) -> String {
         const COLS: usize = 160;
         const ROWS: usize = 30;
         let mut grid = vec![vec![' '; COLS]; ROWS];
 
-        for panel in scene(theme) {
+        for panel in panels(scene) {
             let size = panel.art.size();
             let left = panel.at.x - size.x * 0.5;
             let top = if panel.foot {
@@ -1423,14 +1761,14 @@ mod tests {
     /// da ordem de spawn, e o desenho muda sozinho entre uma partida e outra.
     #[test]
     fn nenhum_carimbo_pisa_em_cima_de_outro() {
-        for theme in THEMES {
-            for panel in scene(theme) {
+        for scene in SCENES {
+            for panel in panels(scene) {
                 let mut lugares: Vec<(u16, u16)> =
                     panel.art.cells.iter().map(|c| (c.col, c.row)).collect();
                 lugares.sort_unstable();
                 let antes = lugares.len();
                 lugares.dedup();
-                assert_eq!(antes, lugares.len(), "{theme:?}: carimbo sobreposto");
+                assert_eq!(antes, lugares.len(), "{scene:?}: carimbo sobreposto");
             }
         }
     }
@@ -1443,13 +1781,13 @@ mod tests {
     /// passaram a primeira versao inteira debaixo do piso.
     #[test]
     fn nenhuma_peca_nasce_enterrada() {
-        for theme in THEMES {
-            for panel in scene(theme) {
+        for scene in SCENES {
+            for panel in panels(scene) {
                 let size = panel.art.size();
                 let top = panel.at.y + if panel.foot { size.y } else { size.y * 0.5 };
                 assert!(
                     top > GROUND,
-                    "{theme:?}: peca de {size:?} em {:?} fica toda embaixo do chao",
+                    "{scene:?}: peca de {size:?} em {:?} fica toda embaixo do chao",
                     panel.at
                 );
             }
@@ -1462,14 +1800,14 @@ mod tests {
     /// denuncia -- ela simplesmente nao aparece.
     #[test]
     fn todo_plano_encosta_na_tela() {
-        for theme in THEMES {
-            for panel in scene(theme) {
+        for scene in SCENES {
+            for panel in panels(scene) {
                 let size = panel.art.size();
                 let low = panel.at.x - size.x * 0.5;
                 let high = panel.at.x + size.x * 0.5;
                 assert!(
                     high > -ARENA_HALF_W && low < ARENA_HALF_W,
-                    "{theme:?}: peca de {size:?} em {:?} esta fora da tela",
+                    "{scene:?}: peca de {size:?} em {:?} esta fora da tela",
                     panel.at
                 );
             }
@@ -1485,8 +1823,8 @@ mod tests {
     /// olhando para la.
     #[test]
     fn o_cenario_largo_cobre_a_tela_no_deslize_maximo() {
-        for theme in THEMES {
-            for panel in scene(theme) {
+        for scene in SCENES {
+            for panel in panels(scene) {
                 let half = panel.art.size().x * 0.5;
                 if half < ARENA_HALF_W * 0.5 {
                     continue;
@@ -1495,7 +1833,7 @@ mod tests {
                 assert!(
                     panel.at.x - half + drift <= -ARENA_HALF_W
                         && panel.at.x + half - drift >= ARENA_HALF_W,
-                    "{theme:?}: plano de {} colunas em {:?} descobre a borda",
+                    "{scene:?}: plano de {} colunas em {:?} descobre a borda",
                     panel.art.cols,
                     panel.at
                 );
@@ -1527,11 +1865,11 @@ mod tests {
         use crate::ascii::cp437::glyph_index;
         let fallback = glyph_index('?') as u8;
 
-        for theme in THEMES {
-            for panel in scene(theme) {
+        for scene in SCENES {
+            for panel in panels(scene) {
                 assert!(
                     panel.art.cells.iter().all(|cell| cell.glyph != fallback),
-                    "{theme:?}: peca em {:?} usa glifo fora da pagina",
+                    "{scene:?}: peca em {:?} usa glifo fora da pagina",
                     panel.at
                 );
             }
@@ -1548,6 +1886,47 @@ mod tests {
                 fallback,
                 "U+{:04X} {ch:?} nao existe na pagina",
                 ch as u32
+            );
+        }
+    }
+
+    /// Fundo usa uma gama propria: as cores de jogador/perigo ficam livres
+    /// para continuar legiveis mesmo quando a silhueta cruza um landmark.
+    #[test]
+    fn o_fundo_nao_rouba_as_cores_de_gameplay() {
+        let reserved = [
+            palette::BONE,
+            palette::P1,
+            palette::P2,
+            palette::P3,
+            palette::P4,
+            palette::BLOOD,
+            palette::GOLD,
+            palette::MAGMA,
+            palette::EMBER,
+            palette::TOXIC,
+            palette::MOSS,
+        ];
+
+        for scene in SCENES {
+            for panel in panels(scene) {
+                assert!(
+                    panel
+                        .art
+                        .cells
+                        .iter()
+                        .all(|cell| !reserved.contains(&cell.color)),
+                    "{scene:?}: landmark usa cor reservada ao gameplay"
+                );
+            }
+        }
+        for theme in THEMES {
+            assert!(
+                weather(theme)
+                    .colors
+                    .iter()
+                    .all(|color| !reserved.contains(color)),
+                "{theme:?}: clima usa cor reservada ao gameplay"
             );
         }
     }
@@ -1614,7 +1993,7 @@ mod tests {
         app.init_resource::<Time>()
             .add_message::<Shake>()
             .add_systems(Startup, |mut commands: Commands| {
-                vents(&mut commands, Theme::Volcano)
+                vents(&mut commands, Scene::Caldera)
             })
             .add_systems(Update, (run_vents, drift_smoke, fly_bombs).chain());
         app.update();
@@ -1650,8 +2029,8 @@ mod tests {
     #[test]
     #[ignore = "so para olhar"]
     fn olhar_o_fundo() {
-        for theme in THEMES {
-            println!("\n=== {theme:?} ===\n{}", preview(theme));
+        for scene in SCENES {
+            println!("\n=== {scene:?} ===\n{}", preview(scene));
         }
     }
 }

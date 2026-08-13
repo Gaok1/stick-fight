@@ -12,6 +12,7 @@
 use bevy::prelude::*;
 
 use super::rig;
+use crate::weapon::WeaponStyle;
 
 pub const BODY_COLS: u16 = 3;
 pub const BODY_ROWS: u16 = 4;
@@ -223,6 +224,202 @@ pub const UNARMED_COMBO: [Strike; 3] = [
     },
 ];
 
+/// Estocada, corte curto e rasgo ascendente da faca.
+pub const KNIFE_COMBO: [Strike; 3] = [
+    Strike {
+        name: "STAB",
+        front: [
+            Arm::new(-2.0, 9.0, -7.0, 7.0),
+            Arm::new(15.0, 12.0, 36.0, 12.0),
+            Arm::new(8.0, 10.0, 12.0, 7.0),
+        ],
+        back: [
+            Arm::new(-5.0, 13.0, -2.0, 20.0),
+            Arm::new(-4.0, 14.0, -1.0, 20.0),
+            Arm::new(-5.0, 12.0, -2.0, 18.0),
+        ],
+        legs: None,
+        rise: 0.98,
+    },
+    Strike {
+        name: "SLASH",
+        front: [
+            Arm::new(-1.0, 18.0, 4.0, 29.0),
+            Arm::new(18.0, 9.0, 34.0, 1.0),
+            Arm::new(9.0, 7.0, 14.0, -2.0),
+        ],
+        back: [
+            Arm::new(-6.0, 11.0, -3.0, 18.0),
+            Arm::new(-5.0, 12.0, -2.0, 18.0),
+            Arm::new(-4.0, 12.0, -1.0, 18.0),
+        ],
+        legs: None,
+        rise: 0.94,
+    },
+    Strike {
+        name: "RIP",
+        front: [
+            Arm::new(5.0, 1.0, 8.0, -8.0),
+            Arm::new(15.0, 18.0, 23.0, 36.0),
+            Arm::new(11.0, 15.0, 16.0, 23.0),
+        ],
+        back: [
+            Arm::new(-6.0, 10.0, -3.0, 17.0),
+            Arm::new(-8.0, 7.0, -11.0, 2.0),
+            Arm::new(-5.0, 10.0, -2.0, 16.0),
+        ],
+        legs: None,
+        rise: 1.12,
+    },
+];
+
+/// Cortes largos de duas maos: saque, corte cruzado e corte ascendente.
+pub const KATANA_COMBO: [Strike; 3] = [
+    Strike {
+        name: "DRAW",
+        front: [
+            Arm::new(-5.0, 5.0, -12.0, 0.0),
+            Arm::new(17.0, 13.0, 39.0, 17.0),
+            Arm::new(10.0, 11.0, 17.0, 8.0),
+        ],
+        back: [
+            Arm::new(-8.0, 7.0, -14.0, 2.0),
+            Arm::new(11.0, 11.0, 27.0, 14.0),
+            Arm::new(5.0, 10.0, 11.0, 7.0),
+        ],
+        legs: None,
+        rise: 0.96,
+    },
+    Strike {
+        name: "CROSSCUT",
+        front: [
+            Arm::new(1.0, 23.0, 8.0, 36.0),
+            Arm::new(19.0, 7.0, 42.0, -3.0),
+            Arm::new(10.0, 5.0, 17.0, -5.0),
+        ],
+        back: [
+            Arm::new(-3.0, 20.0, 4.0, 32.0),
+            Arm::new(12.0, 7.0, 30.0, -1.0),
+            Arm::new(5.0, 6.0, 12.0, -3.0),
+        ],
+        legs: None,
+        rise: 0.88,
+    },
+    Strike {
+        name: "RISING CUT",
+        front: [
+            Arm::new(3.0, 0.0, 8.0, -11.0),
+            Arm::new(16.0, 22.0, 31.0, 38.0),
+            Arm::new(10.0, 18.0, 18.0, 27.0),
+        ],
+        back: [
+            Arm::new(-1.0, 2.0, 4.0, -8.0),
+            Arm::new(10.0, 18.0, 24.0, 32.0),
+            Arm::new(5.0, 15.0, 13.0, 24.0),
+        ],
+        legs: None,
+        rise: 1.16,
+    },
+];
+
+/// Giros curtos e alternados do nunchaku.
+pub const NUNCHAKU_COMBO: [Strike; 3] = [
+    Strike {
+        name: "FLAIL",
+        front: [
+            Arm::new(-2.0, 18.0, -7.0, 27.0),
+            Arm::new(16.0, 8.0, 35.0, 3.0),
+            Arm::new(8.0, 5.0, 12.0, -5.0),
+        ],
+        back: [
+            Arm::new(-5.0, 12.0, -2.0, 18.0),
+            Arm::new(-4.0, 13.0, -1.0, 19.0),
+            Arm::new(-5.0, 11.0, -2.0, 17.0),
+        ],
+        legs: None,
+        rise: 0.95,
+    },
+    Strike {
+        name: "RETURN",
+        front: [
+            Arm::new(7.0, 1.0, 12.0, -8.0),
+            Arm::new(14.0, 18.0, 30.0, 31.0),
+            Arm::new(9.0, 17.0, 12.0, 25.0),
+        ],
+        back: [
+            Arm::new(-5.0, 12.0, -2.0, 18.0),
+            Arm::new(-6.0, 9.0, -8.0, 14.0),
+            Arm::new(-4.0, 11.0, -1.0, 17.0),
+        ],
+        legs: None,
+        rise: 1.05,
+    },
+    Strike {
+        name: "WHIRL",
+        front: [
+            Arm::new(-7.0, 10.0, -12.0, 6.0),
+            Arm::new(18.0, 14.0, 38.0, 18.0),
+            Arm::new(9.0, 10.0, 15.0, 7.0),
+        ],
+        back: [
+            Arm::new(5.0, 5.0, 10.0, -3.0),
+            Arm::new(-8.0, 17.0, -15.0, 24.0),
+            Arm::new(-3.0, 12.0, -1.0, 18.0),
+        ],
+        legs: None,
+        rise: 1.02,
+    },
+];
+
+/// O cano agora luta como uma arma de duas maos, nao como um soco comprido.
+pub const PIPE_COMBO: [Strike; 3] = [
+    Strike {
+        name: "RAM",
+        front: [
+            Arm::new(-2.0, 10.0, -8.0, 9.0),
+            Arm::new(14.0, 11.0, 35.0, 11.0),
+            Arm::new(8.0, 9.0, 14.0, 6.0),
+        ],
+        back: [
+            Arm::new(-7.0, 9.0, -12.0, 8.0),
+            Arm::new(9.0, 10.0, 25.0, 10.0),
+            Arm::new(3.0, 9.0, 9.0, 7.0),
+        ],
+        legs: None,
+        rise: 0.93,
+    },
+    Strike {
+        name: "HOOK",
+        front: [
+            Arm::new(-4.0, 19.0, -10.0, 27.0),
+            Arm::new(17.0, 15.0, 37.0, 22.0),
+            Arm::new(10.0, 11.0, 16.0, 12.0),
+        ],
+        back: [
+            Arm::new(-7.0, 16.0, -11.0, 24.0),
+            Arm::new(10.0, 13.0, 27.0, 19.0),
+            Arm::new(4.0, 11.0, 10.0, 12.0),
+        ],
+        legs: None,
+        rise: 1.0,
+    },
+    Strike {
+        name: "PIPE UPPERCUT",
+        front: [
+            Arm::new(4.0, 0.0, 7.0, -12.0),
+            Arm::new(15.0, 21.0, 27.0, 39.0),
+            Arm::new(10.0, 17.0, 16.0, 27.0),
+        ],
+        back: [
+            Arm::new(-1.0, 1.0, 3.0, -9.0),
+            Arm::new(9.0, 18.0, 20.0, 34.0),
+            Arm::new(5.0, 15.0, 11.0, 24.0),
+        ],
+        legs: None,
+        rise: 1.13,
+    },
+];
+
 /// Pancada de cima pra baixo do M2 das armas de contato.
 ///
 /// Nao entra em [`UNARMED_COMBO`] de proposito: ela nao e elo de combo, nao
@@ -244,6 +441,54 @@ pub const HEAVY_SMASH: Strike = Strike {
     // Desce com o corpo: o peso vai junto com o cano.
     legs: None,
     rise: 0.86,
+};
+
+pub const KNIFE_HEAVY: Strike = Strike {
+    name: "LUNGE",
+    front: [
+        Arm::new(-6.0, 8.0, -13.0, 6.0),
+        Arm::new(18.0, 10.0, 43.0, 10.0),
+        Arm::new(12.0, 8.0, 22.0, 5.0),
+    ],
+    back: [
+        Arm::new(-7.0, 12.0, -3.0, 19.0),
+        Arm::new(4.0, 9.0, 15.0, 9.0),
+        Arm::new(-2.0, 11.0, 4.0, 16.0),
+    ],
+    legs: None,
+    rise: 0.90,
+};
+
+pub const KATANA_HEAVY: Strike = Strike {
+    name: "EXECUTE",
+    front: [
+        Arm::new(-2.0, 25.0, 4.0, 42.0),
+        Arm::new(18.0, 8.0, 39.0, -10.0),
+        Arm::new(11.0, 7.0, 19.0, -3.0),
+    ],
+    back: [
+        Arm::new(-6.0, 22.0, 0.0, 38.0),
+        Arm::new(12.0, 7.0, 30.0, -7.0),
+        Arm::new(6.0, 7.0, 14.0, -1.0),
+    ],
+    legs: None,
+    rise: 0.78,
+};
+
+pub const NUNCHAKU_HEAVY: Strike = Strike {
+    name: "CYCLONE",
+    front: [
+        Arm::new(-8.0, 13.0, -13.0, 19.0),
+        Arm::new(18.0, 17.0, 40.0, 22.0),
+        Arm::new(8.0, 8.0, 14.0, 3.0),
+    ],
+    back: [
+        Arm::new(7.0, 5.0, 12.0, -4.0),
+        Arm::new(-10.0, 16.0, -18.0, 22.0),
+        Arm::new(-3.0, 10.0, 0.0, 16.0),
+    ],
+    legs: None,
+    rise: 0.97,
 };
 
 /// Rasteira: o unico golpe que sai da perna.
@@ -320,14 +565,30 @@ pub const DOWNED_ARM: Arm = Arm::new(-12.0, -20.0, -24.0, -27.0);
 /// mao sem que nada reclamasse.
 ///
 /// `None` quer dizer "sem pose definida": ai a arma fica na linha da mira.
-pub fn weapon_hand(pose: Pose, kind: MeleeKind, step: u8) -> Option<Arm> {
+pub fn weapon_hand(pose: Pose, kind: MeleeKind, step: u8, style: WeaponStyle) -> Option<Arm> {
     if let Some(phase) = pose.melee_phase() {
-        return Some(strike_for(step, kind).front[phase]);
+        let strike = strike_for(step, kind, style);
+        return Some(if weapon_side(kind, step, style) > 0.0 {
+            strike.front[phase]
+        } else {
+            strike.back[phase]
+        });
     }
     match pose {
         Pose::Parry => Some(PARRY_ARM),
         Pose::Downed => Some(DOWNED_ARM),
         _ => None,
+    }
+}
+
+/// Mao que leva a arma durante o golpe. Sai do braco mais avancado no quadro
+/// de contato, entao o cruzado usa a mao de tras sem trocar no meio do arco.
+pub fn weapon_side(kind: MeleeKind, step: u8, style: WeaponStyle) -> f32 {
+    let strike = strike_for(step, kind, style);
+    if strike.front[1].hand.x >= strike.back[1].hand.x {
+        1.0
+    } else {
+        -1.0
     }
 }
 
@@ -337,10 +598,21 @@ pub fn strike(step: u8) -> &'static Strike {
 }
 
 /// Coreografia de um golpe, pelo tipo dele.
-pub fn strike_for(step: u8, kind: MeleeKind) -> &'static Strike {
+pub fn strike_for(step: u8, kind: MeleeKind, style: WeaponStyle) -> &'static Strike {
     match kind {
-        MeleeKind::Chain => strike(step),
-        MeleeKind::Heavy => &HEAVY_SMASH,
+        MeleeKind::Chain => match style {
+            WeaponStyle::Knife => &KNIFE_COMBO[step as usize % KNIFE_COMBO.len()],
+            WeaponStyle::Katana => &KATANA_COMBO[step as usize % KATANA_COMBO.len()],
+            WeaponStyle::Nunchaku => &NUNCHAKU_COMBO[step as usize % NUNCHAKU_COMBO.len()],
+            WeaponStyle::Pipe => &PIPE_COMBO[step as usize % PIPE_COMBO.len()],
+            _ => strike(step),
+        },
+        MeleeKind::Heavy => match style {
+            WeaponStyle::Knife => &KNIFE_HEAVY,
+            WeaponStyle::Katana => &KATANA_HEAVY,
+            WeaponStyle::Nunchaku => &NUNCHAKU_HEAVY,
+            _ => &HEAVY_SMASH,
+        },
         MeleeKind::Sweep => &SWEEP,
         MeleeKind::Dive => &DIVE_KICK,
     }
@@ -358,20 +630,52 @@ mod tests {
     /// jogo nao reclama: ele so anima um soco que recua.
     #[test]
     fn todo_golpe_avanca_no_quadro_de_contato() {
-        for strike in &UNARMED_COMBO {
-            // O braco que ataca muda por golpe -- no cruzado e o de tras --
-            // entao o que importa e o punho mais adiantado.
-            let front_most =
-                |phase: usize| strike.front[phase].hand.x.max(strike.back[phase].hand.x);
-            assert!(
-                front_most(1) > front_most(0),
-                "{}: o contato nao passa do preparo",
-                strike.name
-            );
-            assert!(
-                front_most(1) > front_most(2),
-                "{}: a recuperacao nao recolhe",
-                strike.name
+        for combo in [
+            &UNARMED_COMBO,
+            &KNIFE_COMBO,
+            &KATANA_COMBO,
+            &NUNCHAKU_COMBO,
+            &PIPE_COMBO,
+        ] {
+            for strike in combo {
+                // O braco que ataca muda por golpe -- no cruzado e o de tras --
+                // entao o que importa e o punho mais adiantado.
+                let front_most =
+                    |phase: usize| strike.front[phase].hand.x.max(strike.back[phase].hand.x);
+                assert!(
+                    front_most(1) > front_most(0),
+                    "{}: o contato nao passa do preparo",
+                    strike.name
+                );
+                assert!(
+                    front_most(1) > front_most(2),
+                    "{}: a recuperacao nao recolhe",
+                    strike.name
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn cada_arma_de_contato_tem_coreografia_propria() {
+        let styles = [
+            WeaponStyle::Knife,
+            WeaponStyle::Katana,
+            WeaponStyle::Nunchaku,
+            WeaponStyle::Pipe,
+        ];
+        let mut names: Vec<&str> = styles
+            .iter()
+            .flat_map(|style| (0..3).map(|step| strike_for(step, MeleeKind::Chain, *style).name))
+            .collect();
+        let total = names.len();
+        names.sort_unstable();
+        names.dedup();
+        assert_eq!(names.len(), total, "dois estilos compartilham um golpe");
+        for style in styles {
+            assert_eq!(
+                strike_for(3, MeleeKind::Chain, style).name,
+                strike_for(0, MeleeKind::Chain, style).name
             );
         }
     }
@@ -400,11 +704,15 @@ mod tests {
         ];
         for (kind, step) in GOLPES {
             for (phase, pose) in fases {
-                let arma = weapon_hand(pose, kind, step)
+                let arma = weapon_hand(pose, kind, step, WeaponStyle::Unarmed)
                     .unwrap_or_else(|| panic!("{kind:?} fase {phase} sem mao definida"));
                 assert_eq!(
                     arma,
-                    strike_for(step, kind).front[phase],
+                    if weapon_side(kind, step, WeaponStyle::Unarmed) > 0.0 {
+                        strike_for(step, kind, WeaponStyle::Unarmed).front[phase]
+                    } else {
+                        strike_for(step, kind, WeaponStyle::Unarmed).back[phase]
+                    },
                     "{kind:?} fase {phase}: a arma nao esta na mao"
                 );
             }
@@ -418,7 +726,9 @@ mod tests {
         let mut contatos: Vec<[u32; 2]> = GOLPES
             .iter()
             .map(|(kind, step)| {
-                let hand = weapon_hand(Pose::PunchStrike, *kind, *step).unwrap().hand;
+                let hand = weapon_hand(Pose::PunchStrike, *kind, *step, WeaponStyle::Unarmed)
+                    .unwrap()
+                    .hand;
                 [hand.x.to_bits(), hand.y.to_bits()]
             })
             .collect();
@@ -438,12 +748,12 @@ mod tests {
     fn guarda_e_queda_tem_mao_propria() {
         for pose in [Pose::Parry, Pose::Downed] {
             assert!(
-                weapon_hand(pose, MeleeKind::Chain, 0).is_some(),
+                weapon_hand(pose, MeleeKind::Chain, 0, WeaponStyle::Unarmed).is_some(),
                 "{pose:?} sem mao definida"
             );
         }
         assert!(
-            weapon_hand(Pose::IdleA, MeleeKind::Chain, 0).is_none(),
+            weapon_hand(Pose::IdleA, MeleeKind::Chain, 0, WeaponStyle::Unarmed,).is_none(),
             "parado a arma deve seguir a mira, nao uma pose"
         );
         // Quem esta no chao segura a arma perto do chao, nao na altura do peito.
@@ -539,10 +849,22 @@ mod tests {
         // `heavy` escolhe a coreografia, nao o `step`: um elo de combo nunca
         // pode cair na pancada, nem o contrario.
         for step in 0..6u8 {
-            assert_eq!(strike_for(step, MeleeKind::Heavy).name, HEAVY_SMASH.name);
-            assert_eq!(strike_for(step, MeleeKind::Sweep).name, SWEEP.name);
-            assert_eq!(strike_for(step, MeleeKind::Dive).name, DIVE_KICK.name);
-            assert_eq!(strike_for(step, MeleeKind::Chain).name, strike(step).name);
+            assert_eq!(
+                strike_for(step, MeleeKind::Heavy, WeaponStyle::Pipe).name,
+                HEAVY_SMASH.name
+            );
+            assert_eq!(
+                strike_for(step, MeleeKind::Sweep, WeaponStyle::Unarmed).name,
+                SWEEP.name
+            );
+            assert_eq!(
+                strike_for(step, MeleeKind::Dive, WeaponStyle::Unarmed).name,
+                DIVE_KICK.name
+            );
+            assert_eq!(
+                strike_for(step, MeleeKind::Chain, WeaponStyle::Unarmed).name,
+                strike(step).name
+            );
         }
         for special in [&HEAVY_SMASH, &SWEEP, &DIVE_KICK] {
             assert!(
