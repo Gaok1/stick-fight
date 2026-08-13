@@ -1,0 +1,71 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            artifact: stick-fightt-windows-x86_64
+          - os: ubuntu-latest
+            artifact: stick-fightt-linux-x86_64
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Linux dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libasound2-dev libudev-dev pkg-config
+
+      - name: Build
+        run: cargo build --locked --release
+
+      - name: Bundle Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $bundle = "dist/${{ matrix.artifact }}"
+          New-Item -ItemType Directory -Path $bundle
+          Copy-Item target/release/stick-fightt.exe, steam_appid.txt -Destination $bundle
+          Copy-Item assets -Destination $bundle -Recurse
+          $steam = Get-ChildItem target/release/build -Recurse -Filter steam_api64.dll | Select-Object -First 1
+          Copy-Item $steam.FullName -Destination $bundle
+          Compress-Archive -Path $bundle -DestinationPath "$bundle.zip"
+
+      - name: Bundle Linux
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          bundle="dist/${{ matrix.artifact }}"
+          mkdir -p "$bundle"
+          cp target/release/stick-fightt steam_appid.txt "$bundle/"
+          cp -r assets "$bundle/"
+          cp "$(find target/release/build -name libsteam_api.so -print -quit)" "$bundle/"
+          tar -C dist -czf "$bundle.tar.gz" "${{ matrix.artifact }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: dist/${{ matrix.artifact }}.*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true

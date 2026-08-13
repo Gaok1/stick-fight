@@ -1,0 +1,18 @@
+[package]
+name = "stick-fightt"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# `mp3` nao vem nas features padrao, e a trilha esta em MP3.
+bevy = { version = "0.19", features = ["mp3"] }
+fastrand = "2"
+steamworks = "0.13"
+
+# Compilar o proprio jogo com pouca otimizacao (build rapido) mas as deps
+# pesadas (bevy/wgpu) com otimizacao total -- caso contrario o dev build engasga.
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3

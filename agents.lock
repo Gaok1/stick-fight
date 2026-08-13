@@ -1,0 +1,12 @@
+version: 1
+locks: {}
+
+# Exemplo durante uma tarefa:
+# locks:
+#   agente-tarefa-tal:
+#     read:
+#       - src/main.rs
+#     writing:
+#       - src/foo.rs
+#     future_writing:
+#       - src/bar.rs
