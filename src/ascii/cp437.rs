@@ -93,6 +93,24 @@ pub fn glyph_index(c: char) -> usize {
     map.get(&c).copied().unwrap_or(b'?') as usize
 }
 
+/// Caractere de um indice do atlas -- o caminho de volta de [`glyph_index`].
+///
+/// Existe para os previews de composicao conseguirem imprimir a arte montada
+/// como ela vai aparecer, e nao como uma mancha de `#`: um cone com a cratera
+/// tapada e uma mancha perfeita, e so o glifo denuncia.
+///
+/// A faixa 0x00..0x1F precisa da mesma correcao que [`glyph_index`] faz na ida.
+/// Sem ela o olho, a crista do dragao e o manometro da fabrica voltam como
+/// caractere de controle -- invisiveis no terminal, presentes na tela -- e o
+/// preview passa a mentir exatamente sobre os detalhes que decidem a leitura.
+#[cfg(test)]
+pub fn glyph_char(code: u8) -> char {
+    DOS_GRAPHICS
+        .iter()
+        .find(|(_, dos)| *dos == code)
+        .map_or(CP437_TO_UNICODE[code as usize], |(ch, _)| *ch)
+}
+
 /// Le um pixel do glifo direto da ROM. `true` = aceso.
 ///
 /// Usado tanto para montar o atlas quanto para o banner gigante (que redesenha

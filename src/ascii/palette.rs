@@ -51,6 +51,12 @@ pub const EMBER: Color = Color::srgb(1.00, 0.32, 0.06);
 pub const TOXIC: Color = Color::srgb(0.65, 1.00, 0.12);
 /// Profundidade esverdeada dos pocos de acido.
 pub const SLUDGE: Color = Color::srgb(0.12, 0.40, 0.18);
+/// Fogo de jade: o sopro do dragao e as fontes do jardim.
+///
+/// Mora entre os acentos de gameplay, e nao entre as cores de cenario, porque
+/// e isso que ele e: a chama que sai da boca de pedra machuca. O jade parado --
+/// escultura, escama, pilar -- fica em [`SCENE_JADE`], bem abaixo desta.
+pub const JADE: Color = Color::srgb(0.24, 0.94, 0.62);
 /// Laranja queimado do ceu oriental.
 pub const SUNSET: Color = Color::srgb(0.95, 0.28, 0.12);
 /// Roxo distante para silhuetas no poente.
@@ -66,6 +72,19 @@ pub const SCENE_RED: Color = Color::srgb(0.46, 0.09, 0.12);
 pub const SCENE_TOXIC: Color = Color::srgb(0.17, 0.38, 0.23);
 pub const SCENE_BLUE: Color = Color::srgb(0.14, 0.31, 0.38);
 pub const SCENE_HAZE: Color = Color::srgb(0.24, 0.14, 0.28);
+/// Brasa fria: a rocha que ainda guarda calor, entre o carvao e o fogo.
+///
+/// Sem este degrau o vulcao so tem cinza e chama, e toda encosta acaba tendo
+/// que escolher entre parecer apagada ou parecer em brasa.
+pub const SCENE_CINDER: Color = Color::srgb(0.31, 0.14, 0.09);
+/// Ferrugem: o material da fabrica, ao lado do aco.
+pub const SCENE_RUST: Color = Color::srgb(0.37, 0.21, 0.11);
+/// Verde vivo do acido no cenario -- o topo da rampa, nao o brilho do perigo.
+pub const SCENE_ACID: Color = Color::srgb(0.29, 0.52, 0.17);
+/// Jade na sombra: a massa das esculturas do jardim.
+pub const SCENE_JADE: Color = Color::srgb(0.10, 0.30, 0.25);
+/// Jade na luz: escama, borda e veio das mesmas esculturas.
+pub const SCENE_JADE_LIT: Color = Color::srgb(0.20, 0.52, 0.39);
 
 /// Cor de cada jogador por indice, para HUD e bonecos baterem.
 pub fn player(id: u8) -> Color {

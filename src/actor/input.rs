@@ -292,11 +292,12 @@ fn track_cursor(
 }
 
 /// Roda toda fonte de entrada e escreve o `Intent` de cada ator.
-fn gather_intents(
+pub(crate) fn gather_intents(
     time: Res<Time>,
     keys: Res<ButtonInput<KeyCode>>,
     mouse: Res<ButtonInput<MouseButton>>,
     cursor: Res<CursorWorld>,
+    over_ui: Res<crate::ui::PointerOverUi>,
     level: Res<crate::level::CurrentLevel>,
     mode: Res<crate::state::GameMode>,
     online: Res<crate::online::OnlineSession>,
@@ -368,8 +369,13 @@ fn gather_intents(
         if player.id != local {
             continue;
         }
-        intent.attack |= mouse.just_pressed(MouseButton::Left);
-        intent.special |= mouse.just_pressed(MouseButton::Right);
+        // Botao em cima de botao nao e golpe: a sala e uma arena viva com uma
+        // fileira de botoes por cima dela, e clicar em COMECAR nao pode socar
+        // o ar no mesmo movimento.
+        if !over_ui.0 {
+            intent.attack |= mouse.just_pressed(MouseButton::Left);
+            intent.special |= mouse.just_pressed(MouseButton::Right);
+        }
         if let Some(at) = cursor.0 {
             // Mira sai do ombro, nao do centro do corpo: e de la que o cano sai.
             let from = transform.translation().truncate() + Vec2::new(0.0, 8.0);

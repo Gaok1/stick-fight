@@ -649,7 +649,7 @@ impl Weapon for Katana {
         "KATANA"
     }
     fn held_art(&self) -> &'static str {
-        "o====>"
+        "-|---->"
     }
     fn ground_art(&self) -> &'static str {
         "o\u{2550}\u{2550}\u{2550}\u{2550}\u{2550}>"
@@ -870,6 +870,20 @@ pub const ARSENAL: &[fn() -> Box<dyn Weapon>] = &[
     || Box::new(Knives),
 ];
 
+/// Constroi a arma de indice `kind`, girando a lista se ele passar do fim.
+///
+/// O indice, e nao o ponteiro de funcao, e o que identifica uma arma na rede:
+/// um `fn()` nao atravessa um pacote, e dois processos nem sequer o teriam no
+/// mesmo endereco.
+pub fn weapon_at(kind: u8) -> Box<dyn Weapon> {
+    ARSENAL[kind as usize % ARSENAL.len()]()
+}
+
+/// Sorteia uma arma do arsenal.
+pub fn random_kind() -> u8 {
+    fastrand::usize(..ARSENAL.len()) as u8
+}
+
 /// Arma na mao de um jogador.
 #[derive(Component)]
 pub struct Held {
@@ -879,20 +893,107 @@ pub struct Held {
     pub ammo: u32,
     /// Cadencia.
     pub cooldown: Timer,
-    /// Construtor usado para voltar a arma ao chao sem perder a municao.
-    make: fn() -> Box<dyn Weapon>,
+    /// Indice no arsenal: e o que volta ao chao sem perder a identidade da arma.
+    pub kind: u8,
 }
 
 /// Arma caida, esperando ser pega.
 #[derive(Component)]
 pub struct GroundWeapon {
-    make: fn() -> Box<dyn Weapon>,
+    /// Indice no arsenal.
+    pub kind: u8,
+    /// Municao que ela ainda carrega.
+    pub ammo: u32,
+}
+
+/// Identidade de uma arma na rede.
+///
+/// O dono numera cada arma que larga, e todo mundo passa a falar dela por esse
+/// numero. Sem isso o cliente nao tem como saber se a espingarda que chegou no
+/// pacote e a que ele ja desenhou ou uma segunda -- e a escolha errada ou
+/// duplica a arma ou some com ela.
+#[derive(Component, Debug, Clone, Copy, PartialEq, Eq)]
+pub struct NetWeapon(pub u16);
+
+/// Proximo numero de arma a distribuir. So o dono escreve nele.
+#[derive(Resource, Default)]
+pub struct NextWeaponId(pub u16);
+
+/// Poe uma arma no chao (ou no ar, se ela foi arremessada).
+///
+/// Um lugar so monta a entidade, e o dono e o cliente chamam o mesmo: enquanto
+/// cada lado tinha a sua copia da montagem, a arma do cliente nascia sem
+/// colisor e atravessava o chao enquanto a do dono ficava pousada.
+pub fn spawn_ground_weapon(
+    commands: &mut Commands,
+    net: Option<u16>,
+    kind: u8,
     ammo: u32,
+    at: Vec2,
+    velocity: Vec2,
+) -> Entity {
+    let weapon = weapon_at(kind);
+    let mut entity = commands.spawn((
+        GroundWeapon { kind, ammo },
+        PickupPulse(fastrand::f32() * 6.0),
+        AsciiSprite::footed(AsciiArt::solid(weapon.ground_art(), palette::GOLD)),
+        Layer::Pickup,
+        Transform::from_translation(at.extend(0.0)),
+        Velocity(velocity),
+        Grounded::default(),
+        Falls,
+        Collider::size(42.0, 24.0),
+        DespawnOnExit(GameState::Fighting),
+    ));
+    if let Some(net) = net {
+        entity.insert(NetWeapon(net));
+    }
+    entity.id()
+}
+
+/// Poe a arma `kind` na mao de `player`, com o icone que o boneco carrega.
+///
+/// Publica porque a replicacao precisa armar um boneco sem passar por encostar
+/// na arma: quem manda no que cada um segura e o dono da sala, e o cliente so
+/// obedece.
+pub fn equip(commands: &mut Commands, player: Entity, kind: u8, ammo: u32, facing: f32) {
+    let held = held_weapon(kind, ammo);
+    let held_art = held.weapon.held_art();
+
+    commands.entity(player).insert(held);
+    commands.spawn((
+        WeaponIcon,
+        AsciiSprite::new(AsciiArt::solid(held_art, palette::GOLD)).flipped(facing < 0.0),
+        Layer::Actor,
+        Transform::from_translation(Vec3::new(facing * 18.0, 4.0, 0.1)),
+        ChildOf(player),
+    ));
+}
+
+/// A arma `kind` pronta para ir para a mao, ja carregada e fora de recarga.
+pub fn held_weapon(kind: u8, ammo: u32) -> Held {
+    let weapon = weapon_at(kind);
+    let mut cooldown = Timer::from_seconds(weapon.cooldown(), TimerMode::Once);
+    // Comeca pronta pra atirar.
+    cooldown.tick(cooldown.duration());
+    Held {
+        weapon,
+        ammo,
+        cooldown,
+        kind,
+    }
+}
+
+/// Poe uma arma replicada a girar, como a que saiu de uma mao de verdade.
+pub fn mark_thrown(commands: &mut Commands, weapon: Entity) {
+    commands
+        .entity(weapon)
+        .insert(ThrownWeapon(Timer::from_seconds(0.55, TimerMode::Once)));
 }
 
 /// Arma arremessada; enquanto o timer corre, gira e causa um unico dano.
 #[derive(Component)]
-pub struct ThrownWeapon(Timer);
+pub struct ThrownWeapon(pub Timer);
 
 /// Glifo da arma desenhado ao lado do boneco.
 ///
@@ -952,10 +1053,17 @@ fn arm_drop_schedule(mut commands: Commands) {
 }
 
 /// Larga uma arma aleatoria num dos pontos da fase.
+///
+/// So a autoridade sorteia. Enquanto isto rodava em toda maquina, cada uma
+/// tirava um ponto e uma arma diferentes do proprio `fastrand`: o dono via uma
+/// espingarda na plataforma, o cliente via uma katana no fosso, e encostar em
+/// qualquer uma das duas dava o resultado errado do outro lado -- era dai que
+/// saiam a arma invisivel e a arma que ninguem conseguia pegar.
 fn drop_weapons(
     time: Res<Time>,
     mut commands: Commands,
     mut schedule: ResMut<DropSchedule>,
+    mut ids: ResMut<NextWeaponId>,
     level: Res<CurrentLevel>,
 ) {
     if !schedule.0.tick(time.delta()).just_finished() {
@@ -971,24 +1079,11 @@ fn drop_weapons(
         return;
     }
     let at = points[fastrand::usize(..points.len())];
-    let make = ARSENAL[fastrand::usize(..ARSENAL.len())];
-    let weapon = make();
+    let kind = random_kind();
+    let ammo = weapon_at(kind).ammo();
+    ids.0 = ids.0.wrapping_add(1);
 
-    commands.spawn((
-        GroundWeapon {
-            make,
-            ammo: weapon.ammo(),
-        },
-        PickupPulse(fastrand::f32() * 6.0),
-        AsciiSprite::footed(AsciiArt::solid(weapon.ground_art(), palette::GOLD)),
-        Layer::Pickup,
-        Transform::from_translation(at.extend(0.0)),
-        Velocity::default(),
-        Grounded::default(),
-        Falls,
-        Collider::size(42.0, 24.0),
-        DespawnOnExit(GameState::Fighting),
-    ));
+    spawn_ground_weapon(&mut commands, Some(ids.0), kind, ammo, at, Vec2::ZERO);
 }
 
 /// Encosta na arma, pega a arma. Quem ja tem uma ignora o chao.
@@ -1008,26 +1103,7 @@ fn pick_up(
                 continue;
             }
 
-            let weapon = (ground.make)();
-            let held_art = weapon.held_art();
-            let mut cooldown = Timer::from_seconds(weapon.cooldown(), TimerMode::Once);
-            // Comeca pronta pra atirar.
-            cooldown.tick(cooldown.duration());
-
-            commands.entity(player).insert(Held {
-                weapon,
-                ammo: ground.ammo,
-                cooldown,
-                make: ground.make,
-            });
-            commands.spawn((
-                WeaponIcon,
-                AsciiSprite::new(AsciiArt::solid(held_art, palette::GOLD)).flipped(facing.0 < 0.0),
-                Layer::Actor,
-                Transform::from_translation(Vec3::new(facing.0 * 18.0, 4.0, 0.1)),
-                ChildOf(player),
-            ));
-
+            equip(&mut commands, player, ground.kind, ground.ammo, facing.0);
             commands.entity(drop).despawn();
             break;
         }
@@ -1051,6 +1127,7 @@ fn thrown_arc(dir: Vec2, lift: f32, speed: f32) -> Vec2 {
 /// Arremessa a arma para onde o jogador esta mirando.
 fn throw_weapon(
     mut commands: Commands,
+    mut ids: ResMut<NextWeaponId>,
     mut players: Query<
         (Entity, &Intent, &Transform, &mut Facing, &Pose, &Held),
         (With<Player>, Without<Attacking>, Without<Parrying>),
@@ -1064,12 +1141,16 @@ fn throw_weapon(
         let dir = turn_to_aim(&mut facing, intent);
         // Sai da mao, e nao do centro do corpo: e de la que a arma parte.
         let at = transform.translation.truncate() + Vec2::new(0.0, 10.0) + dir * 46.0;
-        let weapon = (held.make)();
-        commands.spawn((
-            GroundWeapon {
-                make: held.make,
-                ammo: held.ammo,
-            },
+        ids.0 = ids.0.wrapping_add(1);
+        let thrown = spawn_ground_weapon(
+            &mut commands,
+            Some(ids.0),
+            held.kind,
+            held.ammo,
+            at,
+            thrown_arc(dir, 260.0, THROW_SPEED),
+        );
+        commands.entity(thrown).insert((
             ThrownWeapon(Timer::from_seconds(0.55, TimerMode::Once)),
             Hitbox {
                 owner: player,
@@ -1077,15 +1158,6 @@ fn throw_weapon(
                 knockback: thrown_arc(dir, 190.0, THROW_PUSH),
                 stun: crate::combat::HIT_STUN,
             },
-            PickupPulse(fastrand::f32() * 6.0),
-            AsciiSprite::footed(AsciiArt::solid(weapon.ground_art(), palette::GOLD)),
-            Layer::Pickup,
-            Transform::from_translation(at.extend(0.0)),
-            Velocity(thrown_arc(dir, 260.0, THROW_SPEED)),
-            Grounded::default(),
-            Falls,
-            Collider::size(42.0, 24.0),
-            DespawnOnExit(GameState::Fighting),
         ));
         commands.entity(player).remove::<Held>();
     }
@@ -1593,16 +1665,28 @@ pub struct WeaponPlugin;
 
 impl Plugin for WeaponPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(
-            OnEnter(GameState::Fighting),
-            (arm_drop_schedule, spawn_crosshair),
+        app.init_resource::<NextWeaponId>()
+            .add_systems(
+                OnEnter(GameState::Fighting),
+                (arm_drop_schedule, spawn_crosshair),
+            )
+        // Quem larga, quem pega e quem arremessa e a autoridade da partida.
+        // Online o cliente recebe o resultado pronto: dois sorteios
+        // independentes davam duas arenas armadas de jeitos diferentes.
+        .add_systems(
+            Update,
+            (drop_weapons, throw_weapon, pick_up)
+                .chain()
+                .in_set(AppSet::Logic)
+                .run_if(in_state(GameState::Fighting))
+                .run_if(crate::online::is_authority),
         )
+        // O resto roda em todo mundo: tiro, pavio e rastro saem da arma que a
+        // replicacao ja poe na mao, entao o cliente ve o disparo na hora em vez
+        // de esperar o proximo pacote para desenhar a bala.
         .add_systems(
             Update,
             (
-                drop_weapons,
-                throw_weapon,
-                pick_up,
                 fire,
                 tick_fuses,
                 tick_recoil,
@@ -1611,6 +1695,7 @@ impl Plugin for WeaponPlugin {
                 clear_weapon_icon,
             )
                 .chain()
+                .after(pick_up)
                 .in_set(AppSet::Logic)
                 .run_if(in_state(GameState::Fighting)),
         )
@@ -1919,10 +2004,7 @@ mod tests {
             ))
             .id();
         app.world_mut().spawn((
-            GroundWeapon {
-                make: || Box::new(Pistol),
-                ammo: 0,
-            },
+            GroundWeapon { kind: 0, ammo: 0 },
             Transform::default(),
             Collider::size(30.0, 30.0),
         ));

@@ -88,6 +88,32 @@ impl Paint for Accent {
     }
 }
 
+/// Pinta por glifo: cada caractere carrega o proprio material.
+///
+/// E o meio-termo que faltava entre [`Solid`] e [`Mask`]. `Solid` da uma cor a
+/// uma silhueta inteira; `Mask` da controle celula a celula, mas cobra uma
+/// segunda string alinhada caractere a caractere -- e uma escultura de trinta
+/// linhas sai com a mascara defasada em uma coluna no meio, o que ninguem
+/// enxerga lendo o codigo e todo mundo enxerga na tela.
+///
+/// Aqui a rampa de densidade (`░▒▓█`) ja e a rampa de luz: escolher o glifo
+/// pelo volume que ele ocupa e escolher o tom junto, de graca.
+pub struct Tint {
+    /// Cor de cada glifo. O primeiro par que casar vence.
+    pub map: &'static [(char, Color)],
+    /// Cor de quem nao esta na tabela.
+    pub fallback: Color,
+}
+
+impl Paint for Tint {
+    fn color_at(&self, ch: char, _col: u16, _row: u16) -> Color {
+        self.map
+            .iter()
+            .find(|(glyph, _)| *glyph == ch)
+            .map_or(self.fallback, |(_, color)| *color)
+    }
+}
+
 /// Um bloco de arte ASCII pronto para virar glifos.
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct AsciiArt {
@@ -136,6 +162,11 @@ impl AsciiArt {
     #[allow(dead_code)]
     pub fn masked(art: &str, mask: &str, fallback: Color) -> Self {
         Self::build(art, &Mask { mask, fallback })
+    }
+
+    /// Atalho: arte pintada por tabela de glifo.
+    pub fn tinted(art: &str, map: &'static [(char, Color)], fallback: Color) -> Self {
+        Self::build(art, &Tint { map, fallback })
     }
 
     /// Uma celula so.
@@ -405,6 +436,17 @@ mod tests {
         let art = AsciiArt::build("O|", &paint);
         assert_eq!(art.cells[0].color, palette::P2);
         assert_eq!(art.cells[1].color, palette::BONE);
+    }
+
+    /// A rampa de densidade tem que virar rampa de luz sem mascara paralela.
+    #[test]
+    fn tint_pinta_cada_glifo_com_o_proprio_material() {
+        static RAMP: [(char, Color); 2] = [('\u{2588}', palette::MAGMA), ('~', palette::TOXIC)];
+        let art = AsciiArt::tinted("\u{2588}~x", &RAMP, palette::COAL);
+        assert_eq!(art.cells[0].color, palette::MAGMA);
+        assert_eq!(art.cells[1].color, palette::TOXIC);
+        // Fora da tabela cai no fallback em vez de sumir.
+        assert_eq!(art.cells[2].color, palette::COAL);
     }
 
     #[test]

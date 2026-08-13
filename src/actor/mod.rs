@@ -399,7 +399,12 @@ fn sync_warmup(
         return;
     }
 
-    let belongs = |id: u8| id == local || session.is_some_and(|session| session.seat_taken(id));
+    // Enquanto a sala nao disser qual e o nosso lugar, nao ha boneco proprio a
+    // criar: chutar o lugar zero poria este teclado no comando do boneco do
+    // dono ate a tabela chegar, que era o primeiro segundo de quem entrava.
+    let seated = session.is_none_or(|session| session.seated());
+    let belongs =
+        |id: u8| (seated && id == local) || session.is_some_and(|session| session.seat_taken(id));
 
     for (entity, player) in &fighters {
         if !belongs(player.id) {

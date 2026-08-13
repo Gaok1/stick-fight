@@ -1,5 +1,8 @@
 version: 1
-locks: {}
+locks:
+  root-commit-readme:
+    read:
+      - README.md
 
 # Exemplo durante uma tarefa:
 # locks:

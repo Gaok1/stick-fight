@@ -348,11 +348,31 @@ tem** — e um teste garante que o teto realmente corta o pulo, senão ele seria
 decoração.
 
 Uma fase é **dado, não código**. Ela devolve um `&'static [Piece]` — terreno,
-teto, plataforma, corrente — e um único `build_level` traduz peça em entidade.
-Nenhum
+teto, plataforma, corrente, perigo — e um único `build_level` traduz peça em
+entidade. Nenhum
 mapa spawna nada por conta própria, então não dá pra existir fase com regra de
 colisão ou de camada diferente das outras. Adicionar um mapa é escrever o
 `Level` e pôr o construtor no `CATALOG`.
+
+### Perigo com hora marcada
+
+Uma poça só cobra atenção uma vez: o jogador aprende onde ela está e nunca mais
+pisa ali. Por isso três peças têm relógio, e o lugar seguro passa a ser um lugar
+**e uma hora**:
+
+| Peça     | O que faz                                                        |
+| -------- | ---------------------------------------------------------------- |
+| `Geyser` | Jorra de tempos em tempos; avisa borbulhando antes de abrir.      |
+| `Tide`   | A poça sobe e desce, engolindo os patamares mais baixos.          |
+| `Drip`   | Uma boca no alto pinga, e a gota é um perigo que anda.            |
+
+As três saem de `cycle(now, period, phase)`, e não de um `Timer` por entidade: a
+coluna que aparece e a zona que machuca são entidades diferentes, e dois
+relógios que começam juntos terminam desencontrados depois de um round — o jorro
+aparece e não fere, ou fere invisível. A zona de contato da fonte ainda arma
+numa janela **mais estreita** que a do desenho, porque o erro tem que cair para
+o lado certo: fogo visível que ainda não machuca ensina; dano vindo do nada,
+não. Um teste cobra exatamente isso.
 
 O ganho real disso é poder **testar geometria sem subir um `App`**:
 
@@ -469,6 +489,10 @@ jogador, armas em dourado, corrente escalável em verde, dano em vermelho.
 Acento escasso é o que faz ele ler.
 
 ## Testes
+
+Por padrão, todos os testes do projeto devem ficar no diretório `tests/`, na
+raiz do repositório. Não escreva testes dentro de `src/`, nem mesmo em módulos
+marcados com `#[cfg(test)]`.
 
 ```bash
 cargo test

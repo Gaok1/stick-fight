@@ -1,0 +1,4 @@
+interface:
+  display_name: "Modelagem ASCII Viva"
+  short_description: "Modele arte ASCII rica, livre e animada"
+  default_prompt: "Use $ascii-art-modeling para criar uma composição ASCII complexa, colorida, em camadas e animada."
