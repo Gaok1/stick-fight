@@ -1,0 +1,407 @@
+{
+  "app": "Glyph Forge",
+  "version": 6,
+  "canvas": {
+    "width": 800,
+    "height": 600,
+    "background": "#181818",
+    "grid_size": 16
+  },
+  "default_font": {
+    "kind": "bitmap_rom",
+    "asset": "assets/fonts/ibm_vga_8x16.bin",
+    "encoding": "CP437",
+    "glyph_size": [
+      8,
+      16
+    ]
+  },
+  "elements": [
+    {
+      "id": "ea7e4a28c9",
+      "glyph": "o",
+      "x": 400.0,
+      "y": 300.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "ab887b783c",
+      "glyph": "o",
+      "x": 419.5,
+      "y": 299.62,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "9b254d5137",
+      "glyph": "o",
+      "x": 440.88,
+      "y": 306.58,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "0452be1b75",
+      "glyph": "o",
+      "x": 439.89,
+      "y": 329.94,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "57d0bd945e",
+      "glyph": "o",
+      "x": 420.99,
+      "y": 352.81,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "f62a591cf0",
+      "glyph": "o",
+      "x": 395.64,
+      "y": 357.79,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "a1a3f7951b",
+      "glyph": "o",
+      "x": 373.27,
+      "y": 358.78,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "f882754606",
+      "glyph": "o",
+      "x": 380.73,
+      "y": 299.61,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#5a5a5a",
+      "layer": 0,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "06bdd3ac4d",
+      "glyph": "▐",
+      "x": 282.09,
+      "y": 305.08,
+      "font_size": 64,
+      "scale_x": 0.753,
+      "scale_y": 2.6663,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -89.23,
+      "color": "#841414",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "2ab8aab6c6",
+      "glyph": "▐",
+      "x": 274.75,
+      "y": 365.35,
+      "font_size": 64,
+      "scale_x": 0.753,
+      "scale_y": 2.6663,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -89.23,
+      "color": "#841414",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "14bd535835",
+      "glyph": "}",
+      "x": 198.94,
+      "y": 296.87,
+      "font_size": 64,
+      "scale_x": 0.9058,
+      "scale_y": 0.4619,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 180.18,
+      "color": "#9e810b",
+      "layer": 2,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "6c212b0082",
+      "glyph": "}",
+      "x": 189.71,
+      "y": 356.63,
+      "font_size": 64,
+      "scale_x": 0.9058,
+      "scale_y": 0.4619,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 180.18,
+      "color": "#9e810b",
+      "layer": 2,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    }
+  ],
+  "rig": {
+    "joints": [
+      {
+        "id": "09c0b17fb3",
+        "name": "ligadura_corrente",
+        "x": 388.07,
+        "y": 301.49,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": ""
+      },
+      {
+        "id": "6d56089cc4",
+        "name": "ligadura_corrente",
+        "x": 408.57,
+        "y": 303.09,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": ""
+      },
+      {
+        "id": "f764dd39cb",
+        "name": "ligadura_corrente",
+        "x": 428.95,
+        "y": 305.58,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": ""
+      },
+      {
+        "id": "f447ba046b",
+        "name": "ligadura_corrente",
+        "x": 437.9,
+        "y": 320.99,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": ""
+      },
+      {
+        "id": "b7390c6bfa",
+        "name": "ligadura_corrente",
+        "x": 429.95,
+        "y": 343.86,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": ""
+      },
+      {
+        "id": "58e0f6c1bd",
+        "name": "ligadura_corrente",
+        "x": 409.06,
+        "y": 356.29,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": ""
+      },
+      {
+        "id": "a7331cbf74",
+        "name": "ligadura_corrente",
+        "x": 383.21,
+        "y": 360.27,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": ""
+      }
+    ],
+    "semantics": {
+      "parent_id": "Joint pai; a linha entre ambos representa um osso.",
+      "part_a_element_id": "Primeira peca conectada pelo ponto independente.",
+      "part_b_element_id": "Segunda peca conectada pelo ponto independente.",
+      "constraint_type": "pivot permite giro relativo; fixed solda as duas pecas.",
+      "fixed": "Quando verdadeiro, o ponto tambem esta ancorado ao mundo."
+    }
+  },
+  "attention_points": [
+    {
+      "id": "e01d77e41a",
+      "name": "ponto de pega do nunchako",
+      "x": 281.11,
+      "y": 298.27,
+      "parent_id": "",
+      "attached_element_id": "",
+      "part_a_element_id": "",
+      "part_b_element_id": "",
+      "constraint_type": "pivot",
+      "fixed": false,
+      "color": "#ff4dc4",
+      "kind": "attention",
+      "description": ""
+    },
+    {
+      "id": "f5bb67563c",
+      "name": "ponto de pega do nunchako",
+      "x": 276.47,
+      "y": 359.77,
+      "parent_id": "",
+      "attached_element_id": "",
+      "part_a_element_id": "",
+      "part_b_element_id": "",
+      "constraint_type": "pivot",
+      "fixed": false,
+      "color": "#ff4dc4",
+      "kind": "attention",
+      "description": ""
+    }
+  ],
+  "attention_semantics": {
+    "description": "Destaques nomeados para a LLM; nao fazem parte do esqueleto.",
+    "attached_element_id": "Glyph que carrega o destaque quando e movido."
+  },
+  "labels": [
+    {
+      "id": "53cf16b108",
+      "name": "Porrete_do_nunchako_1",
+      "element_ids": [
+        "06bdd3ac4d",
+        "14bd535835"
+      ],
+      "description": "",
+      "label_ids": []
+    },
+    {
+      "id": "8840dedaee",
+      "name": "porrete_do_nunchako_2",
+      "element_ids": [
+        "2ab8aab6c6",
+        "6c212b0082"
+      ],
+      "description": "",
+      "label_ids": []
+    },
+    {
+      "id": "3439cdc458",
+      "name": "Correntes do nunchako",
+      "element_ids": [
+        "0452be1b75",
+        "57d0bd945e",
+        "9b254d5137",
+        "a1a3f7951b",
+        "ab887b783c",
+        "ea7e4a28c9",
+        "f62a591cf0",
+        "f882754606"
+      ],
+      "description": "Conjunto de elos que  formam uma corrente, as ligaduras são os pontos de fixação cuja a física deve se basear.",
+      "label_ids": []
+    },
+    {
+      "id": "08477adacf",
+      "name": "Nunchako",
+      "element_ids": [],
+      "description": "O nunchako tem 2 ponttos de pega, isso  pois a cada porrada, o nunchako deve ser animado para que a outra extremidade vire a empunhadura, e ai a cada ataque o boneco vai  trocando",
+      "label_ids": [
+        "53cf16b108",
+        "8840dedaee",
+        "3439cdc458"
+      ]
+    }
+  ],
+  "label_semantics": {
+    "element_ids": "Glyphs diretamente contidos neste rotulo.",
+    "label_ids": "Sub-rotulos contidos; seus glyphs sao herdados recursivamente."
+  },
+  "notes": "Descreva aqui o que esta composicao representa e como deve ser usada."
+}

@@ -1,0 +1,105 @@
+{
+  "app": "Glyph Forge",
+  "version": 3,
+  "canvas": {
+    "width": 800,
+    "height": 600,
+    "background": "#181818",
+    "grid_size": 16
+  },
+  "default_font": {
+    "kind": "bitmap_rom",
+    "asset": "assets/fonts/ibm_vga_8x16.bin",
+    "encoding": "CP437",
+    "glyph_size": [
+      8,
+      16
+    ]
+  },
+  "elements": [
+    {
+      "id": "0366040e04",
+      "glyph": "_",
+      "x": 418.8,
+      "y": 253.06,
+      "font_size": 64,
+      "scale_x": 1.5073,
+      "scale_y": 0.7756,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "24e504caaa",
+      "glyph": "_",
+      "x": 468.91,
+      "y": 255.63,
+      "font_size": 64,
+      "scale_x": 1.5073,
+      "scale_y": 0.6756,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "3099ff5b0f",
+      "glyph": "_",
+      "x": 518.55,
+      "y": 258.0,
+      "font_size": 64,
+      "scale_x": 1.5073,
+      "scale_y": 0.5756,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "98c1e5fa6e",
+      "glyph": "_",
+      "x": 568.48,
+      "y": 261.96,
+      "font_size": 64,
+      "scale_x": 1.5073,
+      "scale_y": 0.39,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "a94c0a3580",
+      "glyph": ")",
+      "x": 409.84,
+      "y": 274.64,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#fffdff",
+      "layer": 2,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    }
+  ],
+  "rig": {
+    "joints": [],
+    "semantics": {
+      "parent_id": "Joint pai; a linha entre ambos representa um osso.",
+      "attached_element_id": "Glyph que usa este ponto como pivo e o carrega ao ser movido.",
+      "fixed": "Ancora presa ao mundo, nao ao joint pai."
+    }
+  },
+  "notes": "Descreva aqui o que esta composicao representa e como deve ser usada."
+}

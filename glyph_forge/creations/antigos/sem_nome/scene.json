@@ -1,0 +1,211 @@
+{
+  "app": "Glyph Forge",
+  "version": 2,
+  "canvas": {
+    "width": 800,
+    "height": 600,
+    "background": "#181818"
+  },
+  "default_font": {
+    "kind": "bitmap_rom",
+    "asset": "assets/fonts/ibm_vga_8x16.bin",
+    "encoding": "CP437",
+    "glyph_size": [
+      8,
+      16
+    ]
+  },
+  "elements": [
+    {
+      "id": "55d502671a",
+      "glyph": "-",
+      "x": 252.0,
+      "y": 160.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "1e5ed64363",
+      "glyph": "-",
+      "x": 282.0,
+      "y": 160.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "60c68a9086",
+      "glyph": "-",
+      "x": 313.0,
+      "y": 160.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "0b8133a27e",
+      "glyph": "-",
+      "x": 343.0,
+      "y": 160.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "3f35fc6514",
+      "glyph": "-",
+      "x": 374.0,
+      "y": 160.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "f0b503fb4a",
+      "glyph": "-",
+      "x": 404.0,
+      "y": 160.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "f3d8302561",
+      "glyph": "/",
+      "x": 405.0,
+      "y": 168.0,
+      "font_size": 30,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 2,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "562a84d894",
+      "glyph": "-",
+      "x": 265.0,
+      "y": 175.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "c2f247f22a",
+      "glyph": "-",
+      "x": 296.0,
+      "y": 175.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "163f943807",
+      "glyph": "-",
+      "x": 327.0,
+      "y": 175.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "870e2ad535",
+      "glyph": "-",
+      "x": 357.0,
+      "y": 175.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "ef5d041492",
+      "glyph": "-",
+      "x": 388.0,
+      "y": 175.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "f96b3f7293",
+      "glyph": "°",
+      "x": 242.0,
+      "y": 186.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "rotation": 0.0,
+      "color": "#d0cb04",
+      "layer": 3,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    },
+    {
+      "id": "2c19e95c01",
+      "glyph": "↕",
+      "x": 231.0,
+      "y": 177.0,
+      "font_size": 64,
+      "scale_x": 1.0,
+      "scale_y": 1.9,
+      "rotation": 0.0,
+      "color": "#ffffff",
+      "layer": 2,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+    }
+  ],
+  "rig": {
+    "joints": [],
+    "semantics": {
+      "parent_id": "Joint pai; a linha entre ambos representa um osso.",
+      "attached_element_id": "Glyph que usa este ponto como pivo e o carrega ao ser movido.",
+      "fixed": "Ancora presa ao mundo, nao ao joint pai."
+    }
+  },
+  "notes": "Descreva aqui o que esta composicao representa e como deve ser usada."
+}

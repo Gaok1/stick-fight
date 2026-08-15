@@ -1,0 +1,356 @@
+{
+  "app": "Glyph Forge",
+  "version": 6,
+  "canvas": {
+    "width": 400,
+    "height": 240,
+    "background": "#181818",
+    "grid_size": 8
+  },
+  "default_font": {
+    "kind": "bitmap_rom",
+    "asset": "assets/fonts/ibm_vga_8x16.bin",
+    "encoding": "CP437",
+    "glyph_size": [
+      8,
+      16
+    ]
+  },
+  "elements": [
+    {
+      "id": "left_cover",
+      "glyph": "████████",
+      "x": 202,
+      "y": 124,
+      "font_size": 32,
+      "scale_x": 1.05,
+      "scale_y": 0.24,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#4e216b",
+      "layer": 0,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "left_cover_gold",
+      "glyph": "████████",
+      "x": 202,
+      "y": 122,
+      "font_size": 32,
+      "scale_x": 1.05,
+      "scale_y": 0.065,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#b99032",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "left_page_1",
+      "glyph": "███████",
+      "x": 204,
+      "y": 130,
+      "font_size": 28,
+      "scale_x": 1.03,
+      "scale_y": 0.07,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#bda774",
+      "layer": 2,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "left_page_2",
+      "glyph": "███████",
+      "x": 205,
+      "y": 134,
+      "font_size": 28,
+      "scale_x": 1.01,
+      "scale_y": 0.07,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#d5bf8a",
+      "layer": 3,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "right_page_1",
+      "glyph": "████████",
+      "x": 196,
+      "y": 145,
+      "font_size": 28,
+      "scale_x": 1.18,
+      "scale_y": 0.075,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#fff1c4",
+      "layer": 5,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "right_page_2",
+      "glyph": "████████",
+      "x": 195,
+      "y": 149,
+      "font_size": 28,
+      "scale_x": 1.19,
+      "scale_y": 0.075,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#e1c78f",
+      "layer": 6,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "right_page_3",
+      "glyph": "████████",
+      "x": 194,
+      "y": 153,
+      "font_size": 28,
+      "scale_x": 1.2,
+      "scale_y": 0.075,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#fff1c4",
+      "layer": 7,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "right_cover",
+      "glyph": "████████",
+      "x": 193,
+      "y": 159,
+      "font_size": 32,
+      "scale_x": 1.19,
+      "scale_y": 0.27,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#713494",
+      "layer": 9,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "right_cover_gold",
+      "glyph": "████████",
+      "x": 193,
+      "y": 156,
+      "font_size": 32,
+      "scale_x": 1.19,
+      "scale_y": 0.07,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#ffd05a",
+      "layer": 10,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "left_page_tip",
+      "glyph": "██",
+      "x": 274,
+      "y": 131,
+      "font_size": 24,
+      "scale_x": 0.7,
+      "scale_y": 0.08,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#cdb276",
+      "layer": 11,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "right_page_tip",
+      "glyph": "██",
+      "x": 289,
+      "y": 148,
+      "font_size": 24,
+      "scale_x": 0.78,
+      "scale_y": 0.08,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#ffe7aa",
+      "layer": 12,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "fore_edge_left",
+      "glyph": "█",
+      "x": 134.51,
+      "y": 124.13,
+      "font_size": 25,
+      "scale_x": 0.22,
+      "scale_y": 0.5,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#9c7830",
+      "layer": 0,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "fore_edge_right",
+      "glyph": "█",
+      "x": 115.34,
+      "y": 158.23,
+      "font_size": 28,
+      "scale_x": 0.24,
+      "scale_y": 0.58,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#e2b83f",
+      "layer": 14,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "side_rune",
+      "glyph": "♦",
+      "x": 225,
+      "y": 156,
+      "font_size": 20,
+      "scale_x": 0.62,
+      "scale_y": 0.62,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#cf65ff",
+      "layer": 15,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "bookmark",
+      "glyph": "█",
+      "x": 215,
+      "y": 172,
+      "font_size": 24,
+      "scale_x": 0.16,
+      "scale_y": 0.7,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 2,
+      "color": "#b2237d",
+      "layer": 17,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    },
+    {
+      "id": "3fb79c3916",
+      "glyph": "████████",
+      "x": 196.88,
+      "y": 140.7,
+      "font_size": 28,
+      "scale_x": 1.0918,
+      "scale_y": 0.0236,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0,
+      "color": "#000000",
+      "layer": 5,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin"
+    }
+  ],
+  "rig": {
+    "joints": [
+      {
+        "id": "joint_spine",
+        "name": "dobradica_do_livro",
+        "x": 197.79,
+        "y": 140.83,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "left_cover",
+        "part_b_element_id": "right_cover",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": "Projecao lateral da dobradica que conecta as capas em profundidade; a vista Leste comprime esse eixo na imagem."
+      }
+    ],
+    "semantics": {
+      "parent_id": "Joint pai; a linha entre ambos representa um osso.",
+      "part_a_element_id": "Primeira peca conectada pelo ponto independente.",
+      "part_b_element_id": "Segunda peca conectada pelo ponto independente.",
+      "constraint_type": "pivot permite giro relativo; fixed solda as duas pecas.",
+      "fixed": "Quando verdadeiro, o ponto tambem esta ancorado ao mundo."
+    }
+  },
+  "attention_points": [
+    {
+      "id": "attention_grip",
+      "name": "pegada_da_mao",
+      "x": 195,
+      "y": 174,
+      "parent_id": "",
+      "attached_element_id": "right_cover",
+      "part_a_element_id": "",
+      "part_b_element_id": "",
+      "constraint_type": "pivot",
+      "fixed": false,
+      "color": "#ff4dc4",
+      "kind": "attention",
+      "description": "A mao do stick apoia a borda inferior da metade direita. A camera olha do Leste, portanto as paginas se sobrepoem."
+    }
+  ],
+  "attention_semantics": {
+    "description": "Destaques nomeados para a LLM; nao fazem parte do esqueleto.",
+    "attached_element_id": "Glyph que carrega o destaque quando e movido."
+  },
+  "labels": [
+    {
+      "id": "label_left_half",
+      "name": "pagina_esquerda_ao_fundo",
+      "element_ids": [
+        "left_cover",
+        "left_cover_gold",
+        "left_page_1",
+        "left_page_2",
+        "left_page_tip",
+        "fore_edge_left"
+      ],
+      "description": "Metade esquerda do livro. Na vista Leste ela fica atras da direita e so aparece por estar em outro nivel.",
+      "label_ids": []
+    },
+    {
+      "id": "label_right_half",
+      "name": "pagina_direita_em_primeiro_plano",
+      "element_ids": [
+        "right_page_1",
+        "right_page_2",
+        "right_page_3",
+        "right_cover",
+        "right_cover_gold",
+        "right_page_tip",
+        "fore_edge_right",
+        "side_rune",
+        "bookmark"
+      ],
+      "description": "Metade direita, mais proxima da camera Leste; ela oclui quase toda a pagina esquerda.",
+      "label_ids": []
+    },
+    {
+      "id": "label_book",
+      "name": "livro_magico_aberto_vista_leste",
+      "element_ids": [],
+      "description": "Livro aberto visto ortograficamente do Leste. As duas metades se sobrepoem na imagem; o desnivel revela a pagina esquerda atras da direita.",
+      "label_ids": [
+        "label_left_half",
+        "label_right_half"
+      ]
+    }
+  ],
+  "label_semantics": {
+    "element_ids": "Glyphs diretamente contidos neste rotulo.",
+    "label_ids": "Sub-rotulos contidos; seus glyphs sao herdados recursivamente."
+  },
+  "notes": "Vista ortografica do Leste de um livro magico aberto. A pagina direita esta em primeiro plano e ocupa quase toda a silhueta; a pagina esquerda fica atras e aparece somente acima por causa do desnivel. Nao mostrar as duas paginas lado a lado e nao usar a vista de cima."
+}
