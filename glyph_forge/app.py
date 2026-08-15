@@ -1347,24 +1347,28 @@ class GlyphForge:
             entry = ttk.Entry(rig_form, textvariable=self.joint_vars[key], width=18)
             entry.grid(row=row, column=1, sticky=tk.EW, pady=2)
             entry.bind("<Return>", lambda _event: self.apply_joint_properties())
+            entry.bind("<FocusOut>", lambda _event: self.apply_joint_properties(quiet=True))
         ttk.Label(rig_form, text="Pai / osso").grid(row=3, column=0, sticky=tk.W, pady=2)
         self.parent_combo = ttk.Combobox(
             rig_form, textvariable=self.joint_vars["parent"], state="readonly", width=17
         )
         self.parent_combo.grid(row=3, column=1, sticky=tk.EW, pady=2)
         self.parent_combo.configure(postcommand=self.refresh_rig_choices)
+        self.parent_combo.bind("<<ComboboxSelected>>", lambda _e: self.apply_joint_properties())
         ttk.Label(rig_form, text="Peca A").grid(row=4, column=0, sticky=tk.W, pady=2)
         self.part_a_combo = ttk.Combobox(
             rig_form, textvariable=self.joint_vars["part_a"], state="readonly", width=17
         )
         self.part_a_combo.grid(row=4, column=1, sticky=tk.EW, pady=2)
         self.part_a_combo.configure(postcommand=self.refresh_rig_choices)
+        self.part_a_combo.bind("<<ComboboxSelected>>", lambda _e: self.apply_joint_properties())
         ttk.Label(rig_form, text="Peca B").grid(row=5, column=0, sticky=tk.W, pady=2)
         self.part_b_combo = ttk.Combobox(
             rig_form, textvariable=self.joint_vars["part_b"], state="readonly", width=17
         )
         self.part_b_combo.grid(row=5, column=1, sticky=tk.EW, pady=2)
         self.part_b_combo.configure(postcommand=self.refresh_rig_choices)
+        self.part_b_combo.bind("<<ComboboxSelected>>", lambda _e: self.apply_joint_properties())
         ttk.Label(rig_form, text="Comportamento").grid(row=6, column=0, sticky=tk.W, pady=2)
         self.constraint_combo = ttk.Combobox(
             rig_form,
@@ -1374,10 +1378,12 @@ class GlyphForge:
             width=17,
         )
         self.constraint_combo.grid(row=6, column=1, sticky=tk.EW, pady=2)
+        self.constraint_combo.bind("<<ComboboxSelected>>", lambda _e: self.apply_joint_properties())
         ttk.Checkbutton(
             rig_form,
             text="Ancora fixa no mundo",
             variable=self.joint_vars["fixed"],
+            command=self.apply_joint_properties,
         ).grid(row=7, column=0, columnspan=2, sticky=tk.W, pady=5)
         rig_form.columnconfigure(1, weight=1)
 
@@ -1392,9 +1398,6 @@ class GlyphForge:
         self.joint_description = tk.Text(self.rig_tab, height=4, width=28, wrap=tk.WORD)
         self.joint_description.pack(fill=tk.X)
         self.joint_description.bind("<FocusOut>", lambda _event: self.apply_joint_properties())
-        ttk.Button(self.rig_tab, text="Aplicar articulacao", command=self.apply_joint_properties).pack(
-            fill=tk.X, pady=(8, 10)
-        )
         ttk.Label(
             self.rig_tab,
             text=(
@@ -1421,6 +1424,7 @@ class GlyphForge:
             entry = ttk.Entry(attention_form, textvariable=self.attention_vars[key], width=18)
             entry.grid(row=row, column=1, sticky=tk.EW, pady=2)
             entry.bind("<Return>", lambda _event: self.apply_attention_properties())
+            entry.bind("<FocusOut>", lambda _event: self.apply_attention_properties(quiet=True))
         ttk.Label(attention_form, text="Fixado ao glyph").grid(row=3, column=0, sticky=tk.W, pady=2)
         self.attention_attachment_combo = ttk.Combobox(
             attention_form,
@@ -1430,6 +1434,7 @@ class GlyphForge:
         )
         self.attention_attachment_combo.grid(row=3, column=1, sticky=tk.EW, pady=2)
         self.attention_attachment_combo.configure(postcommand=self.refresh_rig_choices)
+        self.attention_attachment_combo.bind("<<ComboboxSelected>>", lambda _e: self.apply_attention_properties())
         attention_form.columnconfigure(1, weight=1)
         attention_color_row = ttk.Frame(self.attention_tab)
         attention_color_row.pack(fill=tk.X, pady=4)
@@ -1447,11 +1452,6 @@ class GlyphForge:
         self.attention_description.bind(
             "<FocusOut>", lambda _event: self.apply_attention_properties()
         )
-        ttk.Button(
-            self.attention_tab,
-            text="Aplicar ponto de atencao",
-            command=self.apply_attention_properties,
-        ).pack(fill=tk.X, pady=(8, 8))
         ttk.Label(
             self.attention_tab,
             text="Use para destacar uma parte importante para a LLM sem criar um osso no rig.",
@@ -1479,6 +1479,7 @@ class GlyphForge:
         label_name_entry = ttk.Entry(self.label_tab, textvariable=self.label_name_var)
         label_name_entry.pack(fill=tk.X)
         label_name_entry.bind("<Return>", lambda _event: self.apply_label_properties())
+        label_name_entry.bind("<FocusOut>", lambda _event: self.apply_label_properties())
         ttk.Label(self.label_tab, textvariable=self.label_count_var, foreground="#666666").pack(
             anchor=tk.W, pady=(4, 6)
         )
@@ -1490,13 +1491,11 @@ class GlyphForge:
             exportselection=False,
         )
         self.label_children_list.pack(fill=tk.X, pady=(2, 6))
+        self.label_children_list.bind("<<ListboxSelect>>", lambda _e: self.apply_label_properties())
         ttk.Label(self.label_tab, text="Descricao opcional").pack(anchor=tk.W)
         self.label_description = tk.Text(self.label_tab, height=5, width=28, wrap=tk.WORD)
         self.label_description.pack(fill=tk.BOTH, expand=True, pady=(2, 6))
         self.label_description.bind("<FocusOut>", lambda _event: self.apply_label_properties())
-        ttk.Button(
-            self.label_tab, text="Aplicar rotulo", command=self.apply_label_properties
-        ).pack(fill=tk.X)
         ttk.Button(
             self.label_tab, text="Selecionar membros", command=self.select_label_members
         ).pack(fill=tk.X, pady=(4, 0))
@@ -1516,7 +1515,10 @@ class GlyphForge:
             (("Largura", self.width_var), ("Altura", self.height_var), ("Grade", self.grid_var))
         ):
             ttk.Label(canvas_form, text=label).grid(row=row, column=0, sticky=tk.W, pady=2)
-            ttk.Entry(canvas_form, textvariable=variable, width=12).grid(row=row, column=1, sticky=tk.E, pady=2)
+            entry = ttk.Entry(canvas_form, textvariable=variable, width=12)
+            entry.grid(row=row, column=1, sticky=tk.E, pady=2)
+            entry.bind("<Return>", lambda _event: self.apply_canvas())
+            entry.bind("<FocusOut>", lambda _event: self.apply_canvas(quiet=True))
         canvas_form.columnconfigure(1, weight=1)
         bg_row = ttk.Frame(project_tab)
         bg_row.pack(fill=tk.X, pady=4)
@@ -1530,9 +1532,6 @@ class GlyphForge:
             accent_row, text="      ", command=lambda: self.open_live_color_picker("accent")
         )
         self.accent_button.pack(side=tk.RIGHT)
-        ttk.Button(project_tab, text="Aplicar canvas", command=self.apply_canvas).pack(
-            fill=tk.X, pady=(4, 10)
-        )
 
         ttk.Label(project_tab, text="Notas para a LLM", font=("TkDefaultFont", 11, "bold")).pack(
             anchor=tk.W
@@ -1821,6 +1820,7 @@ class GlyphForge:
             entry = ttk.Entry(skin_form, textvariable=self.skin_vars[key], width=16)
             entry.grid(row=row, column=1, sticky=tk.EW, pady=2)
             entry.bind("<Return>", lambda _event: self.apply_skin_properties())
+            entry.bind("<FocusOut>", lambda _event: self.apply_skin_properties())
         skin_form.columnconfigure(1, weight=1)
 
         self.skin_color_buttons: dict[str, tk.Button] = {}
@@ -1841,9 +1841,6 @@ class GlyphForge:
             button.pack(side=tk.RIGHT)
             self.skin_color_buttons[key] = button
 
-        ttk.Button(parent, text="Aplicar pele", command=self.apply_skin_properties).pack(
-            fill=tk.X, pady=(8, 4)
-        )
         self.skin_art_label = ttk.Label(parent, text="", foreground="#666666", wraplength=250)
         self.skin_art_label.pack(fill=tk.X, pady=(0, 4))
         ttk.Label(parent, text="Descricao opcional").pack(anchor=tk.W)
@@ -2555,16 +2552,26 @@ class GlyphForge:
         skin = self.current_skin()
         if skin is None:
             return
-        self.checkpoint()
-        skin.name = self.skin_vars["name"].get().strip() or skin.name
-        skin.accent = self.skin_vars["accent"].get()
-        skin.limb = (self.skin_vars["limb"].get() or "|")[0]
-        skin.swap = [
+        name = self.skin_vars["name"].get().strip() or skin.name
+        accent = self.skin_vars["accent"].get()
+        limb = (self.skin_vars["limb"].get() or "|")[0]
+        swap = [
             [pair.split("=", 1)[0].strip()[:1], pair.split("=", 1)[1].strip()[:1]]
             for pair in self.skin_vars["swap"].get().split(",")
             if "=" in pair and pair.split("=", 1)[0].strip()
         ]
-        skin.description = self.skin_description.get("1.0", "end-1c").strip()
+        description = self.skin_description.get("1.0", "end-1c").strip()
+        if (name, accent, limb, swap, description) == (
+            skin.name,
+            skin.accent,
+            skin.limb,
+            skin.swap,
+            skin.description,
+        ):
+            return
+        self.checkpoint()
+        skin.name, skin.accent, skin.limb = name, accent, limb
+        skin.swap, skin.description = swap, description
         self.sync_skin_list()
         self.redraw()
         self.status.set(f"Pele atualizada: {skin.name}")
@@ -3853,7 +3860,13 @@ class GlyphForge:
         self.redraw()
         self.sync_inspector()
 
-    def apply_joint_properties(self) -> None:
+    def apply_joint_properties(self, quiet: bool = False) -> None:
+        """Grava a articulacao. `quiet` e o caminho de sair do campo.
+
+        Ao sair de um campo com um numero pela metade, devolver o valor bom em
+        silencio e melhor que um dialogo de erro: o dialogo rouba o foco, o que
+        dispara outro "saiu do campo", e o erro pode voltar sozinho.
+        """
         joint = self.selected_joint()
         if not joint or joint.kind != "joint":
             return
@@ -3878,6 +3891,9 @@ class GlyphForge:
                 "description": self.joint_description.get("1.0", "end-1c").strip(),
             }
         except (tk.TclError, ValueError):
+            if quiet:
+                self.sync_inspector()
+                return
             messagebox.showerror(APP_NAME, "A articulacao possui uma coordenada invalida.")
             return
         if part_a_id and part_a_id == part_b_id:
@@ -3898,7 +3914,7 @@ class GlyphForge:
         self.redraw()
         self.sync_inspector()
 
-    def apply_attention_properties(self) -> None:
+    def apply_attention_properties(self, quiet: bool = False) -> None:
         point = self.selected_joint()
         if not point or point.kind != "attention":
             return
@@ -3911,6 +3927,9 @@ class GlyphForge:
                 "description": self.attention_description.get("1.0", "end-1c").strip(),
             }
         except (tk.TclError, ValueError):
+            if quiet:
+                self.sync_inspector()
+                return
             messagebox.showerror(APP_NAME, "O ponto de atencao possui uma coordenada invalida.")
             return
         if all(getattr(point, key) == value for key, value in values.items()):
@@ -4297,12 +4316,17 @@ class GlyphForge:
     def choose_background(self) -> None:
         self.open_live_color_picker("background")
 
-    def apply_canvas(self) -> None:
+    def apply_canvas(self, quiet: bool = False) -> None:
         try:
             width = max(64, int(self.width_var.get()))
             height = max(64, int(self.height_var.get()))
             grid_size = max(2, int(self.grid_var.get()))
         except (tk.TclError, ValueError):
+            if quiet:
+                self.width_var.set(self.canvas_width)
+                self.height_var.set(self.canvas_height)
+                self.grid_var.set(self.grid_size)
+                return
             messagebox.showerror(APP_NAME, "Largura, altura ou grade invalida.")
             return
         if (width, height, grid_size) == (self.canvas_width, self.canvas_height, self.grid_size):
