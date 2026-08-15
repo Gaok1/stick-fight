@@ -110,62 +110,93 @@ def golpe(nome: str, descricao: str, fases: list[tuple], rest: dict, pecas: list
 
 
 def combo(rest: dict, pecas: list[dict]) -> list[dict]:
+    """O combo do estoque: tudo e ponta, nada e fio.
+
+    Numa arma de estocada a forca nao sai do giro da lamina -- ela sai da mao
+    indo para a frente e da perna que joga o corpo atras dela. Por isso o giro
+    fica sempre perto de zero (a lamina aponta para onde vai) e o que muda de
+    quadro para quadro e o alcance da mao e o afundo.
+
+    O braco de tras sobe e vai para tras em vez de acompanhar: e o contrapeso
+    do esgrimista, e e ele que faz a pose ler como estocada e nao como soco com
+    uma barra na mao.
+    """
     lado = revamp.lado
+
+    # A perna: guarda com o pe da frente adiantado, afundo com ela esticada.
+    guarda_frente = {"knee": (9.0, -19.0), "foot": (14.0, -31.0)}
+    guarda_tras = {"knee": (-8.0, -20.0), "foot": (-14.0, -31.0)}
+    afundo_frente = {"knee": (20.0, -24.0), "foot": (34.0, -31.0)}
+    afundo_tras = {"knee": (-13.0, -25.0), "foot": (-21.0, -31.0)}
+    fundo_frente = {"knee": (25.0, -26.0), "foot": (43.0, -31.0)}
+    fundo_tras = {"knee": (-16.0, -27.0), "foot": (-26.0, -31.0)}
+
     return [
         golpe(
-            "espada_corte",
-            "Elo 1: corte descendente. A lamina sobe atras da cabeca e desce na diagonal.",
+            "espada_guarda",
+            "Em guarda. Corpo de lado, lamina na linha, braco de tras erguido de "
+            "contrapeso. E a pose de espera com o estoque na mao.",
             [
-                ("preparo", 8, lado(1, elbow=(-3.0, 20.0), hand=(-11.0, 27.0)),
-                 lado(-1, elbow=(-8.0, 16.0), hand=(-15.0, 21.0)), -125.0, (0.95, 1.06), -0.12, ()),
-                ("contato", 12, lado(1, elbow=(15.0, 14.0), hand=(33.0, 6.0)),
-                 lado(-1, elbow=(9.0, 12.0), hand=(22.0, 6.0)), 42.0, (1.14, 0.93), 0.10, ("contato",)),
-                ("recuperacao", 10, lado(1, elbow=(9.0, 10.0), hand=(16.0, 4.0)),
-                 lado(-1, elbow=(4.0, 10.0), hand=(10.0, 5.0)), 18.0, (1.0, 1.0), 0.03, ()),
+                ("respira_a", 40, lado(1, elbow=(9.0, 11.0), hand=(19.0, 13.0), **guarda_frente),
+                 lado(-1, elbow=(-9.0, 17.0), hand=(-15.0, 25.0), **guarda_tras),
+                 -7.0, (0.98, 1.02), -0.03, ()),
+                ("respira_b", 40, lado(1, elbow=(9.0, 10.0), hand=(19.0, 12.0), **guarda_frente),
+                 lado(-1, elbow=(-9.0, 16.0), hand=(-15.0, 24.0), **guarda_tras),
+                 -5.0, (0.99, 1.01), -0.03, ()),
             ],
             rest,
             pecas,
         ),
         golpe(
-            "espada_cruzado",
-            "Elo 2: corte horizontal. A lamina volta por tras e atravessa na altura do peito.",
+            "espada_estocada",
+            "Elo 1: a estocada basica. A mao recolhe ate o quadril e explode para a "
+            "frente; a perna da frente afunda atras dela.",
             [
-                ("preparo", 9, lado(1, elbow=(-9.0, 13.0), hand=(-19.0, 12.0)),
-                 lado(-1, elbow=(-12.0, 11.0), hand=(-22.0, 10.0)), 178.0, (0.97, 1.03), -0.08, ()),
-                ("contato", 13, lado(1, elbow=(17.0, 12.0), hand=(37.0, 12.0)),
-                 lado(-1, elbow=(11.0, 11.0), hand=(26.0, 11.0)), 4.0, (1.16, 0.92), 0.08, ("contato",)),
-                ("recuperacao", 12, lado(1, elbow=(9.0, 11.0), hand=(17.0, 9.0)),
-                 lado(-1, elbow=(4.0, 11.0), hand=(11.0, 9.0)), 22.0, (1.0, 1.0), 0.02, ()),
+                ("preparo", 7, lado(1, elbow=(1.0, 10.0), hand=(-6.0, 9.0), knee=(7.0, -20.0), foot=(11.0, -31.0)),
+                 lado(-1, elbow=(-8.0, 16.0), hand=(-13.0, 24.0), **guarda_tras),
+                 -6.0, (0.95, 1.04), -0.06, ()),
+                ("contato", 10, lado(1, elbow=(21.0, 11.0), hand=(44.0, 11.0), **afundo_frente),
+                 lado(-1, elbow=(-11.0, 19.0), hand=(-19.0, 27.0), **afundo_tras),
+                 0.0, (1.24, 0.86), 0.14, ("contato",)),
+                ("recuperacao", 9, lado(1, elbow=(12.0, 11.0), hand=(24.0, 12.0), knee=(12.0, -21.0), foot=(19.0, -31.0)),
+                 lado(-1, elbow=(-9.0, 17.0), hand=(-15.0, 25.0), **guarda_tras),
+                 -4.0, (1.06, 0.96), 0.05, ()),
             ],
             rest,
             pecas,
         ),
         golpe(
-            "espada_ascendente",
-            "Elo 3: rasgo de baixo para cima. Termina com a lamina acima da cabeca -- e o "
-            "finalizador, e o que joga o alvo para cima.",
+            "espada_bote",
+            "Elo 2: o bote alto. A ponta sobe para o rosto -- mesma mecanica, outra "
+            "linha, e e a linha que o adversario tem que ler.",
             [
-                ("preparo", 12, lado(1, elbow=(4.0, 1.0), hand=(9.0, -9.0)),
-                 lado(-1, elbow=(-1.0, 2.0), hand=(4.0, -7.0)), 96.0, (1.05, 0.95), 0.06, ()),
-                ("contato", 17, lado(1, elbow=(15.0, 20.0), hand=(29.0, 36.0)),
-                 lado(-1, elbow=(9.0, 17.0), hand=(21.0, 31.0)), -68.0, (0.90, 1.18), -0.10, ("contato",)),
-                ("recuperacao", 17, lado(1, elbow=(11.0, 17.0), hand=(19.0, 26.0)),
-                 lado(-1, elbow=(6.0, 15.0), hand=(13.0, 23.0)), -34.0, (0.97, 1.05), -0.04, ()),
+                ("preparo", 8, lado(1, elbow=(2.0, 17.0), hand=(-4.0, 21.0), knee=(7.0, -20.0), foot=(11.0, -31.0)),
+                 lado(-1, elbow=(-8.0, 15.0), hand=(-13.0, 22.0), **guarda_tras),
+                 13.0, (0.96, 1.05), -0.09, ()),
+                ("contato", 11, lado(1, elbow=(20.0, 17.0), hand=(42.0, 23.0), **afundo_frente),
+                 lado(-1, elbow=(-12.0, 20.0), hand=(-20.0, 28.0), **afundo_tras),
+                 -11.0, (1.20, 0.89), 0.11, ("contato",)),
+                ("recuperacao", 11, lado(1, elbow=(12.0, 14.0), hand=(24.0, 17.0), knee=(12.0, -21.0), foot=(19.0, -31.0)),
+                 lado(-1, elbow=(-9.0, 17.0), hand=(-15.0, 25.0), **guarda_tras),
+                 -6.0, (1.05, 0.97), 0.04, ()),
             ],
             rest,
             pecas,
         ),
         golpe(
-            "espada_saque",
-            "Saque: tirar a espada da guarda baixa e por na linha. Nao machuca -- e a "
-            "leitura de que a arma acabou de entrar em campo.",
+            "espada_finta",
+            "Elo 3: finta e afundo. A mao arrisca meia extensao, recolhe e vai fundo -- "
+            "e o finalizador, e o alcance dele e o maior do arsenal.",
             [
-                ("guarda", 14, lado(1, elbow=(2.0, 4.0), hand=(6.0, -4.0)),
-                 lado(-1, elbow=(-5.0, 9.0), hand=(-9.0, 3.0)), 88.0, (1.02, 0.98), 0.0, ()),
-                ("sobe", 10, lado(1, elbow=(10.0, 12.0), hand=(19.0, 14.0)),
-                 lado(-1, elbow=(-4.0, 11.0), hand=(-8.0, 16.0)), 12.0, (0.98, 1.03), -0.05, ()),
-                ("linha", 20, lado(1, elbow=(12.0, 13.0), hand=(23.0, 15.0)),
-                 lado(-1, elbow=(-4.0, 11.0), hand=(-2.0, 18.0)), -6.0, (1.0, 1.0), -0.02, ("pronta",)),
+                ("preparo", 11, lado(1, elbow=(13.0, 12.0), hand=(26.0, 13.0), knee=(10.0, -20.0), foot=(16.0, -31.0)),
+                 lado(-1, elbow=(-8.0, 16.0), hand=(-13.0, 23.0), **guarda_tras),
+                 -3.0, (1.04, 0.97), 0.04, ("finta",)),
+                ("contato", 16, lado(1, elbow=(25.0, 9.0), hand=(52.0, 8.0), **fundo_frente),
+                 lado(-1, elbow=(-14.0, 21.0), hand=(-24.0, 29.0), **fundo_tras),
+                 3.0, (1.34, 0.79), 0.20, ("contato",)),
+                ("recuperacao", 19, lado(1, elbow=(14.0, 11.0), hand=(28.0, 12.0), **afundo_frente),
+                 lado(-1, elbow=(-10.0, 18.0), hand=(-17.0, 26.0), **afundo_tras),
+                 -2.0, (1.14, 0.92), 0.09, ()),
             ],
             rest,
             pecas,

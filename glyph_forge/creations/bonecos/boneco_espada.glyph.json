@@ -5849,1811 +5849,486 @@
         ]
       },
       {
-        "id": "anim_espada_corte",
-        "name": "espada_corte",
+        "id": "anim_espada_guarda",
+        "name": "espada_guarda",
         "fps": 100.0,
         "loop": false,
-        "description": "Elo 1: corte descendente. A lamina sobe atras da cabeca e desce na diagonal.",
+        "description": "Em guarda. Corpo de lado, lamina na linha, braco de tras erguido de contrapeso. E a pose de espera com o estoque na mao.",
         "frames": [
           {
-            "id": "q_espada_corte_preparo",
-            "name": "espada_corte_preparo",
-            "hold": 8,
+            "id": "q_espada_guarda_respira_a",
+            "name": "espada_guarda_respira_a",
+            "hold": 40,
             "tone": "body",
             "keys": {
               "cel_r0c0": {
-                "x": 55.561,
-                "y": 36.157,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 49.877,
+                "y": 38.671,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r0c1": {
-                "x": 63.106,
-                "y": 37.067,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 57.713,
+                "y": 38.906,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r0c2": {
-                "x": 70.651,
-                "y": 37.977,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 65.55,
+                "y": 39.141,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r1c0": {
-                "x": 53.53,
-                "y": 52.995,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 49.387,
+                "y": 54.983,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r1c1": {
-                "x": 61.076,
-                "y": 53.905,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 57.224,
+                "y": 55.218,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r1c2": {
-                "x": 68.621,
-                "y": 54.815,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 65.06,
+                "y": 55.454,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r2c0": {
-                "x": 51.5,
-                "y": 69.833,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 48.898,
+                "y": 71.296,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r2c1": {
-                "x": 59.045,
-                "y": 70.743,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 56.734,
+                "y": 71.531,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r2c2": {
-                "x": 66.591,
-                "y": 71.653,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 64.571,
+                "y": 71.766,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r3c0": {
-                "x": 49.47,
-                "y": 86.671,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 48.408,
+                "y": 87.609,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r3c1": {
-                "x": 57.015,
-                "y": 87.581,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 56.245,
+                "y": 87.844,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "cel_r3c2": {
-                "x": 64.561,
-                "y": 88.491,
-                "scale_x": 0.95,
-                "scale_y": 1.06,
-                "rotation": 6.8755
+                "x": 64.081,
+                "y": 88.079,
+                "scale_x": 0.98,
+                "scale_y": 1.02,
+                "rotation": 1.7189
               },
               "pt_frente_cotovelo": {
-                "x": 53.0,
-                "y": 44.0
+                "x": 65.0,
+                "y": 53.0
               },
               "pt_frente_mao": {
-                "x": 45.0,
-                "y": 37.0
+                "x": 75.0,
+                "y": 51.0
+              },
+              "pt_frente_joelho": {
+                "x": 65.0,
+                "y": 83.0
+              },
+              "pt_frente_pe": {
+                "x": 70.0
               },
               "pt_tras_cotovelo": {
+                "x": 47.0,
+                "y": 47.0
+              },
+              "pt_tras_mao": {
+                "x": 41.0,
+                "y": 39.0
+              },
+              "pt_tras_joelho": {
                 "x": 48.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 42.0
+              },
+              "espada_0": {
+                "rotation": -7.0,
+                "offset": [
+                  4.789,
+                  -2.19
+                ]
+              },
+              "espada_1": {
+                "rotation": -7.0,
+                "offset": [
+                  14.799,
+                  -2.901
+                ]
+              },
+              "espada_2": {
+                "rotation": -7.0,
+                "offset": [
+                  24.711,
+                  -3.641
+                ]
+              },
+              "espada_3": {
+                "rotation": -7.0,
+                "offset": [
+                  34.719,
+                  -4.071
+                ]
+              },
+              "espada_4": {
+                "rotation": -7.0,
+                "offset": [
+                  3.298,
+                  2.589
+                ]
+              },
+              "espada_5": {
+                "rotation": -7.0,
+                "offset": [
+                  -2.793,
+                  -1.249
+                ]
+              },
+              "espada_6": {
+                "rotation": -7.0,
+                "offset": [
+                  4.866,
+                  1.214
+                ]
+              }
+            },
+            "marks": [],
+            "note": "espada_guarda: respira_a"
+          },
+          {
+            "id": "q_espada_guarda_respira_b",
+            "name": "espada_guarda_respira_b",
+            "hold": 40,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 49.78,
+                "y": 39.228,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r0c1": {
+                "x": 57.697,
+                "y": 39.465,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r0c2": {
+                "x": 65.613,
+                "y": 39.703,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r1c0": {
+                "x": 49.295,
+                "y": 55.381,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r1c1": {
+                "x": 57.212,
+                "y": 55.618,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r1c2": {
+                "x": 65.128,
+                "y": 55.856,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r2c0": {
+                "x": 48.811,
+                "y": 71.533,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r2c1": {
+                "x": 56.727,
+                "y": 71.771,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r2c2": {
+                "x": 64.644,
+                "y": 72.008,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r3c0": {
+                "x": 48.326,
+                "y": 87.686,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r3c1": {
+                "x": 56.242,
+                "y": 87.924,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "cel_r3c2": {
+                "x": 64.159,
+                "y": 88.161,
+                "scale_x": 0.99,
+                "scale_y": 1.01,
+                "rotation": 1.7189
+              },
+              "pt_frente_cotovelo": {
+                "x": 65.0,
+                "y": 54.0
+              },
+              "pt_frente_mao": {
+                "x": 75.0,
+                "y": 52.0
+              },
+              "pt_frente_joelho": {
+                "x": 65.0,
+                "y": 83.0
+              },
+              "pt_frente_pe": {
+                "x": 70.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 47.0,
                 "y": 48.0
               },
               "pt_tras_mao": {
                 "x": 41.0,
-                "y": 43.0
+                "y": 40.0
+              },
+              "pt_tras_joelho": {
+                "x": 48.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 42.0
               },
               "espada_0": {
-                "rotation": -125.0,
+                "rotation": -5.0,
                 "offset": [
-                  -4.182,
-                  -3.2
+                  4.862,
+                  -2.021
                 ]
               },
               "espada_1": {
-                "rotation": -125.0,
+                "rotation": -5.0,
                 "offset": [
-                  -9.509,
-                  -11.705
+                  14.891,
+                  -2.383
                 ]
               },
               "espada_2": {
-                "rotation": -125.0,
+                "rotation": -5.0,
                 "offset": [
-                  -14.815,
-                  -20.109
+                  24.823,
+                  -2.776
                 ]
               },
               "espada_3": {
-                "rotation": -125.0,
+                "rotation": -5.0,
                 "offset": [
-                  -19.894,
-                  -28.743
+                  34.84,
+                  -2.857
                 ]
               },
               "espada_4": {
-                "rotation": -125.0,
+                "rotation": -5.0,
                 "offset": [
-                  0.738,
-                  -4.128
+                  3.206,
+                  2.703
                 ]
               },
               "espada_5": {
-                "rotation": -125.0,
+                "rotation": -5.0,
                 "offset": [
-                  0.209,
-                  3.052
+                  -2.748,
+                  -1.346
                 ]
               },
               "espada_6": {
-                "rotation": -125.0,
+                "rotation": -5.0,
                 "offset": [
-                  -1.213,
-                  -4.867
+                  4.821,
+                  1.383
                 ]
               }
             },
             "marks": [],
-            "note": "espada_corte: preparo"
-          },
-          {
-            "id": "q_espada_corte_contato",
-            "name": "espada_corte_contato",
-            "hold": 12,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 41.726,
-                "y": 45.091,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r0c1": {
-                "x": 50.801,
-                "y": 44.18,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r0c2": {
-                "x": 59.875,
-                "y": 43.27,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r1c0": {
-                "x": 43.212,
-                "y": 59.896,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r1c1": {
-                "x": 52.286,
-                "y": 58.986,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r1c2": {
-                "x": 61.361,
-                "y": 58.075,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r2c0": {
-                "x": 44.697,
-                "y": 74.702,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r2c1": {
-                "x": 53.772,
-                "y": 73.792,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r2c2": {
-                "x": 62.846,
-                "y": 72.881,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r3c0": {
-                "x": 46.183,
-                "y": 89.508,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r3c1": {
-                "x": 55.257,
-                "y": 88.597,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "cel_r3c2": {
-                "x": 64.332,
-                "y": 87.687,
-                "scale_x": 1.14,
-                "scale_y": 0.93,
-                "rotation": -5.7296
-              },
-              "pt_frente_cotovelo": {
-                "x": 71.0,
-                "y": 50.0
-              },
-              "pt_frente_mao": {
-                "x": 89.0,
-                "y": 58.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 65.0,
-                "y": 52.0
-              },
-              "pt_tras_mao": {
-                "x": 78.0,
-                "y": 58.0
-              },
-              "espada_0": {
-                "rotation": 42.0,
-                "offset": [
-                  4.795,
-                  2.177
-                ]
-              },
-              "espada_1": {
-                "rotation": 42.0,
-                "offset": [
-                  11.898,
-                  9.265
-                ]
-              },
-              "espada_2": {
-                "rotation": 42.0,
-                "offset": [
-                  18.959,
-                  16.261
-                ]
-              },
-              "espada_3": {
-                "rotation": 42.0,
-                "offset": [
-                  25.85,
-                  23.531
-                ]
-              },
-              "espada_4": {
-                "rotation": 42.0,
-                "offset": [
-                  0.21,
-                  4.188
-                ]
-              },
-              "espada_5": {
-                "rotation": 42.0,
-                "offset": [
-                  -0.89,
-                  -2.927
-                ]
-              },
-              "espada_6": {
-                "rotation": 42.0,
-                "offset": [
-                  2.276,
-                  4.469
-                ]
-              }
-            },
-            "marks": [
-              "contato"
-            ],
-            "note": "espada_corte: contato"
-          },
-          {
-            "id": "q_espada_corte_recuperacao",
-            "name": "espada_corte_recuperacao",
-            "hold": 10,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 46.324,
-                "y": 40.265,
-                "rotation": -1.7189
-              },
-              "cel_r0c1": {
-                "x": 54.32,
-                "y": 40.025,
-                "rotation": -1.7189
-              },
-              "cel_r0c2": {
-                "x": 62.317,
-                "y": 39.785,
-                "rotation": -1.7189
-              },
-              "cel_r1c0": {
-                "x": 46.804,
-                "y": 56.258,
-                "rotation": -1.7189
-              },
-              "cel_r1c1": {
-                "x": 54.8,
-                "y": 56.018,
-                "rotation": -1.7189
-              },
-              "cel_r1c2": {
-                "x": 62.797,
-                "y": 55.778,
-                "rotation": -1.7189
-              },
-              "cel_r2c0": {
-                "x": 47.284,
-                "y": 72.251,
-                "rotation": -1.7189
-              },
-              "cel_r2c1": {
-                "x": 55.28,
-                "y": 72.011,
-                "rotation": -1.7189
-              },
-              "cel_r2c2": {
-                "x": 63.277,
-                "y": 71.771,
-                "rotation": -1.7189
-              },
-              "cel_r3c0": {
-                "x": 47.764,
-                "y": 88.244,
-                "rotation": -1.7189
-              },
-              "cel_r3c1": {
-                "x": 55.76,
-                "y": 88.004,
-                "rotation": -1.7189
-              },
-              "cel_r3c2": {
-                "x": 63.756,
-                "y": 87.764,
-                "rotation": -1.7189
-              },
-              "pt_frente_cotovelo": {
-                "x": 65.0,
-                "y": 54.0
-              },
-              "pt_frente_mao": {
-                "x": 72.0,
-                "y": 60.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 60.0,
-                "y": 54.0
-              },
-              "pt_tras_mao": {
-                "x": 66.0,
-                "y": 59.0
-              },
-              "espada_0": {
-                "rotation": 18.0,
-                "offset": [
-                  5.266,
-                  0.039
-                ]
-              },
-              "espada_1": {
-                "rotation": 18.0,
-                "offset": [
-                  14.638,
-                  3.625
-                ]
-              },
-              "espada_2": {
-                "rotation": 18.0,
-                "offset": [
-                  23.934,
-                  7.144
-                ]
-              },
-              "espada_3": {
-                "rotation": 18.0,
-                "offset": [
-                  33.186,
-                  10.983
-                ]
-              },
-              "espada_4": {
-                "rotation": 18.0,
-                "offset": [
-                  1.895,
-                  3.741
-                ]
-              },
-              "espada_5": {
-                "rotation": 18.0,
-                "offset": [
-                  -2.004,
-                  -2.312
-                ]
-              },
-              "espada_6": {
-                "rotation": 18.0,
-                "offset": [
-                  3.897,
-                  3.157
-                ]
-              }
-            },
-            "marks": [],
-            "note": "espada_corte: recuperacao"
+            "note": "espada_guarda: respira_b"
           }
         ]
       },
       {
-        "id": "anim_espada_cruzado",
-        "name": "espada_cruzado",
+        "id": "anim_espada_estocada",
+        "name": "espada_estocada",
         "fps": 100.0,
         "loop": false,
-        "description": "Elo 2: corte horizontal. A lamina volta por tras e atravessa na altura do peito.",
+        "description": "Elo 1: a estocada basica. A mao recolhe ate o quadril e explode para a frente; a perna da frente afunda atras dela.",
         "frames": [
           {
-            "id": "q_espada_cruzado_preparo",
-            "name": "espada_cruzado_preparo",
-            "hold": 9,
+            "id": "q_espada_estocada_preparo",
+            "name": "espada_estocada_preparo",
+            "hold": 7,
             "tone": "body",
             "keys": {
               "cel_r0c0": {
-                "x": 52.874,
-                "y": 37.884,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 51.906,
+                "y": 37.409,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r0c1": {
-                "x": 60.609,
-                "y": 38.504,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 59.492,
+                "y": 37.865,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r0c2": {
-                "x": 68.345,
-                "y": 39.125,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 67.079,
+                "y": 38.321,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r1c0": {
-                "x": 51.557,
-                "y": 54.312,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 50.908,
+                "y": 54.019,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r1c1": {
-                "x": 59.292,
-                "y": 54.932,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 58.495,
+                "y": 54.475,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r1c2": {
-                "x": 67.028,
-                "y": 55.552,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 66.081,
+                "y": 54.931,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r2c0": {
-                "x": 50.24,
-                "y": 70.739,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 49.91,
+                "y": 70.629,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r2c1": {
-                "x": 57.975,
-                "y": 71.359,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 57.497,
+                "y": 71.085,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r2c2": {
-                "x": 65.711,
-                "y": 71.979,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 65.083,
+                "y": 71.541,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r3c0": {
-                "x": 48.923,
-                "y": 87.166,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 48.913,
+                "y": 87.239,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r3c1": {
-                "x": 56.658,
-                "y": 87.786,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 56.499,
+                "y": 87.695,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "cel_r3c2": {
-                "x": 64.394,
-                "y": 88.406,
-                "scale_x": 0.97,
-                "scale_y": 1.03,
-                "rotation": 4.5837
+                "x": 64.085,
+                "y": 88.151,
+                "scale_x": 0.95,
+                "scale_y": 1.04,
+                "rotation": 3.4377
               },
               "pt_frente_cotovelo": {
-                "x": 47.0,
-                "y": 51.0
-              },
-              "pt_frente_mao": {
-                "x": 37.0,
-                "y": 52.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 44.0,
-                "y": 53.0
-              },
-              "pt_tras_mao": {
-                "x": 34.0,
+                "x": 57.0,
                 "y": 54.0
               },
-              "espada_0": {
-                "rotation": 178.0,
-                "offset": [
-                  -4.961,
-                  1.764
-                ]
-              },
-              "espada_1": {
-                "rotation": 178.0,
-                "offset": [
-                  -14.995,
-                  1.6
-                ]
-              },
-              "espada_2": {
-                "rotation": 178.0,
-                "offset": [
-                  -24.934,
-                  1.473
-                ]
-              },
-              "espada_3": {
-                "rotation": 178.0,
-                "offset": [
-                  -34.941,
-                  1.03
-                ]
-              },
-              "espada_4": {
-                "rotation": 178.0,
-                "offset": [
-                  -3.06,
-                  -2.867
-                ]
-              },
-              "espada_5": {
-                "rotation": 178.0,
-                "offset": [
-                  2.674,
-                  1.488
-                ]
-              },
-              "espada_6": {
-                "rotation": 178.0,
-                "offset": [
-                  -4.742,
-                  -1.634
-                ]
-              }
-            },
-            "marks": [],
-            "note": "espada_cruzado: preparo"
-          },
-          {
-            "id": "q_espada_cruzado_contato",
-            "name": "espada_cruzado_contato",
-            "hold": 13,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 42.632,
-                "y": 45.386,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r0c1": {
-                "x": 51.883,
-                "y": 44.645,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r0c2": {
-                "x": 61.133,
-                "y": 43.903,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r1c0": {
-                "x": 43.809,
-                "y": 60.059,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r1c1": {
-                "x": 53.059,
-                "y": 59.318,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r1c2": {
-                "x": 62.309,
-                "y": 58.576,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r2c0": {
-                "x": 44.985,
-                "y": 74.732,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r2c1": {
-                "x": 54.235,
-                "y": 73.991,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r2c2": {
-                "x": 63.486,
-                "y": 73.249,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r3c0": {
-                "x": 46.162,
-                "y": 89.405,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r3c1": {
-                "x": 55.412,
-                "y": 88.664,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "cel_r3c2": {
-                "x": 64.662,
-                "y": 87.922,
-                "scale_x": 1.16,
-                "scale_y": 0.92,
-                "rotation": -4.5837
-              },
-              "pt_frente_cotovelo": {
-                "x": 73.0,
-                "y": 52.0
-              },
               "pt_frente_mao": {
-                "x": 93.0,
-                "y": 52.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 67.0,
-                "y": 53.0
-              },
-              "pt_tras_mao": {
-                "x": 82.0,
-                "y": 53.0
-              },
-              "espada_0": {
-                "rotation": 4.0,
-                "offset": [
-                  5.119,
-                  -1.236
-                ]
-              },
-              "espada_1": {
-                "rotation": 4.0,
-                "offset": [
-                  15.08,
-                  -0.024
-                ]
-              },
-              "espada_2": {
-                "rotation": 4.0,
-                "offset": [
-                  24.951,
-                  1.141
-                ]
-              },
-              "espada_3": {
-                "rotation": 4.0,
-                "offset": [
-                  34.858,
-                  2.628
-                ]
-              },
-              "espada_4": {
-                "rotation": 4.0,
-                "offset": [
-                  2.743,
-                  3.171
-                ]
-              },
-              "espada_5": {
-                "rotation": 4.0,
-                "offset": [
-                  -2.503,
-                  -1.759
-                ]
-              },
-              "espada_6": {
-                "rotation": 4.0,
-                "offset": [
-                  4.545,
-                  2.12
-                ]
-              }
-            },
-            "marks": [
-              "contato"
-            ],
-            "note": "espada_cruzado: contato"
-          },
-          {
-            "id": "q_espada_cruzado_recuperacao",
-            "name": "espada_cruzado_recuperacao",
-            "hold": 12,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 46.882,
-                "y": 40.171,
-                "rotation": -1.1459
-              },
-              "cel_r0c1": {
-                "x": 54.88,
-                "y": 40.011,
-                "rotation": -1.1459
-              },
-              "cel_r0c2": {
-                "x": 62.878,
-                "y": 39.851,
-                "rotation": -1.1459
-              },
-              "cel_r1c0": {
-                "x": 47.202,
-                "y": 56.168,
-                "rotation": -1.1459
-              },
-              "cel_r1c1": {
-                "x": 55.2,
-                "y": 56.008,
-                "rotation": -1.1459
-              },
-              "cel_r1c2": {
-                "x": 63.198,
-                "y": 55.848,
-                "rotation": -1.1459
-              },
-              "cel_r2c0": {
-                "x": 47.522,
-                "y": 72.165,
-                "rotation": -1.1459
-              },
-              "cel_r2c1": {
-                "x": 55.52,
-                "y": 72.005,
-                "rotation": -1.1459
-              },
-              "cel_r2c2": {
-                "x": 63.518,
-                "y": 71.845,
-                "rotation": -1.1459
-              },
-              "cel_r3c0": {
-                "x": 47.842,
-                "y": 88.162,
-                "rotation": -1.1459
-              },
-              "cel_r3c1": {
-                "x": 55.84,
-                "y": 88.002,
-                "rotation": -1.1459
-              },
-              "cel_r3c2": {
-                "x": 63.838,
-                "y": 87.842,
-                "rotation": -1.1459
-              },
-              "pt_frente_cotovelo": {
-                "x": 65.0,
-                "y": 53.0
-              },
-              "pt_frente_mao": {
-                "x": 73.0,
+                "x": 50.0,
                 "y": 55.0
               },
-              "pt_tras_cotovelo": {
-                "x": 60.0,
-                "y": 53.0
+              "pt_frente_joelho": {
+                "x": 63.0,
+                "y": 84.0
               },
-              "pt_tras_mao": {
-                "x": 67.0,
-                "y": 55.0
-              },
-              "espada_0": {
-                "rotation": 22.0,
-                "offset": [
-                  5.25,
-                  0.406
-                ]
-              },
-              "espada_1": {
-                "rotation": 22.0,
-                "offset": [
-                  14.35,
-                  4.637
-                ]
-              },
-              "espada_2": {
-                "rotation": 22.0,
-                "offset": [
-                  23.377,
-                  8.796
-                ]
-              },
-              "espada_3": {
-                "rotation": 22.0,
-                "offset": [
-                  32.339,
-                  13.271
-                ]
-              },
-              "espada_4": {
-                "rotation": 22.0,
-                "offset": [
-                  1.629,
-                  3.864
-                ]
-              },
-              "espada_5": {
-                "rotation": 22.0,
-                "offset": [
-                  -1.837,
-                  -2.446
-                ]
-              },
-              "espada_6": {
-                "rotation": 22.0,
-                "offset": [
-                  3.668,
-                  3.421
-                ]
-              }
-            },
-            "marks": [],
-            "note": "espada_cruzado: recuperacao"
-          }
-        ]
-      },
-      {
-        "id": "anim_espada_ascendente",
-        "name": "espada_ascendente",
-        "fps": 100.0,
-        "loop": false,
-        "description": "Elo 3: rasgo de baixo para cima. Termina com a lamina acima da cabeca -- e o finalizador, e o que joga o alvo para cima.",
-        "frames": [
-          {
-            "id": "q_espada_ascendente_preparo",
-            "name": "espada_ascendente_preparo",
-            "hold": 12,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 44.425,
-                "y": 43.399,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r0c1": {
-                "x": 52.81,
-                "y": 42.896,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r0c2": {
-                "x": 61.195,
-                "y": 42.392,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r1c0": {
-                "x": 45.336,
-                "y": 58.572,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r1c1": {
-                "x": 53.721,
-                "y": 58.068,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r1c2": {
-                "x": 62.106,
-                "y": 57.565,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r2c0": {
-                "x": 46.248,
-                "y": 73.745,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r2c1": {
-                "x": 54.633,
-                "y": 73.241,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r2c2": {
-                "x": 63.018,
-                "y": 72.737,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r3c0": {
-                "x": 47.159,
-                "y": 88.917,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r3c1": {
-                "x": 55.544,
-                "y": 88.414,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "cel_r3c2": {
-                "x": 63.929,
-                "y": 87.91,
-                "scale_x": 1.05,
-                "scale_y": 0.95,
-                "rotation": -3.4377
-              },
-              "pt_frente_cotovelo": {
-                "x": 60.0,
-                "y": 63.0
-              },
-              "pt_frente_mao": {
-                "x": 65.0,
-                "y": 73.0
+              "pt_frente_pe": {
+                "x": 67.0
               },
               "pt_tras_cotovelo": {
-                "x": 55.0,
-                "y": 62.0
-              },
-              "pt_tras_mao": {
-                "x": 60.0,
-                "y": 71.0
-              },
-              "espada_0": {
-                "rotation": 96.0,
-                "offset": [
-                  1.057,
-                  5.159
-                ]
-              },
-              "espada_1": {
-                "rotation": 96.0,
-                "offset": [
-                  -0.502,
-                  15.072
-                ]
-              },
-              "espada_2": {
-                "rotation": 96.0,
-                "offset": [
-                  -2.011,
-                  24.896
-                ]
-              },
-              "espada_3": {
-                "rotation": 96.0,
-                "offset": [
-                  -3.843,
-                  34.745
-                ]
-              },
-              "espada_4": {
-                "rotation": 96.0,
-                "offset": [
-                  -3.265,
-                  2.631
-                ]
-              },
-              "espada_5": {
-                "rotation": 96.0,
-                "offset": [
-                  1.845,
-                  -2.44
-                ]
-              },
-              "espada_6": {
-                "rotation": 96.0,
-                "offset": [
-                  -2.278,
-                  4.468
-                ]
-              }
-            },
-            "marks": [],
-            "note": "espada_ascendente: preparo"
-          },
-          {
-            "id": "q_espada_ascendente_contato",
-            "name": "espada_ascendente_contato",
-            "hold": 17,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 55.433,
-                "y": 29.531,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r0c1": {
-                "x": 62.597,
-                "y": 30.25,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r0c2": {
-                "x": 69.761,
-                "y": 30.969,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r1c0": {
-                "x": 53.548,
-                "y": 48.317,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r1c1": {
-                "x": 60.712,
-                "y": 49.036,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r1c2": {
-                "x": 67.876,
-                "y": 49.755,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r2c0": {
-                "x": 51.663,
-                "y": 67.103,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r2c1": {
-                "x": 58.827,
-                "y": 67.821,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r2c2": {
-                "x": 65.991,
-                "y": 68.54,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r3c0": {
-                "x": 49.778,
-                "y": 85.888,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r3c1": {
-                "x": 56.942,
-                "y": 86.607,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "cel_r3c2": {
-                "x": 64.106,
-                "y": 87.326,
-                "scale_x": 0.9,
-                "scale_y": 1.18,
-                "rotation": 5.7296
-              },
-              "pt_frente_cotovelo": {
-                "x": 71.0,
-                "y": 44.0
-              },
-              "pt_frente_mao": {
-                "x": 85.0,
-                "y": 28.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 65.0,
-                "y": 47.0
-              },
-              "pt_tras_mao": {
-                "x": 77.0,
-                "y": 33.0
-              },
-              "espada_0": {
-                "rotation": -68.0,
-                "offset": [
-                  0.406,
-                  -5.25
-                ]
-              },
-              "espada_1": {
-                "rotation": -68.0,
-                "offset": [
-                  4.637,
-                  -14.35
-                ]
-              },
-              "espada_2": {
-                "rotation": -68.0,
-                "offset": [
-                  8.796,
-                  -23.377
-                ]
-              },
-              "espada_3": {
-                "rotation": -68.0,
-                "offset": [
-                  13.271,
-                  -32.339
-                ]
-              },
-              "espada_4": {
-                "rotation": -68.0,
-                "offset": [
-                  3.864,
-                  -1.629
-                ]
-              },
-              "espada_5": {
-                "rotation": -68.0,
-                "offset": [
-                  -2.446,
-                  1.837
-                ]
-              },
-              "espada_6": {
-                "rotation": -68.0,
-                "offset": [
-                  3.421,
-                  -3.668
-                ]
-              }
-            },
-            "marks": [
-              "contato"
-            ],
-            "note": "espada_ascendente: contato"
-          },
-          {
-            "id": "q_espada_ascendente_recuperacao",
-            "name": "espada_ascendente_recuperacao",
-            "hold": 17,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 50.598,
-                "y": 36.937,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r0c1": {
-                "x": 58.351,
-                "y": 37.247,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r0c2": {
-                "x": 66.105,
-                "y": 37.557,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r1c0": {
-                "x": 49.926,
-                "y": 53.723,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r1c1": {
-                "x": 57.68,
-                "y": 54.034,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r1c2": {
-                "x": 65.433,
-                "y": 54.344,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r2c0": {
-                "x": 49.254,
-                "y": 70.51,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r2c1": {
-                "x": 57.008,
-                "y": 70.82,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r2c2": {
-                "x": 64.762,
-                "y": 71.13,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r3c0": {
-                "x": 48.582,
-                "y": 87.296,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r3c1": {
-                "x": 56.336,
-                "y": 87.607,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "cel_r3c2": {
-                "x": 64.09,
-                "y": 87.917,
-                "scale_x": 0.97,
-                "scale_y": 1.05,
-                "rotation": 2.2918
-              },
-              "pt_frente_cotovelo": {
-                "x": 67.0,
-                "y": 47.0
-              },
-              "pt_frente_mao": {
-                "x": 75.0,
-                "y": 38.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 62.0,
-                "y": 49.0
-              },
-              "pt_tras_mao": {
-                "x": 69.0,
-                "y": 41.0
-              },
-              "espada_0": {
-                "rotation": -34.0,
-                "offset": [
-                  3.273,
-                  -4.125
-                ]
-              },
-              "espada_1": {
-                "rotation": -34.0,
-                "offset": [
-                  11.869,
-                  -9.303
-                ]
-              },
-              "espada_2": {
-                "rotation": -34.0,
-                "offset": [
-                  20.364,
-                  -14.462
-                ]
-              },
-              "espada_3": {
-                "rotation": -34.0,
-                "offset": [
-                  29.086,
-                  -19.39
-                ]
-              },
-              "espada_4": {
-                "rotation": -34.0,
-                "offset": [
-                  4.114,
-                  0.81
-                ]
-              },
-              "espada_5": {
-                "rotation": -34.0,
-                "offset": [
-                  -3.056,
-                  0.155
-                ]
-              },
-              "espada_6": {
-                "rotation": -34.0,
-                "offset": [
-                  4.887,
-                  -1.128
-                ]
-              }
-            },
-            "marks": [],
-            "note": "espada_ascendente: recuperacao"
-          }
-        ]
-      },
-      {
-        "id": "anim_espada_saque",
-        "name": "espada_saque",
-        "fps": 100.0,
-        "loop": false,
-        "description": "Saque: tirar a espada da guarda baixa e por na linha. Nao machuca -- e a leitura de que a arma acabou de entrar em campo.",
-        "frames": [
-          {
-            "id": "q_espada_saque_guarda",
-            "name": "espada_saque_guarda",
-            "hold": 14,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 47.84,
-                "y": 41.12,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r0c1": {
-                "y": 41.12,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r0c2": {
-                "x": 64.16,
-                "y": 41.12,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r1c0": {
-                "x": 47.84,
-                "y": 56.8,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r1c1": {
-                "y": 56.8,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r1c2": {
-                "x": 64.16,
-                "y": 56.8,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r2c0": {
-                "x": 47.84,
-                "y": 72.48,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r2c1": {
-                "y": 72.48,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r2c2": {
-                "x": 64.16,
-                "y": 72.48,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r3c0": {
-                "x": 47.84,
-                "y": 88.16,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r3c1": {
-                "y": 88.16,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "cel_r3c2": {
-                "x": 64.16,
-                "y": 88.16,
-                "scale_x": 1.02,
-                "scale_y": 0.98
-              },
-              "pt_frente_cotovelo": {
-                "x": 58.0,
-                "y": 60.0
-              },
-              "pt_frente_mao": {
-                "x": 62.0,
-                "y": 68.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 51.0,
-                "y": 55.0
-              },
-              "pt_tras_mao": {
-                "x": 47.0,
-                "y": 61.0
-              },
-              "espada_0": {
-                "rotation": 88.0,
-                "offset": [
-                  1.764,
-                  4.961
-                ]
-              },
-              "espada_1": {
-                "rotation": 88.0,
-                "offset": [
-                  1.6,
-                  14.995
-                ]
-              },
-              "espada_2": {
-                "rotation": 88.0,
-                "offset": [
-                  1.473,
-                  24.934
-                ]
-              },
-              "espada_3": {
-                "rotation": 88.0,
-                "offset": [
-                  1.03,
-                  34.941
-                ]
-              },
-              "espada_4": {
-                "rotation": 88.0,
-                "offset": [
-                  -2.867,
-                  3.06
-                ]
-              },
-              "espada_5": {
-                "rotation": 88.0,
-                "offset": [
-                  1.488,
-                  -2.674
-                ]
-              },
-              "espada_6": {
-                "rotation": 88.0,
-                "offset": [
-                  -1.634,
-                  4.742
-                ]
-              }
-            },
-            "marks": [],
-            "note": "espada_saque: guarda"
-          },
-          {
-            "id": "q_espada_saque_sobe",
-            "name": "espada_saque_sobe",
-            "hold": 10,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 51.053,
-                "y": 38.0,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r0c1": {
-                "x": 58.883,
-                "y": 38.392,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r0c2": {
-                "x": 66.713,
-                "y": 38.784,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r1c0": {
-                "x": 50.229,
-                "y": 54.46,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r1c1": {
-                "x": 58.059,
-                "y": 54.851,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r1c2": {
-                "x": 65.889,
-                "y": 55.243,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r2c0": {
-                "x": 49.405,
-                "y": 70.919,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r2c1": {
-                "x": 57.235,
-                "y": 71.311,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r2c2": {
-                "x": 65.066,
-                "y": 71.703,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r3c0": {
-                "x": 48.582,
-                "y": 87.378,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r3c1": {
-                "x": 56.412,
-                "y": 87.77,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "cel_r3c2": {
-                "x": 64.242,
-                "y": 88.162,
-                "scale_x": 0.98,
-                "scale_y": 1.03,
-                "rotation": 2.8648
-              },
-              "pt_frente_cotovelo": {
-                "x": 66.0,
-                "y": 52.0
-              },
-              "pt_frente_mao": {
-                "x": 75.0,
-                "y": 50.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 52.0,
-                "y": 53.0
-              },
-              "pt_tras_mao": {
                 "x": 48.0,
                 "y": 48.0
               },
-              "espada_0": {
-                "rotation": 12.0,
-                "offset": [
-                  5.241,
-                  -0.512
-                ]
-              },
-              "espada_1": {
-                "rotation": 12.0,
-                "offset": [
-                  14.937,
-                  2.075
-                ]
-              },
-              "espada_2": {
-                "rotation": 12.0,
-                "offset": [
-                  24.55,
-                  4.603
-                ]
-              },
-              "espada_3": {
-                "rotation": 12.0,
-                "offset": [
-                  34.153,
-                  7.454
-                ]
-              },
-              "espada_4": {
-                "rotation": 12.0,
-                "offset": [
-                  2.275,
-                  3.522
-                ]
-              },
-              "espada_5": {
-                "rotation": 12.0,
-                "offset": [
-                  -2.234,
-                  -2.09
-                ]
-              },
-              "espada_6": {
-                "rotation": 12.0,
-                "offset": [
-                  4.206,
-                  2.732
-                ]
-              }
-            },
-            "marks": [],
-            "note": "espada_saque: sobe"
-          },
-          {
-            "id": "q_espada_saque_linha",
-            "name": "espada_saque_linha",
-            "hold": 20,
-            "tone": "body",
-            "keys": {
-              "cel_r0c0": {
-                "x": 49.122,
-                "y": 39.851,
-                "rotation": 1.1459
-              },
-              "cel_r0c1": {
-                "x": 57.12,
-                "y": 40.011,
-                "rotation": 1.1459
-              },
-              "cel_r0c2": {
-                "x": 65.118,
-                "y": 40.171,
-                "rotation": 1.1459
-              },
-              "cel_r1c0": {
-                "x": 48.802,
-                "y": 55.848,
-                "rotation": 1.1459
-              },
-              "cel_r1c1": {
-                "x": 56.8,
-                "y": 56.008,
-                "rotation": 1.1459
-              },
-              "cel_r1c2": {
-                "x": 64.798,
-                "y": 56.168,
-                "rotation": 1.1459
-              },
-              "cel_r2c0": {
-                "x": 48.482,
-                "y": 71.845,
-                "rotation": 1.1459
-              },
-              "cel_r2c1": {
-                "x": 56.48,
-                "y": 72.005,
-                "rotation": 1.1459
-              },
-              "cel_r2c2": {
-                "x": 64.478,
-                "y": 72.165,
-                "rotation": 1.1459
-              },
-              "cel_r3c0": {
-                "x": 48.162,
-                "y": 87.842,
-                "rotation": 1.1459
-              },
-              "cel_r3c1": {
-                "x": 56.16,
-                "y": 88.002,
-                "rotation": 1.1459
-              },
-              "cel_r3c2": {
-                "x": 64.158,
-                "y": 88.162,
-                "rotation": 1.1459
-              },
-              "pt_frente_cotovelo": {
-                "x": 68.0,
-                "y": 51.0
-              },
-              "pt_frente_mao": {
-                "x": 79.0,
-                "y": 49.0
-              },
-              "pt_tras_cotovelo": {
-                "x": 52.0,
-                "y": 53.0
-              },
               "pt_tras_mao": {
-                "x": 54.0,
-                "y": 46.0
+                "x": 43.0,
+                "y": 40.0
+              },
+              "pt_tras_joelho": {
+                "x": 48.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 42.0
               },
               "espada_0": {
                 "rotation": -6.0,
@@ -7705,10 +6380,1369 @@
                 ]
               }
             },
+            "marks": [],
+            "note": "espada_estocada: preparo"
+          },
+          {
+            "id": "q_espada_estocada_contato",
+            "name": "espada_estocada_contato",
+            "hold": 10,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 39.457,
+                "y": 49.695,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r0c1": {
+                "x": 49.28,
+                "y": 48.311,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r0c2": {
+                "x": 59.103,
+                "y": 46.927,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r1c0": {
+                "x": 41.377,
+                "y": 63.321,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r1c1": {
+                "x": 51.2,
+                "y": 61.937,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r1c2": {
+                "x": 61.023,
+                "y": 60.552,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r2c0": {
+                "x": 43.297,
+                "y": 76.946,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r2c1": {
+                "x": 53.12,
+                "y": 75.562,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r2c2": {
+                "x": 62.943,
+                "y": 74.178,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r3c0": {
+                "x": 45.217,
+                "y": 90.572,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r3c1": {
+                "x": 55.04,
+                "y": 89.187,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "cel_r3c2": {
+                "x": 64.863,
+                "y": 87.803,
+                "scale_x": 1.24,
+                "scale_y": 0.86,
+                "rotation": -8.0214
+              },
+              "pt_frente_cotovelo": {
+                "x": 77.0,
+                "y": 53.0
+              },
+              "pt_frente_mao": {
+                "x": 100.0,
+                "y": 53.0
+              },
+              "pt_frente_joelho": {
+                "x": 76.0,
+                "y": 88.0
+              },
+              "pt_frente_pe": {
+                "x": 90.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.0,
+                "y": 45.0
+              },
+              "pt_tras_mao": {
+                "x": 37.0,
+                "y": 37.0
+              },
+              "pt_tras_joelho": {
+                "x": 43.0,
+                "y": 89.0
+              },
+              "pt_tras_pe": {
+                "x": 35.0
+              }
+            },
             "marks": [
-              "pronta"
+              "contato"
             ],
-            "note": "espada_saque: linha"
+            "note": "espada_estocada: contato"
+          },
+          {
+            "id": "q_espada_estocada_recuperacao",
+            "name": "espada_estocada_recuperacao",
+            "hold": 9,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 44.844,
+                "y": 42.731,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r0c1": {
+                "x": 53.313,
+                "y": 42.307,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r0c2": {
+                "x": 61.783,
+                "y": 41.883,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r1c0": {
+                "x": 45.611,
+                "y": 58.072,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r1c1": {
+                "x": 54.081,
+                "y": 57.648,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r1c2": {
+                "x": 62.55,
+                "y": 57.224,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r2c0": {
+                "x": 46.379,
+                "y": 73.413,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r2c1": {
+                "x": 54.848,
+                "y": 72.989,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r2c2": {
+                "x": 63.318,
+                "y": 72.565,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r3c0": {
+                "x": 47.147,
+                "y": 88.753,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r3c1": {
+                "x": 55.616,
+                "y": 88.33,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "cel_r3c2": {
+                "x": 64.086,
+                "y": 87.906,
+                "scale_x": 1.06,
+                "scale_y": 0.96,
+                "rotation": -2.8648
+              },
+              "pt_frente_cotovelo": {
+                "x": 68.0,
+                "y": 53.0
+              },
+              "pt_frente_mao": {
+                "x": 80.0,
+                "y": 52.0
+              },
+              "pt_frente_joelho": {
+                "x": 68.0,
+                "y": 85.0
+              },
+              "pt_frente_pe": {
+                "x": 75.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 47.0,
+                "y": 47.0
+              },
+              "pt_tras_mao": {
+                "x": 41.0,
+                "y": 39.0
+              },
+              "pt_tras_joelho": {
+                "x": 48.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 42.0
+              },
+              "espada_0": {
+                "rotation": -4.0,
+                "offset": [
+                  4.897,
+                  -1.936
+                ]
+              },
+              "espada_1": {
+                "rotation": -4.0,
+                "offset": [
+                  14.93,
+                  -2.123
+                ]
+              },
+              "espada_2": {
+                "rotation": -4.0,
+                "offset": [
+                  24.867,
+                  -2.342
+                ]
+              },
+              "espada_3": {
+                "rotation": -4.0,
+                "offset": [
+                  34.884,
+                  -2.249
+                ]
+              },
+              "espada_4": {
+                "rotation": -4.0,
+                "offset": [
+                  3.158,
+                  2.758
+                ]
+              },
+              "espada_5": {
+                "rotation": -4.0,
+                "offset": [
+                  -2.724,
+                  -1.393
+                ]
+              },
+              "espada_6": {
+                "rotation": -4.0,
+                "offset": [
+                  4.796,
+                  1.467
+                ]
+              }
+            },
+            "marks": [],
+            "note": "espada_estocada: recuperacao"
+          }
+        ]
+      },
+      {
+        "id": "anim_espada_bote",
+        "name": "espada_bote",
+        "fps": 100.0,
+        "loop": false,
+        "description": "Elo 2: o bote alto. A ponta sobe para o rosto -- mesma mecanica, outra linha, e e a linha que o adversario tem que ler.",
+        "frames": [
+          {
+            "id": "q_espada_bote_preparo",
+            "name": "espada_bote_preparo",
+            "hold": 8,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 53.636,
+                "y": 36.748,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r0c1": {
+                "x": 61.285,
+                "y": 37.438,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r0c2": {
+                "x": 68.934,
+                "y": 38.128,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r1c0": {
+                "x": 52.126,
+                "y": 53.48,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r1c1": {
+                "x": 59.775,
+                "y": 54.17,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r1c2": {
+                "x": 67.424,
+                "y": 54.86,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r2c0": {
+                "x": 50.616,
+                "y": 70.212,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r2c1": {
+                "x": 58.265,
+                "y": 70.902,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r2c2": {
+                "x": 65.914,
+                "y": 71.592,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r3c0": {
+                "x": 49.106,
+                "y": 86.944,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r3c1": {
+                "x": 56.755,
+                "y": 87.634,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "cel_r3c2": {
+                "x": 64.404,
+                "y": 88.324,
+                "scale_x": 0.96,
+                "scale_y": 1.05,
+                "rotation": 5.1566
+              },
+              "pt_frente_cotovelo": {
+                "x": 58.0,
+                "y": 47.0
+              },
+              "pt_frente_mao": {
+                "x": 52.0,
+                "y": 43.0
+              },
+              "pt_frente_joelho": {
+                "x": 63.0,
+                "y": 84.0
+              },
+              "pt_frente_pe": {
+                "x": 67.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 48.0,
+                "y": 49.0
+              },
+              "pt_tras_mao": {
+                "x": 43.0,
+                "y": 42.0
+              },
+              "pt_tras_joelho": {
+                "x": 48.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 42.0
+              },
+              "espada_0": {
+                "rotation": 13.0,
+                "offset": [
+                  5.249,
+                  -0.42
+                ]
+              },
+              "espada_1": {
+                "rotation": 13.0,
+                "offset": [
+                  14.899,
+                  2.335
+                ]
+              },
+              "espada_2": {
+                "rotation": 13.0,
+                "offset": [
+                  24.465,
+                  5.03
+                ]
+              },
+              "espada_3": {
+                "rotation": 13.0,
+                "offset": [
+                  34.017,
+                  8.049
+                ]
+              },
+              "espada_4": {
+                "rotation": 13.0,
+                "offset": [
+                  2.214,
+                  3.561
+                ]
+              },
+              "espada_5": {
+                "rotation": 13.0,
+                "offset": [
+                  -2.197,
+                  -2.129
+                ]
+              },
+              "espada_6": {
+                "rotation": 13.0,
+                "offset": [
+                  4.158,
+                  2.805
+                ]
+              }
+            },
+            "marks": [],
+            "note": "espada_bote: preparo"
+          },
+          {
+            "id": "q_espada_bote_contato",
+            "name": "espada_bote_contato",
+            "hold": 11,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 40.987,
+                "y": 47.515,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r0c1": {
+                "x": 50.529,
+                "y": 46.461,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r0c2": {
+                "x": 60.071,
+                "y": 45.407,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r1c0": {
+                "x": 42.55,
+                "y": 61.669,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r1c1": {
+                "x": 52.092,
+                "y": 60.615,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r1c2": {
+                "x": 61.634,
+                "y": 59.561,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r2c0": {
+                "x": 44.113,
+                "y": 75.823,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r2c1": {
+                "x": 53.655,
+                "y": 74.769,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r2c2": {
+                "x": 63.197,
+                "y": 73.715,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r3c0": {
+                "x": 45.676,
+                "y": 89.977,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r3c1": {
+                "x": 55.218,
+                "y": 88.923,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "cel_r3c2": {
+                "x": 64.76,
+                "y": 87.869,
+                "scale_x": 1.2,
+                "scale_y": 0.89,
+                "rotation": -6.3025
+              },
+              "pt_frente_cotovelo": {
+                "x": 76.0,
+                "y": 47.0
+              },
+              "pt_frente_mao": {
+                "x": 98.0,
+                "y": 41.0
+              },
+              "pt_frente_joelho": {
+                "x": 76.0,
+                "y": 88.0
+              },
+              "pt_frente_pe": {
+                "x": 90.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 44.0,
+                "y": 44.0
+              },
+              "pt_tras_mao": {
+                "x": 36.0,
+                "y": 36.0
+              },
+              "pt_tras_joelho": {
+                "x": 43.0,
+                "y": 89.0
+              },
+              "pt_tras_pe": {
+                "x": 35.0
+              },
+              "espada_0": {
+                "rotation": -11.0,
+                "offset": [
+                  4.624,
+                  -2.519
+                ]
+              },
+              "espada_1": {
+                "rotation": -11.0,
+                "offset": [
+                  14.56,
+                  -3.926
+                ]
+              },
+              "espada_2": {
+                "rotation": -11.0,
+                "offset": [
+                  24.396,
+                  -5.355
+                ]
+              },
+              "espada_3": {
+                "rotation": -11.0,
+                "offset": [
+                  34.35,
+                  -6.483
+                ]
+              },
+              "espada_4": {
+                "rotation": -11.0,
+                "offset": [
+                  3.471,
+                  2.353
+                ]
+              },
+              "espada_5": {
+                "rotation": -11.0,
+                "offset": [
+                  -2.873,
+                  -1.051
+                ]
+              },
+              "espada_6": {
+                "rotation": -11.0,
+                "offset": [
+                  4.939,
+                  0.872
+                ]
+              }
+            },
+            "marks": [
+              "contato"
+            ],
+            "note": "espada_bote: contato"
+          },
+          {
+            "id": "q_espada_bote_recuperacao",
+            "name": "espada_bote_recuperacao",
+            "hold": 11,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 45.434,
+                "y": 42.059,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r0c1": {
+                "x": 53.828,
+                "y": 41.723,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r0c2": {
+                "x": 62.221,
+                "y": 41.388,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r1c0": {
+                "x": 46.055,
+                "y": 57.567,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r1c1": {
+                "x": 54.448,
+                "y": 57.231,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r1c2": {
+                "x": 62.842,
+                "y": 56.895,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r2c0": {
+                "x": 46.676,
+                "y": 73.075,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r2c1": {
+                "x": 55.069,
+                "y": 72.739,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r2c2": {
+                "x": 63.462,
+                "y": 72.403,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r3c0": {
+                "x": 47.296,
+                "y": 88.582,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r3c1": {
+                "x": 55.69,
+                "y": 88.246,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r3c2": {
+                "x": 64.083,
+                "y": 87.91,
+                "scale_x": 1.05,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "pt_frente_cotovelo": {
+                "x": 68.0,
+                "y": 50.0
+              },
+              "pt_frente_mao": {
+                "x": 80.0,
+                "y": 47.0
+              },
+              "pt_frente_joelho": {
+                "x": 68.0,
+                "y": 85.0
+              },
+              "pt_frente_pe": {
+                "x": 75.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 47.0,
+                "y": 47.0
+              },
+              "pt_tras_mao": {
+                "x": 41.0,
+                "y": 39.0
+              },
+              "pt_tras_joelho": {
+                "x": 48.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 42.0
+              },
+              "espada_0": {
+                "rotation": -6.0,
+                "offset": [
+                  4.826,
+                  -2.106
+                ]
+              },
+              "espada_1": {
+                "rotation": -6.0,
+                "offset": [
+                  14.847,
+                  -2.642
+                ]
+              },
+              "espada_2": {
+                "rotation": -6.0,
+                "offset": [
+                  24.77,
+                  -3.209
+                ]
+              },
+              "espada_3": {
+                "rotation": -6.0,
+                "offset": [
+                  34.784,
+                  -3.465
+                ]
+              },
+              "espada_4": {
+                "rotation": -6.0,
+                "offset": [
+                  3.252,
+                  2.647
+                ]
+              },
+              "espada_5": {
+                "rotation": -6.0,
+                "offset": [
+                  -2.771,
+                  -1.297
+                ]
+              },
+              "espada_6": {
+                "rotation": -6.0,
+                "offset": [
+                  4.844,
+                  1.299
+                ]
+              }
+            },
+            "marks": [],
+            "note": "espada_bote: recuperacao"
+          }
+        ]
+      },
+      {
+        "id": "anim_espada_finta",
+        "name": "espada_finta",
+        "fps": 100.0,
+        "loop": false,
+        "description": "Elo 3: finta e afundo. A mao arrisca meia extensao, recolhe e vai fundo -- e o finalizador, e o alcance dele e o maior do arsenal.",
+        "frames": [
+          {
+            "id": "q_espada_finta_preparo",
+            "name": "espada_finta_preparo",
+            "hold": 11,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 45.514,
+                "y": 42.056,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r0c1": {
+                "x": 53.828,
+                "y": 41.723,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r0c2": {
+                "x": 62.141,
+                "y": 41.391,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r1c0": {
+                "x": 46.135,
+                "y": 57.564,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r1c1": {
+                "x": 54.448,
+                "y": 57.231,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r1c2": {
+                "x": 62.762,
+                "y": 56.898,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r2c0": {
+                "x": 46.756,
+                "y": 73.071,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r2c1": {
+                "x": 55.069,
+                "y": 72.739,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r2c2": {
+                "x": 63.382,
+                "y": 72.406,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r3c0": {
+                "x": 47.376,
+                "y": 88.579,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r3c1": {
+                "x": 55.69,
+                "y": 88.246,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "cel_r3c2": {
+                "x": 64.003,
+                "y": 87.913,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": -2.2918
+              },
+              "pt_frente_cotovelo": {
+                "x": 69.0,
+                "y": 52.0
+              },
+              "pt_frente_mao": {
+                "x": 82.0,
+                "y": 51.0
+              },
+              "pt_frente_joelho": {
+                "x": 66.0,
+                "y": 84.0
+              },
+              "pt_frente_pe": {
+                "x": 72.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 48.0,
+                "y": 48.0
+              },
+              "pt_tras_mao": {
+                "x": 43.0,
+                "y": 41.0
+              },
+              "pt_tras_joelho": {
+                "x": 48.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 42.0
+              },
+              "espada_0": {
+                "rotation": -3.0,
+                "offset": [
+                  4.93,
+                  -1.851
+                ]
+              },
+              "espada_1": {
+                "rotation": -3.0,
+                "offset": [
+                  14.965,
+                  -1.862
+                ]
+              },
+              "espada_2": {
+                "rotation": -3.0,
+                "offset": [
+                  24.904,
+                  -1.908
+                ]
+              },
+              "espada_3": {
+                "rotation": -3.0,
+                "offset": [
+                  34.918,
+                  -1.64
+                ]
+              },
+              "espada_4": {
+                "rotation": -3.0,
+                "offset": [
+                  3.109,
+                  2.813
+                ]
+              },
+              "espada_5": {
+                "rotation": -3.0,
+                "offset": [
+                  -2.699,
+                  -1.441
+                ]
+              },
+              "espada_6": {
+                "rotation": -3.0,
+                "offset": [
+                  4.77,
+                  1.55
+                ]
+              }
+            },
+            "marks": [
+              "finta"
+            ],
+            "note": "espada_finta: preparo"
+          },
+          {
+            "id": "q_espada_finta_contato",
+            "name": "espada_finta_contato",
+            "hold": 16,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 36.705,
+                "y": 54.772,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r0c1": {
+                "x": 47.211,
+                "y": 52.642,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r0c2": {
+                "x": 57.717,
+                "y": 50.512,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r1c0": {
+                "x": 39.216,
+                "y": 67.16,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r1c1": {
+                "x": 49.722,
+                "y": 65.03,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r1c2": {
+                "x": 60.228,
+                "y": 62.9,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r2c0": {
+                "x": 41.727,
+                "y": 79.548,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r2c1": {
+                "x": 52.233,
+                "y": 77.418,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r2c2": {
+                "x": 62.74,
+                "y": 75.288,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r3c0": {
+                "x": 44.238,
+                "y": 91.936,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r3c1": {
+                "x": 54.744,
+                "y": 89.806,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "cel_r3c2": {
+                "x": 65.251,
+                "y": 87.676,
+                "scale_x": 1.34,
+                "scale_y": 0.79,
+                "rotation": -11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 81.0,
+                "y": 55.0
+              },
+              "pt_frente_mao": {
+                "x": 108.0,
+                "y": 56.0
+              },
+              "pt_frente_joelho": {
+                "x": 81.0,
+                "y": 90.0
+              },
+              "pt_frente_pe": {
+                "x": 99.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 42.0,
+                "y": 43.0
+              },
+              "pt_tras_mao": {
+                "x": 32.0,
+                "y": 35.0
+              },
+              "pt_tras_joelho": {
+                "x": 40.0,
+                "y": 91.0
+              },
+              "pt_tras_pe": {
+                "x": 30.0
+              },
+              "espada_0": {
+                "rotation": 3.0,
+                "offset": [
+                  5.096,
+                  -1.325
+                ]
+              },
+              "espada_1": {
+                "rotation": 3.0,
+                "offset": [
+                  15.078,
+                  -0.287
+                ]
+              },
+              "espada_2": {
+                "rotation": 3.0,
+                "offset": [
+                  24.967,
+                  0.706
+                ]
+              },
+              "espada_3": {
+                "rotation": 3.0,
+                "offset": [
+                  34.898,
+                  2.019
+                ]
+              },
+              "espada_4": {
+                "rotation": 3.0,
+                "offset": [
+                  2.798,
+                  3.123
+                ]
+              },
+              "espada_5": {
+                "rotation": 3.0,
+                "offset": [
+                  -2.534,
+                  -1.715
+                ]
+              },
+              "espada_6": {
+                "rotation": 3.0,
+                "offset": [
+                  4.581,
+                  2.041
+                ]
+              }
+            },
+            "marks": [
+              "contato"
+            ],
+            "note": "espada_finta: contato"
+          },
+          {
+            "id": "q_espada_finta_recuperacao",
+            "name": "espada_finta_recuperacao",
+            "hold": 19,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 42.286,
+                "y": 45.508,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r0c1": {
+                "x": 51.369,
+                "y": 44.689,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r0c2": {
+                "x": 60.453,
+                "y": 43.869,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r1c0": {
+                "x": 43.609,
+                "y": 60.169,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r1c1": {
+                "x": 52.692,
+                "y": 59.349,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r1c2": {
+                "x": 61.776,
+                "y": 58.529,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r2c0": {
+                "x": 44.932,
+                "y": 74.829,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r2c1": {
+                "x": 54.015,
+                "y": 74.009,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r2c2": {
+                "x": 63.099,
+                "y": 73.19,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r3c0": {
+                "x": 46.255,
+                "y": 89.489,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r3c1": {
+                "x": 55.338,
+                "y": 88.67,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "cel_r3c2": {
+                "x": 64.422,
+                "y": 87.85,
+                "scale_x": 1.14,
+                "scale_y": 0.92,
+                "rotation": -5.1566
+              },
+              "pt_frente_cotovelo": {
+                "x": 70.0,
+                "y": 53.0
+              },
+              "pt_frente_mao": {
+                "x": 84.0,
+                "y": 52.0
+              },
+              "pt_frente_joelho": {
+                "x": 76.0,
+                "y": 88.0
+              },
+              "pt_frente_pe": {
+                "x": 90.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 46.0,
+                "y": 46.0
+              },
+              "pt_tras_mao": {
+                "x": 39.0,
+                "y": 38.0
+              },
+              "pt_tras_joelho": {
+                "x": 43.0,
+                "y": 89.0
+              },
+              "pt_tras_pe": {
+                "x": 35.0
+              },
+              "espada_0": {
+                "rotation": -2.0,
+                "offset": [
+                  4.961,
+                  -1.764
+                ]
+              },
+              "espada_1": {
+                "rotation": -2.0,
+                "offset": [
+                  14.995,
+                  -1.6
+                ]
+              },
+              "espada_2": {
+                "rotation": -2.0,
+                "offset": [
+                  24.934,
+                  -1.473
+                ]
+              },
+              "espada_3": {
+                "rotation": -2.0,
+                "offset": [
+                  34.941,
+                  -1.03
+                ]
+              },
+              "espada_4": {
+                "rotation": -2.0,
+                "offset": [
+                  3.06,
+                  2.867
+                ]
+              },
+              "espada_5": {
+                "rotation": -2.0,
+                "offset": [
+                  -2.674,
+                  -1.488
+                ]
+              },
+              "espada_6": {
+                "rotation": -2.0,
+                "offset": [
+                  4.742,
+                  1.634
+                ]
+              }
+            },
+            "marks": [],
+            "note": "espada_finta: recuperacao"
           }
         ]
       }
