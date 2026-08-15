@@ -1,0 +1,6074 @@
+{
+  "app": "Glyph Forge",
+  "version": 7,
+  "canvas": {
+    "width": 128,
+    "height": 128,
+    "background": "#181818",
+    "grid_size": 8,
+    "accent": "#33d9f2",
+    "zoom": 4.0
+  },
+  "default_font": {
+    "kind": "bitmap_rom",
+    "asset": "assets/fonts/ibm_vga_8x16.bin",
+    "encoding": "CP437",
+    "glyph_size": [
+      8,
+      16
+    ]
+  },
+  "elements": [
+    {
+      "id": "cel_r0c0",
+      "glyph": " ",
+      "x": 48.0,
+      "y": 40.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r0c1",
+      "glyph": "O",
+      "x": 56.0,
+      "y": 40.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r0c2",
+      "glyph": ">",
+      "x": 64.0,
+      "y": 40.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r1c0",
+      "glyph": " ",
+      "x": 48.0,
+      "y": 56.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r1c1",
+      "glyph": "|",
+      "x": 56.0,
+      "y": 56.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r1c2",
+      "glyph": " ",
+      "x": 64.0,
+      "y": 56.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r2c0",
+      "glyph": " ",
+      "x": 48.0,
+      "y": 72.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r2c1",
+      "glyph": "|",
+      "x": 56.0,
+      "y": 72.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r2c2",
+      "glyph": " ",
+      "x": 64.0,
+      "y": 72.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r3c0",
+      "glyph": " ",
+      "x": 48.0,
+      "y": 88.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r3c1",
+      "glyph": " ",
+      "x": 56.0,
+      "y": 88.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "cel_r3c2",
+      "glyph": " ",
+      "x": 64.0,
+      "y": 88.0,
+      "font_size": 16,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": -0.0,
+      "color": "#ebebe0",
+      "layer": 1,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "body",
+      "span": []
+    },
+    {
+      "id": "seg_frente_braco",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 2,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_frente_ombro",
+        "pt_frente_cotovelo"
+      ]
+    },
+    {
+      "id": "seg_frente_antebraco",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 2,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_frente_cotovelo",
+        "pt_frente_mao"
+      ]
+    },
+    {
+      "id": "seg_frente_coxa",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 2,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_frente_quadril",
+        "pt_frente_joelho"
+      ]
+    },
+    {
+      "id": "seg_frente_canela",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 2,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_frente_joelho",
+        "pt_frente_pe"
+      ]
+    },
+    {
+      "id": "seg_tras_braco",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 0,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_tras_ombro",
+        "pt_tras_cotovelo"
+      ]
+    },
+    {
+      "id": "seg_tras_antebraco",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 0,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_tras_cotovelo",
+        "pt_tras_mao"
+      ]
+    },
+    {
+      "id": "seg_tras_coxa",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 0,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_tras_quadril",
+        "pt_tras_joelho"
+      ]
+    },
+    {
+      "id": "seg_tras_canela",
+      "glyph": "|",
+      "x": 0.0,
+      "y": 0.0,
+      "font_size": 16,
+      "scale_x": 0.72,
+      "scale_y": 1.0,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#ebebe0",
+      "layer": 0,
+      "font_path": "assets/fonts/ibm_vga_8x16.bin",
+      "role": "limb",
+      "span": [
+        "pt_tras_joelho",
+        "pt_tras_pe"
+      ]
+    }
+  ],
+  "rig": {
+    "joints": [
+      {
+        "id": "pt_frente_ombro",
+        "name": "ombro_frente",
+        "x": 58.5,
+        "y": 49.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_frente_braco",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": "Joints::shoulder, lado frente, de actor::rig."
+      },
+      {
+        "id": "pt_frente_cotovelo",
+        "name": "cotovelo_frente",
+        "x": 63.0,
+        "y": 58.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_frente_braco",
+        "part_b_element_id": "seg_frente_antebraco",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": "Joints::elbow, lado frente, de actor::rig."
+      },
+      {
+        "id": "pt_frente_mao",
+        "name": "mao_frente",
+        "x": 61.0,
+        "y": 66.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_frente_antebraco",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": "Joints::hand, lado frente, de actor::rig."
+      },
+      {
+        "id": "pt_frente_quadril",
+        "name": "quadril_frente",
+        "x": 58.2,
+        "y": 71.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_frente_coxa",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": "Joints::hip, lado frente, de actor::rig."
+      },
+      {
+        "id": "pt_frente_joelho",
+        "name": "joelho_frente",
+        "x": 61.0,
+        "y": 82.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_frente_coxa",
+        "part_b_element_id": "seg_frente_canela",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": "Joints::knee, lado frente, de actor::rig."
+      },
+      {
+        "id": "pt_frente_pe",
+        "name": "pe_frente",
+        "x": 63.0,
+        "y": 95.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_frente_canela",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#ffcc33",
+        "kind": "joint",
+        "description": "Joints::foot, lado frente, de actor::rig."
+      },
+      {
+        "id": "pt_tras_ombro",
+        "name": "ombro_tras",
+        "x": 53.5,
+        "y": 49.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_tras_braco",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#c98f2a",
+        "kind": "joint",
+        "description": "Joints::shoulder, lado tras, de actor::rig."
+      },
+      {
+        "id": "pt_tras_cotovelo",
+        "name": "cotovelo_tras",
+        "x": 49.0,
+        "y": 58.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_tras_braco",
+        "part_b_element_id": "seg_tras_antebraco",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#c98f2a",
+        "kind": "joint",
+        "description": "Joints::elbow, lado tras, de actor::rig."
+      },
+      {
+        "id": "pt_tras_mao",
+        "name": "mao_tras",
+        "x": 51.0,
+        "y": 66.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_tras_antebraco",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#c98f2a",
+        "kind": "joint",
+        "description": "Joints::hand, lado tras, de actor::rig."
+      },
+      {
+        "id": "pt_tras_quadril",
+        "name": "quadril_tras",
+        "x": 53.8,
+        "y": 71.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_tras_coxa",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#c98f2a",
+        "kind": "joint",
+        "description": "Joints::hip, lado tras, de actor::rig."
+      },
+      {
+        "id": "pt_tras_joelho",
+        "name": "joelho_tras",
+        "x": 51.0,
+        "y": 82.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_tras_coxa",
+        "part_b_element_id": "seg_tras_canela",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#c98f2a",
+        "kind": "joint",
+        "description": "Joints::knee, lado tras, de actor::rig."
+      },
+      {
+        "id": "pt_tras_pe",
+        "name": "pe_tras",
+        "x": 49.0,
+        "y": 95.0,
+        "parent_id": "",
+        "attached_element_id": "",
+        "part_a_element_id": "seg_tras_canela",
+        "part_b_element_id": "",
+        "constraint_type": "pivot",
+        "fixed": false,
+        "color": "#c98f2a",
+        "kind": "joint",
+        "description": "Joints::foot, lado tras, de actor::rig."
+      }
+    ],
+    "semantics": {
+      "part_a_element_id": "Primeira peca conectada pelo ponto independente.",
+      "part_b_element_id": "Segunda peca conectada pelo ponto independente.",
+      "constraint_type": "pivot permite giro relativo; fixed solda as duas pecas.",
+      "fixed": "Quando verdadeiro, o ponto tambem esta ancorado ao mundo."
+    }
+  },
+  "attention_points": [
+    {
+      "id": "at_rosto",
+      "name": "rosto",
+      "x": 56.0,
+      "y": 40.0,
+      "parent_id": "",
+      "attached_element_id": "cel_r0c1",
+      "part_a_element_id": "",
+      "part_b_element_id": "",
+      "constraint_type": "pivot",
+      "fixed": false,
+      "color": "#ff4dc4",
+      "kind": "attention",
+      "description": "No jogo esta celula e apagada da silhueta e o rosto (olho, nariz e boca) e desenhado por cima dela, por actor::face. O 'O' aqui e so referencia."
+    }
+  ],
+  "labels": [
+    {
+      "id": "lb_tronco",
+      "name": "tronco",
+      "element_ids": [
+        "cel_r0c0",
+        "cel_r0c1",
+        "cel_r0c2",
+        "cel_r1c0",
+        "cel_r1c1",
+        "cel_r1c2",
+        "cel_r2c0",
+        "cel_r2c1",
+        "cel_r2c2",
+        "cel_r3c0",
+        "cel_r3c1",
+        "cel_r3c2"
+      ],
+      "description": "A silhueta 3x4 do corpo. Cada pose reescreve os glifos dela.",
+      "label_ids": []
+    },
+    {
+      "id": "lb_braco_frente",
+      "name": "braco_frente",
+      "element_ids": [
+        "seg_frente_braco",
+        "seg_frente_antebraco"
+      ],
+      "description": "Os dois segmentos do braco de frente.",
+      "label_ids": []
+    },
+    {
+      "id": "lb_perna_frente",
+      "name": "perna_frente",
+      "element_ids": [
+        "seg_frente_coxa",
+        "seg_frente_canela"
+      ],
+      "description": "Os dois segmentos do perna de frente.",
+      "label_ids": []
+    },
+    {
+      "id": "lb_braco_tras",
+      "name": "braco_tras",
+      "element_ids": [
+        "seg_tras_braco",
+        "seg_tras_antebraco"
+      ],
+      "description": "Os dois segmentos do braco de tras.",
+      "label_ids": []
+    },
+    {
+      "id": "lb_perna_tras",
+      "name": "perna_tras",
+      "element_ids": [
+        "seg_tras_coxa",
+        "seg_tras_canela"
+      ],
+      "description": "Os dois segmentos do perna de tras.",
+      "label_ids": []
+    },
+    {
+      "id": "lb_boneco",
+      "name": "boneco",
+      "element_ids": [],
+      "description": "O ator inteiro: tronco e os quatro membros.",
+      "label_ids": [
+        "lb_tronco",
+        "lb_braco_frente",
+        "lb_perna_frente",
+        "lb_braco_tras",
+        "lb_perna_tras"
+      ]
+    }
+  ],
+  "animation": {
+    "clips": [
+      {
+        "id": "anim_parado",
+        "name": "parado",
+        "fps": 2.2,
+        "loop": true,
+        "description": "Respiracao parada. O jogo alterna os dois quadros a 2,2 por segundo.",
+        "frames": [
+          {
+            "id": "q_parado_a",
+            "name": "parado_a",
+            "hold": 1,
+            "tone": "body",
+            "keys": {},
+            "note": "Pose::IdleA de actor::rig"
+          },
+          {
+            "id": "q_parado_b",
+            "name": "parado_b",
+            "hold": 1,
+            "tone": "body",
+            "keys": {},
+            "note": "Pose::IdleB de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_corrida",
+        "name": "corrida",
+        "fps": 29.44,
+        "loop": true,
+        "description": "Ciclo de corrida. O quadro e amarrado a distancia percorrida -- um a cada 9px -- entao a 265px/s a cadencia e a fps deste clipe.",
+        "frames": [
+          {
+            "id": "q_corrida_1",
+            "name": "corrida_1",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 58.638,
+                "y": 41.11,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c1": {
+                "x": 66.792,
+                "y": 42.763,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c2": {
+                "x": 74.946,
+                "y": 44.416,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c0": {
+                "x": 55.554,
+                "y": 56.32,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c1": {
+                "x": 63.708,
+                "y": 57.973,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c2": {
+                "x": 71.863,
+                "y": 59.626,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c0": {
+                "x": 52.471,
+                "y": 71.531,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c1": {
+                "x": 60.625,
+                "y": 73.184,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c2": {
+                "x": 68.779,
+                "y": 74.837,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c0": {
+                "x": 49.388,
+                "y": 86.742,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c1": {
+                "x": 57.542,
+                "y": 88.395,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c2": {
+                "x": 65.696,
+                "y": 90.048,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 66.196,
+                "y": 55.402
+              },
+              "pt_frente_mao": {
+                "x": 70.258,
+                "y": 55.206
+              },
+              "pt_frente_joelho": {
+                "x": 52.206,
+                "y": 81.0
+              },
+              "pt_frente_pe": {
+                "x": 49.01,
+                "y": 89.804
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.804
+              },
+              "pt_tras_mao": {
+                "x": 41.742,
+                "y": 66.464
+              },
+              "pt_tras_joelho": {
+                "x": 59.794,
+                "y": 74.072
+              },
+              "pt_tras_pe": {
+                "x": 62.99,
+                "y": 83.742
+              }
+            },
+            "note": "Pose::RunA de actor::rig"
+          },
+          {
+            "id": "q_corrida_2",
+            "name": "corrida_2",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 58.638,
+                "y": 41.11,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c1": {
+                "x": 66.792,
+                "y": 42.763,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c2": {
+                "x": 74.946,
+                "y": 44.416,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c0": {
+                "x": 55.554,
+                "y": 56.32,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c1": {
+                "x": 63.708,
+                "y": 57.973,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c2": {
+                "x": 71.863,
+                "y": 59.626,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c0": {
+                "x": 52.471,
+                "y": 71.531,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c1": {
+                "x": 60.625,
+                "y": 73.184,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c2": {
+                "x": 68.779,
+                "y": 74.837,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c0": {
+                "x": 49.388,
+                "y": 86.742,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c1": {
+                "x": 57.542,
+                "y": 88.395,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c2": {
+                "x": 65.696,
+                "y": 90.048,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 61.0
+              },
+              "pt_frente_mao": {
+                "x": 59.0,
+                "y": 63.0
+              },
+              "pt_frente_joelho": {
+                "x": 60.0,
+                "y": 81.0
+              },
+              "pt_frente_pe": {
+                "x": 62.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 51.0
+              },
+              "pt_tras_mao": {
+                "x": 53.0,
+                "y": 63.0
+              },
+              "pt_tras_joelho": {
+                "x": 52.0,
+                "y": 81.0
+              },
+              "pt_tras_pe": {
+                "x": 50.0
+              }
+            },
+            "note": "Pose::RunB de actor::rig"
+          },
+          {
+            "id": "q_corrida_3",
+            "name": "corrida_3",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 58.638,
+                "y": 41.11,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c1": {
+                "x": 66.792,
+                "y": 42.763,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c2": {
+                "x": 74.946,
+                "y": 44.416,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c0": {
+                "x": 55.554,
+                "y": 56.32,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c1": {
+                "x": 63.708,
+                "y": 57.973,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c2": {
+                "x": 71.863,
+                "y": 59.626,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c0": {
+                "x": 52.471,
+                "y": 71.531,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c1": {
+                "x": 60.625,
+                "y": 73.184,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c2": {
+                "x": 68.779,
+                "y": 74.837,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c0": {
+                "x": 49.388,
+                "y": 86.742,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c1": {
+                "x": 57.542,
+                "y": 88.395,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c2": {
+                "x": 65.696,
+                "y": 90.048,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 55.804
+              },
+              "pt_frente_mao": {
+                "x": 47.742,
+                "y": 66.464
+              },
+              "pt_frente_joelho": {
+                "x": 67.794,
+                "y": 74.072
+              },
+              "pt_frente_pe": {
+                "x": 74.99,
+                "y": 83.742
+              },
+              "pt_tras_cotovelo": {
+                "x": 56.196,
+                "y": 55.402
+              },
+              "pt_tras_mao": {
+                "x": 64.258,
+                "y": 55.206
+              },
+              "pt_tras_joelho": {
+                "x": 44.206,
+                "y": 81.0
+              },
+              "pt_tras_pe": {
+                "x": 37.01,
+                "y": 89.804
+              }
+            },
+            "note": "Pose::RunC de actor::rig"
+          },
+          {
+            "id": "q_corrida_4",
+            "name": "corrida_4",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 58.638,
+                "y": 41.11,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c1": {
+                "x": 66.792,
+                "y": 42.763,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c2": {
+                "x": 74.946,
+                "y": 44.416,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c0": {
+                "x": 55.554,
+                "y": 56.32,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c1": {
+                "x": 63.708,
+                "y": 57.973,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c2": {
+                "x": 71.863,
+                "y": 59.626,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c0": {
+                "x": 52.471,
+                "y": 71.531,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c1": {
+                "x": 60.625,
+                "y": 73.184,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c2": {
+                "x": 68.779,
+                "y": 74.837,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c0": {
+                "x": 49.388,
+                "y": 86.742,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c1": {
+                "x": 57.542,
+                "y": 88.395,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c2": {
+                "x": 65.696,
+                "y": 90.048,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 55.804
+              },
+              "pt_frente_mao": {
+                "x": 47.742,
+                "y": 66.464
+              },
+              "pt_frente_joelho": {
+                "x": 67.794,
+                "y": 74.072
+              },
+              "pt_frente_pe": {
+                "x": 74.99,
+                "y": 83.742
+              },
+              "pt_tras_cotovelo": {
+                "x": 56.196,
+                "y": 55.402
+              },
+              "pt_tras_mao": {
+                "x": 64.258,
+                "y": 55.206
+              },
+              "pt_tras_joelho": {
+                "x": 44.206,
+                "y": 81.0
+              },
+              "pt_tras_pe": {
+                "x": 37.01,
+                "y": 89.804
+              }
+            },
+            "note": "Pose::RunD de actor::rig"
+          },
+          {
+            "id": "q_corrida_5",
+            "name": "corrida_5",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 58.638,
+                "y": 41.11,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c1": {
+                "x": 66.792,
+                "y": 42.763,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c2": {
+                "x": 74.946,
+                "y": 44.416,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c0": {
+                "x": 55.554,
+                "y": 56.32,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c1": {
+                "x": 63.708,
+                "y": 57.973,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c2": {
+                "x": 71.863,
+                "y": 59.626,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c0": {
+                "x": 52.471,
+                "y": 71.531,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c1": {
+                "x": 60.625,
+                "y": 73.184,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c2": {
+                "x": 68.779,
+                "y": 74.837,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c0": {
+                "x": 49.388,
+                "y": 86.742,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c1": {
+                "x": 57.542,
+                "y": 88.395,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c2": {
+                "x": 65.696,
+                "y": 90.048,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 61.0
+              },
+              "pt_frente_mao": {
+                "x": 59.0,
+                "y": 63.0
+              },
+              "pt_frente_joelho": {
+                "x": 60.0,
+                "y": 81.0
+              },
+              "pt_frente_pe": {
+                "x": 62.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 51.0
+              },
+              "pt_tras_mao": {
+                "x": 53.0,
+                "y": 63.0
+              },
+              "pt_tras_joelho": {
+                "x": 52.0,
+                "y": 81.0
+              },
+              "pt_tras_pe": {
+                "x": 50.0
+              }
+            },
+            "note": "Pose::RunE de actor::rig"
+          },
+          {
+            "id": "q_corrida_6",
+            "name": "corrida_6",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 58.638,
+                "y": 41.11,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c1": {
+                "x": 66.792,
+                "y": 42.763,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r0c2": {
+                "x": 74.946,
+                "y": 44.416,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c0": {
+                "x": 55.554,
+                "y": 56.32,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c1": {
+                "x": 63.708,
+                "y": 57.973,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r1c2": {
+                "x": 71.863,
+                "y": 59.626,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c0": {
+                "x": 52.471,
+                "y": 71.531,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c1": {
+                "x": 60.625,
+                "y": 73.184,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r2c2": {
+                "x": 68.779,
+                "y": 74.837,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c0": {
+                "x": 49.388,
+                "y": 86.742,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c1": {
+                "x": 57.542,
+                "y": 88.395,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "cel_r3c2": {
+                "x": 65.696,
+                "y": 90.048,
+                "scale_x": 1.04,
+                "scale_y": 0.97,
+                "rotation": 11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 66.196,
+                "y": 55.402
+              },
+              "pt_frente_mao": {
+                "x": 70.258,
+                "y": 55.206
+              },
+              "pt_frente_joelho": {
+                "x": 52.206,
+                "y": 81.0
+              },
+              "pt_frente_pe": {
+                "x": 49.01,
+                "y": 89.804
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.804
+              },
+              "pt_tras_mao": {
+                "x": 41.742,
+                "y": 66.464
+              },
+              "pt_tras_joelho": {
+                "x": 59.794,
+                "y": 74.072
+              },
+              "pt_tras_pe": {
+                "x": 62.99,
+                "y": 83.742
+              }
+            },
+            "note": "Pose::RunF de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_escalada",
+        "name": "escalada",
+        "fps": 10.94,
+        "loop": true,
+        "description": "Bracadas na corrente, uma a cada 16px de subida.",
+        "frames": [
+          {
+            "id": "q_escalada_a",
+            "name": "escalada_a",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "pt_frente_cotovelo": {
+                "x": 62.0,
+                "y": 40.0
+              },
+              "pt_frente_mao": {
+                "x": 59.0,
+                "y": 32.0
+              },
+              "pt_frente_pe": {
+                "x": 62.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 50.0,
+                "y": 55.0
+              },
+              "pt_tras_mao": {
+                "x": 53.0,
+                "y": 47.0
+              },
+              "pt_tras_joelho": {
+                "x": 47.0
+              },
+              "pt_tras_pe": {
+                "x": 54.0
+              }
+            },
+            "note": "Pose::ClimbA de actor::rig"
+          },
+          {
+            "id": "q_escalada_b",
+            "name": "escalada_b",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "pt_frente_cotovelo": {
+                "x": 62.0,
+                "y": 55.0
+              },
+              "pt_frente_mao": {
+                "x": 59.0,
+                "y": 47.0
+              },
+              "pt_frente_joelho": {
+                "x": 65.0
+              },
+              "pt_frente_pe": {
+                "x": 58.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 50.0,
+                "y": 40.0
+              },
+              "pt_tras_mao": {
+                "x": 53.0,
+                "y": 32.0
+              },
+              "pt_tras_pe": {
+                "x": 50.0
+              }
+            },
+            "note": "Pose::ClimbB de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_agachado",
+        "name": "agachado",
+        "fps": 1.0,
+        "loop": true,
+        "description": "Pose unica. O corpo inteiro desce, e nao so as pernas.",
+        "frames": [
+          {
+            "id": "q_agachado",
+            "name": "agachado",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 47.2,
+                "y": 50.08,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r0c1": {
+                "glyph": " ",
+                "y": 50.08,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r0c2": {
+                "glyph": " ",
+                "x": 64.8,
+                "y": 50.08,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r1c0": {
+                "x": 47.2,
+                "y": 63.2,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r1c1": {
+                "glyph": "O",
+                "y": 63.2,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r1c2": {
+                "glyph": ">",
+                "x": 64.8,
+                "y": 63.2,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r2c0": {
+                "glyph": "_",
+                "x": 47.2,
+                "y": 76.32,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r2c1": {
+                "y": 76.32,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r2c2": {
+                "glyph": "_",
+                "x": 64.8,
+                "y": 76.32,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r3c0": {
+                "x": 47.2,
+                "y": 89.44,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r3c1": {
+                "y": 89.44,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "cel_r3c2": {
+                "x": 64.8,
+                "y": 89.44,
+                "scale_x": 1.1,
+                "scale_y": 0.82
+              },
+              "pt_frente_ombro": {
+                "y": 68.0
+              },
+              "pt_frente_cotovelo": {
+                "x": 62.5,
+                "y": 76.0
+              },
+              "pt_frente_mao": {
+                "x": 64.0,
+                "y": 83.0
+              },
+              "pt_frente_quadril": {
+                "y": 80.0
+              },
+              "pt_frente_joelho": {
+                "x": 66.0,
+                "y": 84.0
+              },
+              "pt_frente_pe": {
+                "x": 69.0
+              },
+              "pt_tras_ombro": {
+                "y": 68.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 49.5,
+                "y": 76.0
+              },
+              "pt_tras_mao": {
+                "x": 54.0,
+                "y": 83.0
+              },
+              "pt_tras_quadril": {
+                "y": 80.0
+              },
+              "pt_tras_joelho": {
+                "x": 46.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 43.0
+              }
+            },
+            "note": "Pose::Crouch de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_ar",
+        "name": "ar",
+        "fps": 2.0,
+        "loop": false,
+        "description": "Impulso e queda. O salto e medido no lancamento (air=1) e a queda na descida cheia (air=-1); no jogo os dois variam com a velocidade vertical.",
+        "frames": [
+          {
+            "id": "q_salto",
+            "name": "salto",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 50.72,
+                "y": 34.177,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r0c1": {
+                "x": 58.156,
+                "y": 34.438,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r0c2": {
+                "x": 65.591,
+                "y": 34.698,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r1c0": {
+                "x": 50.104,
+                "y": 51.767,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r1c1": {
+                "x": 57.54,
+                "y": 52.027,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r1c2": {
+                "x": 64.975,
+                "y": 52.287,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r2c0": {
+                "x": 49.488,
+                "y": 69.356,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r2c1": {
+                "x": 56.924,
+                "y": 69.616,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r2c2": {
+                "x": 64.359,
+                "y": 69.877,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r3c0": {
+                "x": 48.872,
+                "y": 86.945,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r3c1": {
+                "x": 56.308,
+                "y": 87.205,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "cel_r3c2": {
+                "x": 63.743,
+                "y": 87.466,
+                "scale_x": 0.93,
+                "scale_y": 1.1,
+                "rotation": 2.0054
+              },
+              "pt_frente_joelho": {
+                "x": 65.0,
+                "y": 77.0
+              },
+              "pt_frente_pe": {
+                "x": 59.0,
+                "y": 85.0
+              },
+              "pt_tras_joelho": {
+                "x": 47.0,
+                "y": 77.0
+              },
+              "pt_tras_pe": {
+                "x": 53.0,
+                "y": 85.0
+              }
+            },
+            "note": "Pose::Jump de actor::rig"
+          },
+          {
+            "id": "q_queda",
+            "name": "queda",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 46.047,
+                "y": 43.592,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r0c1": {
+                "x": 54.684,
+                "y": 43.376,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r0c2": {
+                "x": 63.321,
+                "y": 43.16,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r1c0": {
+                "x": 46.423,
+                "y": 58.628,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r1c1": {
+                "x": 55.06,
+                "y": 58.412,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r1c2": {
+                "x": 63.697,
+                "y": 58.196,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r2c0": {
+                "x": 46.799,
+                "y": 73.663,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r2c1": {
+                "x": 55.436,
+                "y": 73.447,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r2c2": {
+                "x": 64.073,
+                "y": 73.231,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r3c0": {
+                "x": 47.175,
+                "y": 88.698,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r3c1": {
+                "x": 55.812,
+                "y": 88.482,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "cel_r3c2": {
+                "x": 64.449,
+                "y": 88.266,
+                "scale_x": 1.08,
+                "scale_y": 0.94,
+                "rotation": -1.4324
+              },
+              "pt_frente_cotovelo": {
+                "y": 43.0
+              },
+              "pt_frente_mao": {
+                "y": 33.0
+              },
+              "pt_frente_joelho": {
+                "x": 63.5
+              },
+              "pt_tras_cotovelo": {
+                "y": 43.0
+              },
+              "pt_tras_mao": {
+                "y": 33.0
+              },
+              "pt_tras_joelho": {
+                "x": 48.5
+              }
+            },
+            "note": "Pose::Fall de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_mira",
+        "name": "mira",
+        "fps": 1.0,
+        "loop": true,
+        "description": "Tiro com a mira na horizontal, para a frente.",
+        "frames": [
+          {
+            "id": "q_mira",
+            "name": "mira",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 43.041,
+                "y": 44.185,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c1": {
+                "x": 52.056,
+                "y": 43.508,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c2": {
+                "x": 61.07,
+                "y": 42.831,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c0": {
+                "x": 44.168,
+                "y": 59.183,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c1": {
+                "x": 53.183,
+                "y": 58.506,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c2": {
+                "x": 62.197,
+                "y": 57.828,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c0": {
+                "x": 45.295,
+                "y": 74.181,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c1": {
+                "x": 54.31,
+                "y": 73.503,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c2": {
+                "x": 63.324,
+                "y": 72.826,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c0": {
+                "x": 46.422,
+                "y": 89.179,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c1": {
+                "x": 55.437,
+                "y": 88.501,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c2": {
+                "x": 64.451,
+                "y": 87.824,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "pt_frente_cotovelo": {
+                "x": 66.5,
+                "y": 53.0
+              },
+              "pt_frente_mao": {
+                "x": 77.0,
+                "y": 53.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 63.0,
+                "y": 55.0
+              },
+              "pt_tras_mao": {
+                "x": 70.0,
+                "y": 55.0
+              }
+            },
+            "note": "Pose::Shoot de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_guarda",
+        "name": "guarda",
+        "fps": 1.0,
+        "loop": true,
+        "description": "Guarda alta. Tira o controle de quem esta nela.",
+        "frames": [
+          {
+            "id": "q_guarda",
+            "name": "guarda",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 50.599,
+                "y": 41.819,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r0c1": {
+                "x": 59.224,
+                "y": 42.337,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r0c2": {
+                "x": 67.848,
+                "y": 42.855,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r1c0": {
+                "glyph": "[",
+                "x": 49.678,
+                "y": 57.151,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r1c1": {
+                "x": 58.303,
+                "y": 57.669,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r1c2": {
+                "x": 66.927,
+                "y": 58.187,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r2c0": {
+                "x": 48.757,
+                "y": 72.483,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r2c1": {
+                "x": 57.382,
+                "y": 73.001,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r2c2": {
+                "x": 66.006,
+                "y": 73.52,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r3c0": {
+                "x": 47.836,
+                "y": 87.816,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r3c1": {
+                "x": 56.461,
+                "y": 88.334,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "cel_r3c2": {
+                "x": 65.085,
+                "y": 88.852,
+                "scale_x": 1.08,
+                "scale_y": 0.96,
+                "rotation": 3.4377
+              },
+              "pt_frente_cotovelo": {
+                "x": 65.0,
+                "y": 46.0
+              },
+              "pt_frente_mao": {
+                "x": 69.0,
+                "y": 37.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 65.0,
+                "y": 46.0
+              },
+              "pt_tras_mao": {
+                "x": 69.0,
+                "y": 37.0
+              }
+            },
+            "note": "Pose::Parry de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_dano",
+        "name": "dano",
+        "fps": 2.0,
+        "loop": false,
+        "description": "Apanhar, cair e morrer. Cada quadro tem o seu papel de cor: os dois primeiros usam `hurt` e o ultimo `gone`.",
+        "frames": [
+          {
+            "id": "q_apanhando",
+            "name": "apanhando",
+            "hold": 1,
+            "tone": "hurt",
+            "keys": {
+              "cel_r0c0": {
+                "x": 53.364,
+                "y": 44.353,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r0c1": {
+                "glyph": "o",
+                "x": 62.101,
+                "y": 45.406,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r0c2": {
+                "glyph": "<",
+                "x": 70.837,
+                "y": 46.46,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r1c0": {
+                "x": 51.621,
+                "y": 58.808,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r1c1": {
+                "x": 60.358,
+                "y": 59.862,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r1c2": {
+                "x": 69.094,
+                "y": 60.915,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r2c0": {
+                "x": 49.878,
+                "y": 73.264,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r2c1": {
+                "x": 58.615,
+                "y": 74.317,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r2c2": {
+                "x": 67.351,
+                "y": 75.371,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r3c0": {
+                "x": 48.135,
+                "y": 87.719,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r3c1": {
+                "x": 56.872,
+                "y": 88.772,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "cel_r3c2": {
+                "x": 65.608,
+                "y": 89.826,
+                "scale_x": 1.1,
+                "scale_y": 0.91,
+                "rotation": 6.8755
+              },
+              "pt_frente_cotovelo": {
+                "x": 48.0,
+                "y": 44.0
+              },
+              "pt_frente_mao": {
+                "x": 41.0,
+                "y": 37.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 48.0,
+                "y": 44.0
+              },
+              "pt_tras_mao": {
+                "x": 41.0,
+                "y": 37.0
+              }
+            },
+            "note": "Pose::Hit de actor::rig"
+          },
+          {
+            "id": "q_caido",
+            "name": "caido",
+            "hold": 1,
+            "tone": "hurt",
+            "keys": {
+              "cel_r0c0": {
+                "x": 51.827,
+                "y": 59.95,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r0c1": {
+                "glyph": " ",
+                "x": 62.216,
+                "y": 61.841,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r0c2": {
+                "glyph": " ",
+                "x": 72.605,
+                "y": 63.731,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r1c0": {
+                "x": 50.051,
+                "y": 69.71,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r1c1": {
+                "glyph": " ",
+                "x": 60.44,
+                "y": 71.601,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r1c2": {
+                "x": 70.829,
+                "y": 73.491,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r2c0": {
+                "x": 48.275,
+                "y": 79.47,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r2c1": {
+                "glyph": "o",
+                "x": 58.664,
+                "y": 81.36,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r2c2": {
+                "glyph": "_",
+                "x": 69.053,
+                "y": 83.251,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r3c0": {
+                "glyph": "─",
+                "x": 46.499,
+                "y": 89.23,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r3c1": {
+                "glyph": "─",
+                "x": 56.888,
+                "y": 91.12,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "cel_r3c2": {
+                "glyph": "─",
+                "x": 67.277,
+                "y": 93.011,
+                "scale_x": 1.32,
+                "scale_y": 0.62,
+                "rotation": 10.3132
+              },
+              "pt_frente_cotovelo": {
+                "x": 44.0,
+                "y": 84.0
+              },
+              "pt_frente_mao": {
+                "x": 32.0,
+                "y": 91.0
+              },
+              "pt_frente_joelho": {
+                "x": 72.0,
+                "y": 90.0
+              },
+              "pt_frente_pe": {
+                "x": 88.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 44.0,
+                "y": 84.0
+              },
+              "pt_tras_mao": {
+                "x": 32.0,
+                "y": 91.0
+              },
+              "pt_tras_joelho": {
+                "x": 64.0,
+                "y": 90.0
+              },
+              "pt_tras_pe": {
+                "x": 72.0
+              }
+            },
+            "note": "Pose::Downed de actor::rig"
+          },
+          {
+            "id": "q_morto",
+            "name": "morto",
+            "hold": 1,
+            "tone": "gone",
+            "keys": {
+              "cel_r0c0": {
+                "x": 47.36,
+                "y": 46.72,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r0c1": {
+                "glyph": " ",
+                "y": 46.72,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r0c2": {
+                "glyph": " ",
+                "x": 64.64,
+                "y": 46.72,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r1c0": {
+                "x": 47.36,
+                "y": 60.8,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r1c1": {
+                "glyph": " ",
+                "y": 60.8,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r1c2": {
+                "x": 64.64,
+                "y": 60.8,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r2c0": {
+                "x": 47.36,
+                "y": 74.88,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r2c1": {
+                "glyph": " ",
+                "y": 74.88,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r2c2": {
+                "x": 64.64,
+                "y": 74.88,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r3c0": {
+                "glyph": "_",
+                "x": 47.36,
+                "y": 88.96,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r3c1": {
+                "glyph": "o",
+                "y": 88.96,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "cel_r3c2": {
+                "glyph": "_",
+                "x": 64.64,
+                "y": 88.96,
+                "scale_x": 1.08,
+                "scale_y": 0.88
+              },
+              "pt_frente_joelho": {
+                "x": 69.0,
+                "y": 90.0
+              },
+              "pt_frente_pe": {
+                "x": 78.0,
+                "y": 93.0
+              },
+              "pt_tras_joelho": {
+                "x": 43.0,
+                "y": 90.0
+              },
+              "pt_tras_pe": {
+                "x": 34.0,
+                "y": 93.0
+              }
+            },
+            "note": "Pose::Dead de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_soco_jab",
+        "name": "soco_jab",
+        "fps": 100.0,
+        "loop": false,
+        "description": "JAB, de pose::JAB. 180ms no total; cada tempo vale 10ms.",
+        "frames": [
+          {
+            "id": "q_soco_jab_preparo",
+            "name": "soco_jab_preparo",
+            "hold": 5,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 54.117,
+                "y": 37.841,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c1": {
+                "x": 61.758,
+                "y": 38.608,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c2": {
+                "x": 69.4,
+                "y": 39.375,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c0": {
+                "x": 52.472,
+                "y": 54.239,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c1": {
+                "x": 60.113,
+                "y": 55.006,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c2": {
+                "x": 67.755,
+                "y": 55.773,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c0": {
+                "x": 50.826,
+                "y": 70.637,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c1": {
+                "x": 58.468,
+                "y": 71.403,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c2": {
+                "x": 66.11,
+                "y": 72.17,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c0": {
+                "x": 49.181,
+                "y": 87.034,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c1": {
+                "x": 56.823,
+                "y": 87.801,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c2": {
+                "x": 64.464,
+                "y": 88.568,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "pt_frente_cotovelo": {
+                "x": 58.0,
+                "y": 51.0
+              },
+              "pt_frente_mao": {
+                "x": 52.0,
+                "y": 54.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 52.0,
+                "y": 53.0
+              },
+              "pt_tras_mao": {
+                "x": 54.0,
+                "y": 46.0
+              }
+            },
+            "note": "Pose::PunchWindup de actor::rig"
+          },
+          {
+            "id": "q_soco_jab_contato",
+            "name": "soco_jab_contato",
+            "hold": 7,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 43.041,
+                "y": 44.185,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c1": {
+                "x": 52.056,
+                "y": 43.508,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c2": {
+                "x": 61.07,
+                "y": 42.831,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c0": {
+                "x": 44.168,
+                "y": 59.183,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c1": {
+                "x": 53.183,
+                "y": 58.506,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c2": {
+                "x": 62.197,
+                "y": 57.828,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c0": {
+                "x": 45.295,
+                "y": 74.181,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c1": {
+                "x": 54.31,
+                "y": 73.503,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c2": {
+                "x": 63.324,
+                "y": 72.826,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c0": {
+                "x": 46.422,
+                "y": 89.179,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c1": {
+                "x": 55.437,
+                "y": 88.501,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c2": {
+                "x": 64.451,
+                "y": 87.824,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "pt_frente_cotovelo": {
+                "x": 69.0,
+                "y": 50.0
+              },
+              "pt_frente_mao": {
+                "x": 82.0,
+                "y": 50.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 51.0,
+                "y": 53.0
+              },
+              "pt_tras_mao": {
+                "x": 53.0,
+                "y": 46.0
+              }
+            },
+            "note": "Pose::PunchStrike de actor::rig"
+          },
+          {
+            "id": "q_soco_jab_recuperacao",
+            "name": "soco_jab_recuperacao",
+            "hold": 6,
+            "tone": "body",
+            "keys": {
+              "pt_frente_cotovelo": {
+                "x": 64.0,
+                "y": 52.0
+              },
+              "pt_frente_mao": {
+                "x": 67.0,
+                "y": 56.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 52.0,
+                "y": 53.0
+              },
+              "pt_tras_mao": {
+                "x": 54.0,
+                "y": 47.0
+              }
+            },
+            "note": "Pose::PunchRecover de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_soco_cross",
+        "name": "soco_cross",
+        "fps": 100.0,
+        "loop": false,
+        "description": "CROSS, de pose::CROSS. 200ms no total; cada tempo vale 10ms.",
+        "frames": [
+          {
+            "id": "q_soco_cross_preparo",
+            "name": "soco_cross_preparo",
+            "hold": 5,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 54.117,
+                "y": 37.841,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c1": {
+                "x": 61.758,
+                "y": 38.608,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c2": {
+                "x": 69.4,
+                "y": 39.375,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c0": {
+                "x": 52.472,
+                "y": 54.239,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c1": {
+                "x": 60.113,
+                "y": 55.006,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c2": {
+                "x": 67.755,
+                "y": 55.773,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c0": {
+                "x": 50.826,
+                "y": 70.637,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c1": {
+                "x": 58.468,
+                "y": 71.403,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c2": {
+                "x": 66.11,
+                "y": 72.17,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c0": {
+                "x": 49.181,
+                "y": 87.034,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c1": {
+                "x": 56.823,
+                "y": 87.801,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c2": {
+                "x": 64.464,
+                "y": 88.568,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "pt_frente_cotovelo": {
+                "x": 66.0,
+                "y": 52.0
+              },
+              "pt_frente_mao": {
+                "x": 72.0,
+                "y": 54.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 48.0,
+                "y": 52.0
+              },
+              "pt_tras_mao": {
+                "x": 42.0,
+                "y": 55.0
+              }
+            },
+            "note": "Pose::PunchWindup de actor::rig"
+          },
+          {
+            "id": "q_soco_cross_contato",
+            "name": "soco_cross_contato",
+            "hold": 8,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 43.041,
+                "y": 44.185,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c1": {
+                "x": 52.056,
+                "y": 43.508,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c2": {
+                "x": 61.07,
+                "y": 42.831,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c0": {
+                "x": 44.168,
+                "y": 59.183,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c1": {
+                "x": 53.183,
+                "y": 58.506,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c2": {
+                "x": 62.197,
+                "y": 57.828,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c0": {
+                "x": 45.295,
+                "y": 74.181,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c1": {
+                "x": 54.31,
+                "y": 73.503,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c2": {
+                "x": 63.324,
+                "y": 72.826,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c0": {
+                "x": 46.422,
+                "y": 89.179,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c1": {
+                "x": 55.437,
+                "y": 88.501,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c2": {
+                "x": 64.451,
+                "y": 87.824,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "pt_frente_cotovelo": {
+                "x": 51.0,
+                "y": 52.0
+              },
+              "pt_frente_mao": {
+                "x": 47.0,
+                "y": 48.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 72.0,
+                "y": 51.0
+              },
+              "pt_tras_mao": {
+                "x": 89.0,
+                "y": 52.0
+              }
+            },
+            "note": "Pose::PunchStrike de actor::rig"
+          },
+          {
+            "id": "q_soco_cross_recuperacao",
+            "name": "soco_cross_recuperacao",
+            "hold": 7,
+            "tone": "body",
+            "keys": {
+              "pt_frente_cotovelo": {
+                "x": 60.0,
+                "y": 53.0
+              },
+              "pt_frente_mao": {
+                "x": 62.0,
+                "y": 57.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 65.0,
+                "y": 54.0
+              },
+              "pt_tras_mao": {
+                "x": 68.0,
+                "y": 59.0
+              }
+            },
+            "note": "Pose::PunchRecover de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_soco_gancho",
+        "name": "soco_gancho",
+        "fps": 100.0,
+        "loop": false,
+        "description": "UPPERCUT, de pose::UPPERCUT. 280ms no total; cada tempo vale 10ms.",
+        "frames": [
+          {
+            "id": "q_soco_gancho_preparo",
+            "name": "soco_gancho_preparo",
+            "hold": 7,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 54.117,
+                "y": 37.841,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c1": {
+                "x": 61.758,
+                "y": 38.608,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c2": {
+                "x": 69.4,
+                "y": 39.375,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c0": {
+                "x": 52.472,
+                "y": 54.239,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c1": {
+                "x": 60.113,
+                "y": 55.006,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c2": {
+                "x": 67.755,
+                "y": 55.773,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c0": {
+                "x": 50.826,
+                "y": 70.637,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c1": {
+                "x": 58.468,
+                "y": 71.403,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c2": {
+                "x": 66.11,
+                "y": 72.17,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c0": {
+                "x": 49.181,
+                "y": 87.034,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c1": {
+                "x": 56.823,
+                "y": 87.801,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c2": {
+                "x": 64.464,
+                "y": 88.568,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "pt_frente_cotovelo": {
+                "x": 62.0,
+                "y": 62.0
+              },
+              "pt_frente_mao": {
+                "x": 65.0,
+                "y": 70.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 50.0,
+                "y": 54.0
+              },
+              "pt_tras_mao": {
+                "x": 52.0,
+                "y": 48.0
+              }
+            },
+            "note": "Pose::PunchWindup de actor::rig"
+          },
+          {
+            "id": "q_soco_gancho_contato",
+            "name": "soco_gancho_contato",
+            "hold": 11,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 43.041,
+                "y": 44.185,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c1": {
+                "x": 52.056,
+                "y": 43.508,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c2": {
+                "x": 61.07,
+                "y": 42.831,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c0": {
+                "x": 44.168,
+                "y": 59.183,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c1": {
+                "x": 53.183,
+                "y": 58.506,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c2": {
+                "x": 62.197,
+                "y": 57.828,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c0": {
+                "x": 45.295,
+                "y": 74.181,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c1": {
+                "x": 54.31,
+                "y": 73.503,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c2": {
+                "x": 63.324,
+                "y": 72.826,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c0": {
+                "x": 46.422,
+                "y": 89.179,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c1": {
+                "x": 55.437,
+                "y": 88.501,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c2": {
+                "x": 64.451,
+                "y": 87.824,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "pt_frente_cotovelo": {
+                "x": 68.0,
+                "y": 50.0
+              },
+              "pt_frente_mao": {
+                "x": 74.0,
+                "y": 30.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 47.0
+              },
+              "pt_tras_mao": {
+                "x": 42.0
+              }
+            },
+            "note": "Pose::PunchStrike de actor::rig"
+          },
+          {
+            "id": "q_soco_gancho_recuperacao",
+            "name": "soco_gancho_recuperacao",
+            "hold": 10,
+            "tone": "body",
+            "keys": {
+              "pt_frente_cotovelo": {
+                "x": 66.0,
+                "y": 48.0
+              },
+              "pt_frente_mao": {
+                "x": 70.0,
+                "y": 40.0
+              },
+              "pt_tras_cotovelo": {
+                "y": 55.0
+              },
+              "pt_tras_mao": {
+                "x": 50.0,
+                "y": 50.0
+              }
+            },
+            "note": "Pose::PunchRecover de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_rasteira",
+        "name": "rasteira",
+        "fps": 100.0,
+        "loop": false,
+        "description": "SWEEP, de pose::SWEEP. 300ms no total; cada tempo vale 10ms.",
+        "frames": [
+          {
+            "id": "q_rasteira_preparo",
+            "name": "rasteira_preparo",
+            "hold": 8,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 54.117,
+                "y": 37.841,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c1": {
+                "x": 61.758,
+                "y": 38.608,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c2": {
+                "x": 69.4,
+                "y": 39.375,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c0": {
+                "x": 52.472,
+                "y": 54.239,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c1": {
+                "x": 60.113,
+                "y": 55.006,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c2": {
+                "x": 67.755,
+                "y": 55.773,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c0": {
+                "x": 50.826,
+                "y": 70.637,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c1": {
+                "x": 58.468,
+                "y": 71.403,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c2": {
+                "x": 66.11,
+                "y": 72.17,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c0": {
+                "x": 49.181,
+                "y": 87.034,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c1": {
+                "x": 56.823,
+                "y": 87.801,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c2": {
+                "x": 64.464,
+                "y": 88.568,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "pt_frente_cotovelo": {
+                "x": 60.0,
+                "y": 60.0
+              },
+              "pt_frente_mao": {
+                "x": 64.0,
+                "y": 72.0
+              },
+              "pt_frente_joelho": {
+                "x": 64.0,
+                "y": 86.0
+              },
+              "pt_frente_pe": {
+                "x": 60.0,
+                "y": 97.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 50.0,
+                "y": 60.0
+              },
+              "pt_tras_mao": {
+                "x": 46.0,
+                "y": 70.0
+              }
+            },
+            "note": "Pose::PunchWindup de actor::rig"
+          },
+          {
+            "id": "q_rasteira_contato",
+            "name": "rasteira_contato",
+            "hold": 11,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 43.041,
+                "y": 44.185,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c1": {
+                "x": 52.056,
+                "y": 43.508,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c2": {
+                "x": 61.07,
+                "y": 42.831,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c0": {
+                "x": 44.168,
+                "y": 59.183,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c1": {
+                "x": 53.183,
+                "y": 58.506,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c2": {
+                "x": 62.197,
+                "y": 57.828,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c0": {
+                "x": 45.295,
+                "y": 74.181,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c1": {
+                "x": 54.31,
+                "y": 73.503,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c2": {
+                "x": 63.324,
+                "y": 72.826,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c0": {
+                "x": 46.422,
+                "y": 89.179,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c1": {
+                "x": 55.437,
+                "y": 88.501,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c2": {
+                "x": 64.451,
+                "y": 87.824,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "pt_frente_cotovelo": {
+                "x": 50.0,
+                "y": 66.0
+              },
+              "pt_frente_mao": {
+                "x": 44.0,
+                "y": 78.0
+              },
+              "pt_frente_joelho": {
+                "x": 76.0,
+                "y": 94.0
+              },
+              "pt_frente_pe": {
+                "x": 96.0,
+                "y": 98.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 46.0,
+                "y": 68.0
+              },
+              "pt_tras_mao": {
+                "x": 40.0,
+                "y": 80.0
+              }
+            },
+            "note": "Pose::PunchStrike de actor::rig"
+          },
+          {
+            "id": "q_rasteira_recuperacao",
+            "name": "rasteira_recuperacao",
+            "hold": 11,
+            "tone": "body",
+            "keys": {
+              "pt_frente_cotovelo": {
+                "x": 58.0
+              },
+              "pt_frente_mao": {
+                "x": 60.0
+              },
+              "pt_frente_joelho": {
+                "x": 68.0,
+                "y": 88.0
+              },
+              "pt_frente_pe": {
+                "x": 72.0,
+                "y": 96.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 51.0
+              },
+              "pt_tras_mao": {
+                "x": 48.0,
+                "y": 64.0
+              }
+            },
+            "note": "Pose::PunchRecover de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_voadora",
+        "name": "voadora",
+        "fps": 100.0,
+        "loop": false,
+        "description": "DIVE, de pose::DIVE. 500ms no total; cada tempo vale 10ms.",
+        "frames": [
+          {
+            "id": "q_voadora_preparo",
+            "name": "voadora_preparo",
+            "hold": 13,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 54.117,
+                "y": 37.841,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c1": {
+                "x": 61.758,
+                "y": 38.608,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r0c2": {
+                "x": 69.4,
+                "y": 39.375,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c0": {
+                "x": 52.472,
+                "y": 54.239,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c1": {
+                "x": 60.113,
+                "y": 55.006,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r1c2": {
+                "x": 67.755,
+                "y": 55.773,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c0": {
+                "x": 50.826,
+                "y": 70.637,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c1": {
+                "x": 58.468,
+                "y": 71.403,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r2c2": {
+                "x": 66.11,
+                "y": 72.17,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c0": {
+                "x": 49.181,
+                "y": 87.034,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c1": {
+                "x": 56.823,
+                "y": 87.801,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "cel_r3c2": {
+                "x": 64.464,
+                "y": 88.568,
+                "scale_x": 0.96,
+                "scale_y": 1.03,
+                "rotation": 5.7296
+              },
+              "pt_frente_cotovelo": {
+                "x": 52.0,
+                "y": 50.0
+              },
+              "pt_frente_mao": {
+                "x": 44.0,
+                "y": 46.0
+              },
+              "pt_frente_joelho": {
+                "x": 66.0,
+                "y": 80.0
+              },
+              "pt_frente_pe": {
+                "x": 72.0,
+                "y": 90.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 50.0,
+                "y": 52.0
+              },
+              "pt_tras_mao": {
+                "x": 42.0,
+                "y": 50.0
+              }
+            },
+            "note": "Pose::PunchWindup de actor::rig"
+          },
+          {
+            "id": "q_voadora_contato",
+            "name": "voadora_contato",
+            "hold": 19,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 43.041,
+                "y": 44.185,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c1": {
+                "x": 52.056,
+                "y": 43.508,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r0c2": {
+                "x": 61.07,
+                "y": 42.831,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c0": {
+                "x": 44.168,
+                "y": 59.183,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c1": {
+                "x": 53.183,
+                "y": 58.506,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r1c2": {
+                "x": 62.197,
+                "y": 57.828,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c0": {
+                "x": 45.295,
+                "y": 74.181,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c1": {
+                "x": 54.31,
+                "y": 73.503,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r2c2": {
+                "x": 63.324,
+                "y": 72.826,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c0": {
+                "x": 46.422,
+                "y": 89.179,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c1": {
+                "x": 55.437,
+                "y": 88.501,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "cel_r3c2": {
+                "x": 64.451,
+                "y": 87.824,
+                "scale_x": 1.13,
+                "scale_y": 0.94,
+                "rotation": -4.2972
+              },
+              "pt_frente_cotovelo": {
+                "x": 47.0,
+                "y": 48.0
+              },
+              "pt_frente_mao": {
+                "x": 36.0,
+                "y": 42.0
+              },
+              "pt_frente_joelho": {
+                "x": 74.0,
+                "y": 84.0
+              },
+              "pt_frente_pe": {
+                "x": 90.0,
+                "y": 94.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.0,
+                "y": 50.0
+              },
+              "pt_tras_mao": {
+                "x": 34.0,
+                "y": 47.0
+              }
+            },
+            "note": "Pose::PunchStrike de actor::rig"
+          },
+          {
+            "id": "q_voadora_recuperacao",
+            "name": "voadora_recuperacao",
+            "hold": 18,
+            "tone": "body",
+            "keys": {
+              "pt_frente_cotovelo": {
+                "x": 51.0,
+                "y": 51.0
+              },
+              "pt_frente_mao": {
+                "x": 45.0,
+                "y": 49.0
+              },
+              "pt_frente_joelho": {
+                "x": 68.0
+              },
+              "pt_frente_pe": {
+                "x": 76.0,
+                "y": 92.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 50.0,
+                "y": 53.0
+              },
+              "pt_tras_mao": {
+                "x": 44.0,
+                "y": 52.0
+              }
+            },
+            "note": "Pose::PunchRecover de actor::rig"
+          }
+        ]
+      },
+      {
+        "id": "anim_provocacao",
+        "name": "provocacao",
+        "fps": 4.0,
+        "loop": true,
+        "description": "Chamar para a briga. Os bracos abrem, a mao da frente chama, o corpo infla.",
+        "frames": [
+          {
+            "id": "q_provocacao_abre",
+            "name": "provocacao_abre",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 51.188,
+                "y": 36.886,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r0c1": {
+                "x": 58.939,
+                "y": 37.273,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r0c2": {
+                "x": 66.689,
+                "y": 37.661,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r1c0": {
+                "x": 50.349,
+                "y": 53.665,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r1c1": {
+                "x": 58.099,
+                "y": 54.052,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r1c2": {
+                "x": 65.849,
+                "y": 54.44,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r2c0": {
+                "x": 49.509,
+                "y": 70.444,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r2c1": {
+                "x": 57.259,
+                "y": 70.831,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r2c2": {
+                "x": 65.01,
+                "y": 71.219,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r3c0": {
+                "x": 48.67,
+                "y": 87.223,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r3c1": {
+                "x": 56.42,
+                "y": 87.61,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r3c2": {
+                "x": 64.17,
+                "y": 87.998,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "pt_frente_cotovelo": {
+                "x": 67.0,
+                "y": 51.0
+              },
+              "pt_frente_mao": {
+                "x": 73.0,
+                "y": 45.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.0,
+                "y": 51.0
+              },
+              "pt_tras_mao": {
+                "x": 39.0,
+                "y": 45.0
+              }
+            },
+            "marks": [],
+            "note": "bracos abertos, peito estufado"
+          },
+          {
+            "id": "q_provocacao_chama",
+            "name": "provocacao_chama",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 49.144,
+                "y": 38.731,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r0c1": {
+                "x": 57.142,
+                "y": 38.891,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r0c2": {
+                "x": 65.141,
+                "y": 39.051,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r1c0": {
+                "x": 48.818,
+                "y": 55.048,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r1c1": {
+                "x": 56.816,
+                "y": 55.208,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r1c2": {
+                "x": 64.814,
+                "y": 55.368,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r2c0": {
+                "x": 48.491,
+                "y": 71.365,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r2c1": {
+                "x": 56.49,
+                "y": 71.525,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r2c2": {
+                "x": 64.488,
+                "y": 71.685,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r3c0": {
+                "x": 48.165,
+                "y": 87.682,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r3c1": {
+                "x": 56.163,
+                "y": 87.842,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "cel_r3c2": {
+                "x": 64.162,
+                "y": 88.002,
+                "scale_y": 1.02,
+                "rotation": 1.1459
+              },
+              "pt_frente_cotovelo": {
+                "x": 65.0,
+                "y": 49.0
+              },
+              "pt_frente_mao": {
+                "x": 59.0,
+                "y": 43.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 44.0,
+                "y": 52.0
+              },
+              "pt_tras_mao": {
+                "x": 38.0,
+                "y": 47.0
+              }
+            },
+            "marks": [
+              "provoca"
+            ],
+            "note": "a mao da frente chama"
+          },
+          {
+            "id": "q_provocacao_volta",
+            "name": "provocacao_volta",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 51.188,
+                "y": 36.886,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r0c1": {
+                "x": 58.939,
+                "y": 37.273,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r0c2": {
+                "x": 66.689,
+                "y": 37.661,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r1c0": {
+                "x": 50.349,
+                "y": 53.665,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r1c1": {
+                "x": 58.099,
+                "y": 54.052,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r1c2": {
+                "x": 65.849,
+                "y": 54.44,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r2c0": {
+                "x": 49.509,
+                "y": 70.444,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r2c1": {
+                "x": 57.259,
+                "y": 70.831,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r2c2": {
+                "x": 65.01,
+                "y": 71.219,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r3c0": {
+                "x": 48.67,
+                "y": 87.223,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r3c1": {
+                "x": 56.42,
+                "y": 87.61,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "cel_r3c2": {
+                "x": 64.17,
+                "y": 87.998,
+                "scale_x": 0.97,
+                "scale_y": 1.05,
+                "rotation": 2.8648
+              },
+              "pt_frente_cotovelo": {
+                "x": 67.0,
+                "y": 51.0
+              },
+              "pt_frente_mao": {
+                "x": 73.0,
+                "y": 45.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.0,
+                "y": 51.0
+              },
+              "pt_tras_mao": {
+                "x": 39.0,
+                "y": 45.0
+              }
+            },
+            "marks": [],
+            "note": ""
+          },
+          {
+            "id": "q_provocacao_baixa",
+            "name": "provocacao_baixa",
+            "hold": 2,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 47.68,
+                "y": 42.24,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r0c1": {
+                "y": 42.24,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r0c2": {
+                "x": 64.32,
+                "y": 42.24,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r1c0": {
+                "x": 47.68,
+                "y": 57.6,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r1c1": {
+                "y": 57.6,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r1c2": {
+                "x": 64.32,
+                "y": 57.6,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r2c0": {
+                "x": 47.68,
+                "y": 72.96,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r2c1": {
+                "y": 72.96,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r2c2": {
+                "x": 64.32,
+                "y": 72.96,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r3c0": {
+                "x": 47.68,
+                "y": 88.32,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r3c1": {
+                "y": 88.32,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "cel_r3c2": {
+                "x": 64.32,
+                "y": 88.32,
+                "scale_x": 1.04,
+                "scale_y": 0.96
+              },
+              "pt_frente_cotovelo": {
+                "x": 64.0,
+                "y": 55.0
+              },
+              "pt_frente_mao": {
+                "x": 67.0,
+                "y": 60.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 48.0,
+                "y": 55.0
+              },
+              "pt_tras_mao": {
+                "x": 45.0,
+                "y": 60.0
+              }
+            },
+            "marks": [],
+            "note": "afunda antes de repetir"
+          }
+        ]
+      },
+      {
+        "id": "anim_aterrissagem",
+        "name": "aterrissagem",
+        "fps": 14.0,
+        "loop": false,
+        "description": "O impacto que faltava. O jogo ja achata o corpo ao pousar, mas os membros continuavam na pose de queda.",
+        "frames": [
+          {
+            "id": "q_pouso_impacto",
+            "name": "pouso_impacto",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 46.24,
+                "y": 54.56,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r0c1": {
+                "glyph": " ",
+                "y": 54.56,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r0c2": {
+                "glyph": " ",
+                "x": 65.76,
+                "y": 54.56,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r1c0": {
+                "x": 46.24,
+                "y": 66.4,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r1c1": {
+                "glyph": "O",
+                "y": 66.4,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r1c2": {
+                "glyph": ">",
+                "x": 65.76,
+                "y": 66.4,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r2c0": {
+                "glyph": "_",
+                "x": 46.24,
+                "y": 78.24,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r2c1": {
+                "y": 78.24,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r2c2": {
+                "glyph": "_",
+                "x": 65.76,
+                "y": 78.24,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r3c0": {
+                "x": 46.24,
+                "y": 90.08,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r3c1": {
+                "y": 90.08,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "cel_r3c2": {
+                "x": 65.76,
+                "y": 90.08,
+                "scale_x": 1.22,
+                "scale_y": 0.74
+              },
+              "pt_frente_cotovelo": {
+                "x": 66.0,
+                "y": 63.0
+              },
+              "pt_frente_mao": {
+                "x": 70.0,
+                "y": 71.0
+              },
+              "pt_frente_joelho": {
+                "x": 65.0,
+                "y": 87.0
+              },
+              "pt_frente_pe": {
+                "x": 67.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 46.0,
+                "y": 63.0
+              },
+              "pt_tras_mao": {
+                "x": 42.0,
+                "y": 71.0
+              },
+              "pt_tras_joelho": {
+                "x": 47.0,
+                "y": 87.0
+              },
+              "pt_tras_pe": {
+                "x": 45.0
+              }
+            },
+            "marks": [
+              "poeira"
+            ],
+            "note": "joelhos absorvem, maos quase no chao"
+          },
+          {
+            "id": "q_pouso_sobe",
+            "name": "pouso_sobe",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 47.36,
+                "y": 44.48,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r0c1": {
+                "y": 44.48,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r0c2": {
+                "x": 64.64,
+                "y": 44.48,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r1c0": {
+                "x": 47.36,
+                "y": 59.2,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r1c1": {
+                "y": 59.2,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r1c2": {
+                "x": 64.64,
+                "y": 59.2,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r2c0": {
+                "x": 47.36,
+                "y": 73.92,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r2c1": {
+                "y": 73.92,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r2c2": {
+                "x": 64.64,
+                "y": 73.92,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r3c0": {
+                "x": 47.36,
+                "y": 88.64,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r3c1": {
+                "y": 88.64,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "cel_r3c2": {
+                "x": 64.64,
+                "y": 88.64,
+                "scale_x": 1.08,
+                "scale_y": 0.92
+              },
+              "pt_frente_cotovelo": {
+                "x": 64.0,
+                "y": 59.0
+              },
+              "pt_frente_mao": {
+                "x": 66.0,
+                "y": 63.0
+              },
+              "pt_frente_joelho": {
+                "x": 62.0,
+                "y": 85.0
+              },
+              "pt_frente_pe": {
+                "x": 64.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 48.0,
+                "y": 59.0
+              },
+              "pt_tras_mao": {
+                "x": 46.0,
+                "y": 63.0
+              },
+              "pt_tras_joelho": {
+                "x": 50.0,
+                "y": 85.0
+              },
+              "pt_tras_pe": {
+                "x": 48.0
+              }
+            },
+            "marks": [],
+            "note": ""
+          },
+          {
+            "id": "q_pouso_pe",
+            "name": "pouso_pe",
+            "hold": 2,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 48.08,
+                "y": 39.44,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r0c1": {
+                "y": 39.44,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r0c2": {
+                "x": 63.92,
+                "y": 39.44,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r1c0": {
+                "x": 48.08,
+                "y": 55.6,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r1c1": {
+                "y": 55.6,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r1c2": {
+                "x": 63.92,
+                "y": 55.6,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r2c0": {
+                "x": 48.08,
+                "y": 71.76,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r2c1": {
+                "y": 71.76,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r2c2": {
+                "x": 63.92,
+                "y": 71.76,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r3c0": {
+                "x": 48.08,
+                "y": 87.92,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r3c1": {
+                "y": 87.92,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              },
+              "cel_r3c2": {
+                "x": 63.92,
+                "y": 87.92,
+                "scale_x": 0.99,
+                "scale_y": 1.01
+              }
+            },
+            "marks": [],
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "anim_vitoria",
+        "name": "vitoria",
+        "fps": 3.0,
+        "loop": true,
+        "description": "Ganhou. Bracos para cima, corpo esticado, um pulinho no lugar.",
+        "frames": [
+          {
+            "id": "q_vitoria_sobe",
+            "name": "vitoria_sobe",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 48.48,
+                "y": 34.96,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r0c1": {
+                "y": 34.96,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r0c2": {
+                "x": 63.52,
+                "y": 34.96,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r1c0": {
+                "x": 48.48,
+                "y": 52.4,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r1c1": {
+                "y": 52.4,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r1c2": {
+                "x": 63.52,
+                "y": 52.4,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r2c0": {
+                "x": 48.48,
+                "y": 69.84,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r2c1": {
+                "y": 69.84,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r2c2": {
+                "x": 63.52,
+                "y": 69.84,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r3c0": {
+                "x": 48.48,
+                "y": 87.28,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r3c1": {
+                "y": 87.28,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "cel_r3c2": {
+                "x": 63.52,
+                "y": 87.28,
+                "scale_x": 0.94,
+                "scale_y": 1.09
+              },
+              "pt_frente_cotovelo": {
+                "x": 67.0,
+                "y": 46.0
+              },
+              "pt_frente_mao": {
+                "x": 72.0,
+                "y": 36.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.0,
+                "y": 46.0
+              },
+              "pt_tras_mao": {
+                "x": 40.0,
+                "y": 36.0
+              }
+            },
+            "marks": [],
+            "note": "bracos ao alto, abertos"
+          },
+          {
+            "id": "q_vitoria_alto",
+            "name": "vitoria_alto",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 48.8,
+                "y": 32.16,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r0c1": {
+                "y": 32.16,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r0c2": {
+                "x": 63.2,
+                "y": 32.16,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r1c0": {
+                "x": 48.8,
+                "y": 50.4,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r1c1": {
+                "y": 50.4,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r1c2": {
+                "x": 63.2,
+                "y": 50.4,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r2c0": {
+                "x": 48.8,
+                "y": 68.64,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r2c1": {
+                "y": 68.64,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r2c2": {
+                "x": 63.2,
+                "y": 68.64,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r3c0": {
+                "x": 48.8,
+                "y": 86.88,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r3c1": {
+                "y": 86.88,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "cel_r3c2": {
+                "x": 63.2,
+                "y": 86.88,
+                "scale_x": 0.9,
+                "scale_y": 1.14
+              },
+              "pt_frente_cotovelo": {
+                "x": 70.0,
+                "y": 43.0
+              },
+              "pt_frente_mao": {
+                "x": 77.0,
+                "y": 30.0
+              },
+              "pt_frente_joelho": {
+                "y": 80.0
+              },
+              "pt_frente_pe": {
+                "y": 91.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 42.0,
+                "y": 43.0
+              },
+              "pt_tras_mao": {
+                "x": 35.0,
+                "y": 30.0
+              },
+              "pt_tras_joelho": {
+                "y": 80.0
+              },
+              "pt_tras_pe": {
+                "y": 91.0
+              }
+            },
+            "marks": [
+              "pulo"
+            ],
+            "note": "sai do chao"
+          },
+          {
+            "id": "q_vitoria_desce",
+            "name": "vitoria_desce",
+            "hold": 2,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 48.24,
+                "y": 37.2,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r0c1": {
+                "y": 37.2,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r0c2": {
+                "x": 63.76,
+                "y": 37.2,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r1c0": {
+                "x": 48.24,
+                "y": 54.0,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r1c1": {
+                "y": 54.0,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r1c2": {
+                "x": 63.76,
+                "y": 54.0,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r2c0": {
+                "x": 48.24,
+                "y": 70.8,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r2c1": {
+                "y": 70.8,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r2c2": {
+                "x": 63.76,
+                "y": 70.8,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r3c0": {
+                "x": 48.24,
+                "y": 87.6,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r3c1": {
+                "y": 87.6,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "cel_r3c2": {
+                "x": 63.76,
+                "y": 87.6,
+                "scale_x": 0.97,
+                "scale_y": 1.05
+              },
+              "pt_frente_cotovelo": {
+                "x": 68.0,
+                "y": 48.0
+              },
+              "pt_frente_mao": {
+                "x": 73.0,
+                "y": 39.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 44.0,
+                "y": 48.0
+              },
+              "pt_tras_mao": {
+                "x": 39.0,
+                "y": 39.0
+              }
+            },
+            "marks": [],
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "anim_nocaute",
+        "name": "nocaute",
+        "fps": 9.0,
+        "loop": false,
+        "description": "Morrer com queda, e nao de uma vez. Hoje o boneco pula direto para a pose deitada; aqui ele e arrancado do chao antes.",
+        "frames": [
+          {
+            "id": "q_ko_estala",
+            "name": "ko_estala",
+            "hold": 1,
+            "tone": "hurt",
+            "keys": {
+              "cel_r0c0": {
+                "x": 62.334,
+                "y": 45.203,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r0c1": {
+                "glyph": "o",
+                "x": 70.894,
+                "y": 47.851,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r0c2": {
+                "glyph": "<",
+                "x": 79.454,
+                "y": 50.499,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r1c0": {
+                "x": 58.079,
+                "y": 58.96,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r1c1": {
+                "x": 66.639,
+                "y": 61.608,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r1c2": {
+                "x": 75.199,
+                "y": 64.256,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r2c0": {
+                "x": 53.823,
+                "y": 72.717,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r2c1": {
+                "x": 62.383,
+                "y": 75.365,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r2c2": {
+                "x": 70.943,
+                "y": 78.013,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r3c0": {
+                "x": 49.568,
+                "y": 86.474,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r3c1": {
+                "x": 58.128,
+                "y": 89.122,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "cel_r3c2": {
+                "x": 66.688,
+                "y": 91.769,
+                "scale_x": 1.12,
+                "scale_y": 0.9,
+                "rotation": 17.1887
+              },
+              "pt_frente_cotovelo": {
+                "x": 49.0,
+                "y": 45.0
+              },
+              "pt_frente_mao": {
+                "x": 40.0,
+                "y": 39.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 45.0,
+                "y": 47.0
+              },
+              "pt_tras_mao": {
+                "x": 35.0,
+                "y": 42.0
+              }
+            },
+            "marks": [
+              "impacto"
+            ],
+            "note": "a cabeca vai primeiro"
+          },
+          {
+            "id": "q_ko_voa",
+            "name": "ko_voa",
+            "hold": 1,
+            "tone": "hurt",
+            "keys": {
+              "cel_r0c0": {
+                "x": 68.481,
+                "y": 56.358,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r0c1": {
+                "glyph": "o",
+                "x": 77.075,
+                "y": 61.626,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r0c2": {
+                "glyph": "<",
+                "x": 85.668,
+                "y": 66.895,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r1c0": {
+                "x": 62.46,
+                "y": 66.179,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r1c1": {
+                "x": 71.053,
+                "y": 71.447,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r1c2": {
+                "x": 79.647,
+                "y": 76.716,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r2c0": {
+                "x": 56.439,
+                "y": 76.0,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r2c1": {
+                "x": 65.032,
+                "y": 81.268,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r2c2": {
+                "x": 73.625,
+                "y": 86.537,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r3c0": {
+                "x": 50.417,
+                "y": 85.821,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r3c1": {
+                "x": 59.011,
+                "y": 91.089,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "cel_r3c2": {
+                "x": 67.604,
+                "y": 96.358,
+                "scale_x": 1.26,
+                "scale_y": 0.72,
+                "rotation": 31.5127
+              },
+              "pt_frente_cotovelo": {
+                "x": 44.0,
+                "y": 52.0
+              },
+              "pt_frente_mao": {
+                "x": 32.0,
+                "y": 50.0
+              },
+              "pt_frente_joelho": {
+                "x": 67.0,
+                "y": 76.0
+              },
+              "pt_frente_pe": {
+                "x": 75.0,
+                "y": 72.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 41.0,
+                "y": 56.0
+              },
+              "pt_tras_mao": {
+                "x": 29.0,
+                "y": 58.0
+              },
+              "pt_tras_joelho": {
+                "x": 62.0,
+                "y": 80.0
+              },
+              "pt_tras_pe": {
+                "x": 69.0,
+                "y": 78.0
+              }
+            },
+            "marks": [],
+            "note": "fora do chao, membros para tras"
+          },
+          {
+            "id": "q_ko_bate",
+            "name": "ko_bate",
+            "hold": 1,
+            "tone": "hurt",
+            "keys": {
+              "cel_r0c0": {
+                "x": 52.169,
+                "y": 60.94,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r0c1": {
+                "glyph": " ",
+                "x": 62.675,
+                "y": 63.07,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r0c2": {
+                "glyph": " ",
+                "x": 73.182,
+                "y": 65.199,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r1c0": {
+                "x": 50.262,
+                "y": 70.349,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r1c1": {
+                "glyph": " ",
+                "x": 60.768,
+                "y": 72.478,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r1c2": {
+                "x": 71.274,
+                "y": 74.608,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r2c0": {
+                "x": 48.355,
+                "y": 79.757,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r2c1": {
+                "glyph": "o",
+                "x": 58.861,
+                "y": 81.887,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r2c2": {
+                "glyph": "_",
+                "x": 69.367,
+                "y": 84.017,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r3c0": {
+                "glyph": "─",
+                "x": 46.447,
+                "y": 89.166,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r3c1": {
+                "glyph": "─",
+                "x": 56.954,
+                "y": 91.296,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "cel_r3c2": {
+                "glyph": "─",
+                "x": 67.46,
+                "y": 93.425,
+                "scale_x": 1.34,
+                "scale_y": 0.6,
+                "rotation": 11.4592
+              },
+              "pt_frente_cotovelo": {
+                "x": 43.0,
+                "y": 78.0
+              },
+              "pt_frente_mao": {
+                "x": 31.0,
+                "y": 86.0
+              },
+              "pt_frente_joelho": {
+                "x": 69.0,
+                "y": 88.0
+              },
+              "pt_frente_pe": {
+                "x": 80.0,
+                "y": 93.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 40.0,
+                "y": 81.0
+              },
+              "pt_tras_mao": {
+                "x": 28.0,
+                "y": 89.0
+              },
+              "pt_tras_joelho": {
+                "x": 64.0,
+                "y": 90.0
+              },
+              "pt_tras_pe": {
+                "x": 74.0,
+                "y": 94.0
+              }
+            },
+            "marks": [
+              "baque"
+            ],
+            "note": "chega no chao"
+          },
+          {
+            "id": "q_ko_para",
+            "name": "ko_para",
+            "hold": 3,
+            "tone": "gone",
+            "keys": {
+              "cel_r0c0": {
+                "x": 47.2,
+                "y": 47.84,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r0c1": {
+                "glyph": " ",
+                "y": 47.84,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r0c2": {
+                "glyph": " ",
+                "x": 64.8,
+                "y": 47.84,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r1c0": {
+                "x": 47.2,
+                "y": 61.6,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r1c1": {
+                "glyph": " ",
+                "y": 61.6,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r1c2": {
+                "x": 64.8,
+                "y": 61.6,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r2c0": {
+                "x": 47.2,
+                "y": 75.36,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r2c1": {
+                "glyph": " ",
+                "y": 75.36,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r2c2": {
+                "x": 64.8,
+                "y": 75.36,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r3c0": {
+                "glyph": "_",
+                "x": 47.2,
+                "y": 89.12,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r3c1": {
+                "glyph": "o",
+                "y": 89.12,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "cel_r3c2": {
+                "glyph": "_",
+                "x": 64.8,
+                "y": 89.12,
+                "scale_x": 1.1,
+                "scale_y": 0.86
+              },
+              "pt_frente_cotovelo": {
+                "x": 44.0,
+                "y": 83.0
+              },
+              "pt_frente_mao": {
+                "x": 33.0,
+                "y": 90.0
+              },
+              "pt_frente_joelho": {
+                "x": 69.0,
+                "y": 90.0
+              },
+              "pt_frente_pe": {
+                "x": 78.0,
+                "y": 93.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 42.0,
+                "y": 84.0
+              },
+              "pt_tras_mao": {
+                "x": 31.0,
+                "y": 91.0
+              },
+              "pt_tras_joelho": {
+                "x": 43.0,
+                "y": 90.0
+              },
+              "pt_tras_pe": {
+                "x": 34.0,
+                "y": 93.0
+              }
+            },
+            "marks": [],
+            "note": "mesma pose de Dead, para emendar"
+          }
+        ]
+      },
+      {
+        "id": "anim_esquiva",
+        "name": "esquiva",
+        "fps": 16.0,
+        "loop": false,
+        "description": "Jogar o corpo para tras sem sair do lugar. Falta ao jogo uma leitura defensiva que nao seja a guarda parada.",
+        "frames": [
+          {
+            "id": "q_esquiva_inclina",
+            "name": "esquiva_inclina",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 36.115,
+                "y": 45.933,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r0c1": {
+                "x": 44.39,
+                "y": 44.082,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r0c2": {
+                "x": 52.666,
+                "y": 42.232,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r1c0": {
+                "x": 39.432,
+                "y": 60.766,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r1c1": {
+                "x": 47.707,
+                "y": 58.916,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r1c2": {
+                "x": 55.983,
+                "y": 57.065,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r2c0": {
+                "x": 42.749,
+                "y": 75.6,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r2c1": {
+                "x": 51.024,
+                "y": 73.75,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r2c2": {
+                "x": 59.3,
+                "y": 71.899,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r3c0": {
+                "x": 46.066,
+                "y": 90.434,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r3c1": {
+                "x": 54.341,
+                "y": 88.583,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "cel_r3c2": {
+                "x": 62.617,
+                "y": 86.733,
+                "scale_x": 1.06,
+                "scale_y": 0.95,
+                "rotation": -12.6051
+              },
+              "pt_frente_cotovelo": {
+                "x": 54.0,
+                "y": 52.0
+              },
+              "pt_frente_mao": {
+                "x": 47.0,
+                "y": 50.0
+              },
+              "pt_frente_joelho": {
+                "x": 65.0,
+                "y": 83.0
+              },
+              "pt_frente_pe": {
+                "x": 71.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 47.0,
+                "y": 54.0
+              },
+              "pt_tras_mao": {
+                "x": 40.0,
+                "y": 53.0
+              },
+              "pt_tras_joelho": {
+                "x": 49.0,
+                "y": 84.0
+              },
+              "pt_tras_pe": {
+                "x": 45.0
+              }
+            },
+            "marks": [],
+            "note": "peso para tras"
+          },
+          {
+            "id": "q_esquiva_fundo",
+            "name": "esquiva_fundo",
+            "hold": 1,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 28.409,
+                "y": 54.162,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r0c1": {
+                "x": 36.809,
+                "y": 50.61,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r0c2": {
+                "x": 45.21,
+                "y": 47.059,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r1c0": {
+                "x": 33.892,
+                "y": 67.13,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r1c1": {
+                "x": 42.292,
+                "y": 63.579,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r1c2": {
+                "x": 50.693,
+                "y": 60.027,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r2c0": {
+                "x": 39.375,
+                "y": 80.099,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r2c1": {
+                "x": 47.775,
+                "y": 76.547,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r2c2": {
+                "x": 56.176,
+                "y": 72.996,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r3c0": {
+                "x": 44.858,
+                "y": 93.067,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r3c1": {
+                "x": 53.258,
+                "y": 89.516,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "cel_r3c2": {
+                "x": 61.659,
+                "y": 85.964,
+                "scale_x": 1.14,
+                "scale_y": 0.88,
+                "rotation": -22.9183
+              },
+              "pt_frente_cotovelo": {
+                "x": 50.0,
+                "y": 55.0
+              },
+              "pt_frente_mao": {
+                "x": 41.0,
+                "y": 55.0
+              },
+              "pt_frente_joelho": {
+                "x": 69.0,
+                "y": 84.0
+              },
+              "pt_frente_pe": {
+                "x": 77.0
+              },
+              "pt_tras_cotovelo": {
+                "x": 43.0
+              },
+              "pt_tras_mao": {
+                "x": 34.0,
+                "y": 59.0
+              },
+              "pt_tras_joelho": {
+                "x": 47.0,
+                "y": 86.0
+              },
+              "pt_tras_pe": {
+                "x": 43.0
+              }
+            },
+            "marks": [
+              "invulneravel"
+            ],
+            "note": "o quadro que devia sair ileso"
+          },
+          {
+            "id": "q_esquiva_volta",
+            "name": "esquiva_volta",
+            "hold": 2,
+            "tone": "body",
+            "keys": {
+              "cel_r0c0": {
+                "x": 43.48,
+                "y": 41.948,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r0c1": {
+                "x": 51.614,
+                "y": 41.296,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r0c2": {
+                "x": 59.748,
+                "y": 40.643,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r1c0": {
+                "x": 44.733,
+                "y": 57.577,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r1c1": {
+                "x": 52.867,
+                "y": 56.925,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r1c2": {
+                "x": 61.001,
+                "y": 56.273,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r2c0": {
+                "x": 45.987,
+                "y": 73.207,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r2c1": {
+                "x": 54.12,
+                "y": 72.555,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r2c2": {
+                "x": 62.254,
+                "y": 71.903,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r3c0": {
+                "x": 47.24,
+                "y": 88.837,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r3c1": {
+                "x": 55.373,
+                "y": 88.185,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              },
+              "cel_r3c2": {
+                "x": 63.507,
+                "y": 87.533,
+                "scale_x": 1.02,
+                "scale_y": 0.98,
+                "rotation": -4.5837
+              }
+            },
+            "marks": [],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "semantics": {
+      "elements": "A lista `elements` e a pose de repouso; um quadro guarda so a diferenca.",
+      "keys": "id da peca -> campo -> valor.",
+      "hold": "Por quantos tempos o quadro fica na tela.",
+      "tone": "Papel de cor do corpo neste quadro: body, hurt ou gone."
+    }
+  },
+  "skins": [
+    {
+      "id": "stick",
+      "name": "STICK",
+      "swap": [],
+      "accent": "Oo<>",
+      "limb": "|",
+      "body": "#ebebe0",
+      "hurt": "#e02138",
+      "gone": "#4a4d57",
+      "limbs": "#ebebe0",
+      "description": "O palito de sempre: branco, fino, cabeca na cor do jogador.",
+      "art": {
+        "q_parado_a": {
+          "cel_r2c1": "|"
+        },
+        "q_parado_b": {
+          "cel_r2c1": ":"
+        }
+      }
+    },
+    {
+      "id": "heavy",
+      "name": "HEAVY",
+      "swap": [
+        [
+          "O",
+          "0"
+        ],
+        [
+          "o",
+          "0"
+        ],
+        [
+          "|",
+          "║"
+        ],
+        [
+          "_",
+          "═"
+        ]
+      ],
+      "accent": "Oo<>",
+      "limb": "║",
+      "body": "#ebebe0",
+      "hurt": "#e02138",
+      "gone": "#4a4d57",
+      "limbs": "#75787f",
+      "description": "Mesma silhueta, glifos grossos. Uma pele nova custa uma linha de tabela.",
+      "art": {
+        "q_parado_a": {
+          "cel_r1c1": "║",
+          "cel_r2c1": "║"
+        },
+        "q_parado_b": {
+          "cel_r1c1": "║",
+          "cel_r2c1": "│"
+        }
+      }
+    },
+    {
+      "id": "wraith",
+      "name": "WRAITH",
+      "swap": [],
+      "accent": "Oo<>",
+      "limb": "│",
+      "body": "#75787f",
+      "hurt": "#e02138",
+      "gone": "#26292f",
+      "limbs": "#4a4d57",
+      "description": "Espectro: corpo esmaecido, membros de sombra. Redesenha a respiracao parada.",
+      "art": {
+        "q_parado_a": {
+          "cel_r1c1": "▓",
+          "cel_r2c1": "▒"
+        },
+        "q_parado_b": {
+          "cel_r1c1": "▒",
+          "cel_r2c1": "░"
+        }
+      }
+    },
+    {
+      "id": "ninja",
+      "name": "NINJA",
+      "swap": [
+        [
+          "O",
+          "☻"
+        ],
+        [
+          "o",
+          "☻"
+        ],
+        [
+          "|",
+          "│"
+        ]
+      ],
+      "accent": "Oo<>☻",
+      "limb": "│",
+      "body": "#26292f",
+      "hurt": "#e02138",
+      "gone": "#4a4d57",
+      "limbs": "#4a4d57",
+      "description": "Mascara fechada e corpo quase preto, com olhos na cor do jogador.",
+      "art": {
+        "q_parado_a": {
+          "cel_r0c1": "☻",
+          "cel_r1c1": "▓",
+          "cel_r2c1": "│"
+        },
+        "q_parado_b": {
+          "cel_r0c1": "☻",
+          "cel_r1c1": "▒",
+          "cel_r2c1": "│"
+        }
+      }
+    },
+    {
+      "id": "robot",
+      "name": "ROBOT",
+      "swap": [
+        [
+          "O",
+          "■"
+        ],
+        [
+          "o",
+          "■"
+        ],
+        [
+          "|",
+          "╬"
+        ],
+        [
+          "_",
+          "═"
+        ]
+      ],
+      "accent": "Oo<>■",
+      "limb": "║",
+      "body": "#75787f",
+      "hurt": "#e02138",
+      "gone": "#4a4d57",
+      "limbs": "#ebebe0",
+      "description": "Glifos duplos e cabeca quadrada, deliberadamente rigido.",
+      "art": {
+        "q_parado_a": {
+          "cel_r1c1": "╬",
+          "cel_r2c1": "║"
+        },
+        "q_parado_b": {
+          "cel_r1c1": "║",
+          "cel_r2c1": "╬"
+        }
+      }
+    },
+    {
+      "id": "inferno",
+      "name": "INFERNO",
+      "swap": [
+        [
+          "O",
+          "♦"
+        ],
+        [
+          "o",
+          "♦"
+        ],
+        [
+          "|",
+          "▒"
+        ]
+      ],
+      "accent": "Oo<>♦",
+      "limb": "░",
+      "body": "#ebebe0",
+      "hurt": "#e02138",
+      "gone": "#26292f",
+      "limbs": "#75787f",
+      "description": "Tronco em blocos que pulsa como chama sem gastar cor de gameplay.",
+      "art": {
+        "q_parado_a": {
+          "cel_r0c1": "♦",
+          "cel_r1c1": "▓",
+          "cel_r2c1": "░"
+        },
+        "q_parado_b": {
+          "cel_r0c1": "♦",
+          "cel_r1c1": "▒",
+          "cel_r2c1": "▓"
+        }
+      }
+    },
+    {
+      "id": "osso",
+      "name": "OSSO",
+      "swap": [
+        [
+          "O",
+          "Ω"
+        ],
+        [
+          "o",
+          "Ω"
+        ],
+        [
+          "|",
+          "≡"
+        ],
+        [
+          "_",
+          "═"
+        ]
+      ],
+      "accent": "Oo<>Ω",
+      "limb": ":",
+      "body": "#ebebe0",
+      "hurt": "#e02138",
+      "gone": "#75787f",
+      "limbs": "#ebebe0",
+      "art": {
+        "q_parado_a": {
+          "cel_r1c1": "≡",
+          "cel_r2c1": "═"
+        },
+        "q_parado_b": {
+          "cel_r1c1": "═",
+          "cel_r2c1": "≡"
+        }
+      },
+      "description": "Esqueleto. Costelas no tronco, ossos partidos nos membros. ATENCAO: na corrida os membros encurtam e quase somem -- conferir rodando."
+    },
+    {
+      "id": "vulto",
+      "name": "VULTO",
+      "swap": [
+        [
+          "O",
+          "◙"
+        ],
+        [
+          "o",
+          "◙"
+        ],
+        [
+          "|",
+          "█"
+        ],
+        [
+          "_",
+          "█"
+        ]
+      ],
+      "accent": "Oo<>◙",
+      "limb": "█",
+      "body": "#4a4d57",
+      "hurt": "#e02138",
+      "gone": "#26292f",
+      "limbs": "#75787f",
+      "art": {},
+      "description": "Sombra macica. Sem detalhe: so silhueta, e por isso le de longe."
+    },
+    {
+      "id": "lamina",
+      "name": "LAMINA",
+      "swap": [
+        [
+          "O",
+          "▼"
+        ],
+        [
+          "o",
+          "▼"
+        ],
+        [
+          "|",
+          "▐"
+        ],
+        [
+          "_",
+          "▄"
+        ]
+      ],
+      "accent": "Oo<>▼",
+      "limb": "▌",
+      "body": "#ebebe0",
+      "hurt": "#e02138",
+      "gone": "#4a4d57",
+      "limbs": "#75787f",
+      "art": {
+        "q_parado_a": {
+          "cel_r1c1": "▐",
+          "cel_r2c1": "▌"
+        },
+        "q_parado_b": {
+          "cel_r1c1": "▌",
+          "cel_r2c1": "▐"
+        }
+      },
+      "description": "Meios-blocos opostos: tudo deslocado, angular."
+    },
+    {
+      "id": "coracao",
+      "name": "CORACAO",
+      "swap": [
+        [
+          "O",
+          "♥"
+        ],
+        [
+          "o",
+          "♥"
+        ],
+        [
+          "|",
+          "▓"
+        ],
+        [
+          "_",
+          "═"
+        ]
+      ],
+      "accent": "Oo<>♥",
+      "limb": "║",
+      "body": "#ebebe0",
+      "hurt": "#e02138",
+      "gone": "#26292f",
+      "limbs": "#4a4d57",
+      "art": {
+        "q_parado_a": {
+          "cel_r1c1": "▓",
+          "cel_r2c1": "▒"
+        },
+        "q_parado_b": {
+          "cel_r1c1": "▒",
+          "cel_r2c1": "▓"
+        }
+      },
+      "description": "Cabeca de coracao na cor do jogador; o tronco bate."
+    },
+    {
+      "id": "sigilo",
+      "name": "SIGILO",
+      "swap": [
+        [
+          "O",
+          "Φ"
+        ],
+        [
+          "o",
+          "Φ"
+        ],
+        [
+          "|",
+          "≡"
+        ],
+        [
+          "_",
+          "═"
+        ]
+      ],
+      "accent": "Oo<>Φ",
+      "limb": "│",
+      "body": "#75787f",
+      "hurt": "#e02138",
+      "gone": "#4a4d57",
+      "limbs": "#ebebe0",
+      "art": {
+        "q_parado_a": {
+          "cel_r1c1": "≡",
+          "cel_r2c1": "─"
+        },
+        "q_parado_b": {
+          "cel_r1c1": "─",
+          "cel_r2c1": "≡"
+        }
+      },
+      "description": "Enfaixado. Bandagens no tronco, membros finos e claros."
+    }
+  ],
+  "active_skin": "stick",
+  "skin_semantics": {
+    "role": "body usa as cores da pele; limb e um segmento de membro.",
+    "swap": "Trocas de glifo [de, para], aplicadas depois de a cor estar decidida.",
+    "accent": "Glifos que recebem canvas.accent, a cor de quem veste o boneco.",
+    "art": "quadro -> peca -> glifo, para a pele que redesenha um quadro em vez de so trocar caracteres."
+  },
+  "source": {
+    "poses": "src/actor/rig.rs (POSES, Joints::gait e os ajustes por pose)",
+    "strikes": "src/actor/pose.rs (UNARMED_COMBO, SWEEP, DIVE_KICK)",
+    "skins": "src/actor/skin.rs (CATALOG)",
+    "palette": "src/ascii/palette.rs",
+    "speeds": "src/actor/motion.rs (RUN_SPEED, CLIMB_SPEED, JUMP_SPEED)",
+    "generated_by": "glyph_forge/bake_actor.py",
+    "revamp": "glyph_forge/revamp.py -- peles e animacoes autorais"
+  },
+  "notes": "Boneco do jogo mais o que ainda nao existe nele.\n\nAs 13 primeiras animacoes e as 6 primeiras peles sao transcricao de src/actor/ (veja bake_actor.py). Da 14a animacao em diante e da 7a pele em diante e proposta: nao existe pose nem pele correspondente no Rust.\n\nConferir olhando, apagar o que nao prestar, e o que sobrar vira skin.rs e rig.rs. As coordenadas dos pontos, em espaco do ator, saem de x_ator = x_canvas - 56 e y_ator = 64 - y_canvas."
+}

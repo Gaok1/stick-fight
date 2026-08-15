@@ -50,6 +50,23 @@ Sob o canvas, a barra de transporte escolhe a animacao e toca; abaixo dela, a **
 
 No grupo VER, **Nomes** desliga os nomes dos pontos quando eles se sobrepoem -- o nome do ponto selecionado continua aparecendo.
 
+## Peles e animacoes novas
+
+```powershell
+python revamp.py
+```
+
+Escreve `creations/bonecos/boneco_novo.glyph.json`: o boneco transcrito **mais** o que o jogo ainda nao tem -- 5 peles e 5 animacoes autorais (provocacao, aterrissagem, vitoria, nocaute, esquiva).
+
+Fica num arquivo separado de proposito. `bake_actor.py` e transcricao e tem que continuar batendo com `src/actor/`; `revamp.py` e autoral e nao tem com o que bater. Abrir, conferir rodando, apagar o que nao prestar -- o que sobrar vira `skin.rs` e `rig.rs`.
+
+Duas regras que sairam de renderizar candidatas e olhar:
+
+- o glifo do **membro** precisa de forma vertical solida. `·`, `!` e `§` esticados viram tracinho picado e o membro some;
+- o glifo do **tronco** precisa de continuidade vertical. `▄` e `♦` quebram a silhueta e o boneco parece desmontado.
+
+E `¦`, `†`, `¤` e `Ξ` **nao existem na CP437**: viram `?` na tela sem avisar.
+
 ## Fluxo
 
 1. Clique em **Glyph**, no grupo CRIAR da barra.
