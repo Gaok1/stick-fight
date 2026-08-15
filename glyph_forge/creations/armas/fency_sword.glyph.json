@@ -1,11 +1,13 @@
 {
   "app": "Glyph Forge",
-  "version": 3,
+  "version": 7,
   "canvas": {
     "width": 800,
     "height": 600,
     "background": "#181818",
-    "grid_size": 16
+    "grid_size": 16,
+    "accent": "#33d9f2",
+    "zoom": 3.977
   },
   "default_font": {
     "kind": "bitmap_rom",
@@ -20,8 +22,8 @@
     {
       "id": "0366040e04",
       "glyph": "_",
-      "x": 418.8,
-      "y": 253.06,
+      "x": 239.09999999999997,
+      "y": 228.05,
       "font_size": 64,
       "scale_x": 1.5073,
       "scale_y": 0.7756,
@@ -30,13 +32,17 @@
       "rotation": 0.0,
       "color": "#ffffff",
       "layer": 1,
-      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin",
+      "role": "",
+      "span": [],
+      "follow": "",
+      "offset": []
     },
     {
       "id": "24e504caaa",
       "glyph": "_",
-      "x": 468.91,
-      "y": 255.63,
+      "x": 289.21,
+      "y": 230.62,
       "font_size": 64,
       "scale_x": 1.5073,
       "scale_y": 0.6756,
@@ -45,13 +51,17 @@
       "rotation": 0.0,
       "color": "#ffffff",
       "layer": 1,
-      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin",
+      "role": "",
+      "span": [],
+      "follow": "",
+      "offset": []
     },
     {
       "id": "3099ff5b0f",
       "glyph": "_",
-      "x": 518.55,
-      "y": 258.0,
+      "x": 338.8499999999999,
+      "y": 232.99,
       "font_size": 64,
       "scale_x": 1.5073,
       "scale_y": 0.5756,
@@ -60,13 +70,17 @@
       "rotation": 0.0,
       "color": "#ffffff",
       "layer": 1,
-      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin",
+      "role": "",
+      "span": [],
+      "follow": "",
+      "offset": []
     },
     {
       "id": "98c1e5fa6e",
       "glyph": "_",
-      "x": 568.48,
-      "y": 261.96,
+      "x": 388.78,
+      "y": 236.94999999999996,
       "font_size": 64,
       "scale_x": 1.5073,
       "scale_y": 0.39,
@@ -75,31 +89,123 @@
       "rotation": 0.0,
       "color": "#ffffff",
       "layer": 1,
-      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin",
+      "role": "",
+      "span": [],
+      "follow": "",
+      "offset": []
     },
     {
       "id": "a94c0a3580",
       "glyph": ")",
-      "x": 409.84,
-      "y": 274.64,
+      "x": 228.79,
+      "y": 250.86,
       "font_size": 64,
-      "scale_x": 1.0,
-      "scale_y": 1.0,
+      "scale_x": 1.1204,
+      "scale_y": 1.2423,
       "flip_x": false,
       "flip_y": false,
       "rotation": 0.0,
       "color": "#fffdff",
       "layer": 2,
-      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin"
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin",
+      "role": "",
+      "span": [],
+      "follow": "",
+      "offset": []
+    },
+    {
+      "id": "160beba074",
+      "glyph": "_",
+      "x": 200.9,
+      "y": 228.1,
+      "font_size": 64,
+      "scale_x": 1.5073,
+      "scale_y": 0.7756,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#a5a2a1",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin",
+      "role": "",
+      "span": [],
+      "follow": "",
+      "offset": []
+    },
+    {
+      "id": "46db888861",
+      "glyph": "α",
+      "x": 237.41,
+      "y": 244.99,
+      "font_size": 64,
+      "scale_x": 0.5337,
+      "scale_y": 0.3315,
+      "flip_x": false,
+      "flip_y": false,
+      "rotation": 0.0,
+      "color": "#bd9700",
+      "layer": 1,
+      "font_path": "G:\\Rust\\stick-fightt\\assets\\fonts\\ibm_vga_8x16.bin",
+      "role": "",
+      "span": [],
+      "follow": "",
+      "offset": []
     }
   ],
   "rig": {
     "joints": [],
     "semantics": {
       "parent_id": "Joint pai; a linha entre ambos representa um osso.",
-      "attached_element_id": "Glyph que usa este ponto como pivo e o carrega ao ser movido.",
-      "fixed": "Ancora presa ao mundo, nao ao joint pai."
+      "part_a_element_id": "Primeira peca conectada pelo ponto independente.",
+      "part_b_element_id": "Segunda peca conectada pelo ponto independente.",
+      "constraint_type": "pivot permite giro relativo; fixed solda as duas pecas.",
+      "fixed": "Quando verdadeiro, o ponto tambem esta ancorado ao mundo."
     }
+  },
+  "attention_points": [],
+  "attention_semantics": {
+    "description": "Destaques nomeados para a LLM; nao fazem parte do esqueleto.",
+    "attached_element_id": "Glyph que carrega o destaque quando e movido."
+  },
+  "labels": [
+    {
+      "id": "3d08dae2d1",
+      "name": "fency_sword",
+      "element_ids": [
+        "0366040e04",
+        "160beba074",
+        "24e504caaa",
+        "3099ff5b0f",
+        "46db888861",
+        "98c1e5fa6e",
+        "a94c0a3580"
+      ],
+      "description": "Arma feita para estocadas",
+      "label_ids": []
+    }
+  ],
+  "label_semantics": {
+    "element_ids": "Glyphs diretamente contidos neste rotulo.",
+    "label_ids": "Sub-rotulos contidos; seus glyphs sao herdados recursivamente."
+  },
+  "animation": {
+    "clips": [],
+    "semantics": {
+      "elements": "A lista `elements` e a pose de repouso; um quadro guarda so a diferenca.",
+      "keys": "id da peca -> campo -> valor. Campos possiveis: x, y, rotation, scale_x, scale_y, flip_x, flip_y, glyph, color, font_size, layer, offset.",
+      "hold": "Por quantos tempos o quadro fica na tela.",
+      "tone": "Papel de cor do corpo neste quadro: body, hurt ou gone.",
+      "fps": "Tempos por segundo do clipe.",
+      "marks": "O que acontece neste quadro (contato, brilho, som). Nomes livres."
+    }
+  },
+  "skins": [],
+  "active_skin": "",
+  "skin_semantics": {
+    "role": "Cada glyph tem `role`: body usa as cores da pele, limb e um segmento de membro, vazio guarda a propria cor.",
+    "swap": "Trocas de glifo `[de, para]` aplicadas depois de a cor estar decidida.",
+    "accent": "Glifos que recebem `canvas.accent`, a cor de quem veste o boneco."
   },
   "notes": "Descreva aqui o que esta composicao representa e como deve ser usada."
 }

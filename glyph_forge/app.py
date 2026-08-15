@@ -994,6 +994,10 @@ class GlyphForge:
         bottom = ttk.Frame(toolbar)
         bottom.pack(fill=tk.X)
 
+        # Um grupo so para o arquivo: salvar, trazer e entregar sao a mesma
+        # pergunta -- o que acontece com este projeto. Estavam em tres grupos,
+        # com dois botoes chamados "Exportar" em lugares diferentes, e escolher
+        # entre eles exigia lembrar qual dos dois fazia o que.
         arquivo = self._group(top, "arquivo", first=True)
         for label, command, hint in (
             ("Novo", self.new_project, "Comeca um projeto vazio  (Ctrl+N)"),
@@ -1002,33 +1006,32 @@ class GlyphForge:
             ("Salvar como", self.save_project_as, "Salva uma copia e passa a trabalhar nela  (Ctrl+Shift+S)"),
         ):
             self._tool(arquivo, label, command, hint)
-
-        pecas = self._group(top, "pecas")
+        ttk.Separator(arquivo, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=5)
         self._tool(
-            pecas,
+            arquivo,
             "Importar",
             self.import_piece,
             "Traz outra cena, peca ou .txt para dentro desta.\nSo a geometria: animacoes da peca ficam no arquivo dela.",
         )
-        self._tool(
-            pecas,
-            "Exportar selecao",
-            self.export_selection,
-            "Salva so o que esta selecionado como peca reaproveitavel",
+        # Um botao de exportar, com as duas saidas dentro dele: quem exporta ja
+        # sabe se quer o pacote ou a peca, e ve as duas escolhas lado a lado no
+        # momento de escolher, em vez de decorar dois botoes distantes.
+        export = ttk.Menubutton(arquivo, text="Exportar")
+        menu = tk.Menu(export, tearoff=0)
+        menu.add_command(
+            label="Tudo: pacote com previews e GIFs...", command=self.export_bundle
         )
-
-        entrega = self._group(top, "entrega")
+        menu.add_command(
+            label="So a selecao: peca reaproveitavel...", command=self.export_selection
+        )
+        export["menu"] = menu
+        export.pack(side=tk.LEFT, padx=1)
+        Tip(export, "O pacote inteiro (Ctrl+E) ou so a peca selecionada")
         self._tool(
-            entrega,
+            arquivo,
             "Conferir",
             self.check_scene,
             "Procura o que o jogo nao vai conseguir ler:\nnome repetido, peca solta, rotulo vazio",
-        )
-        self._tool(
-            entrega,
-            "Exportar tudo",
-            self.export_bundle,
-            "Gera o pacote: scene.json, previews, GIF de cada animacao  (Ctrl+E)",
         )
 
         criar = self._group(bottom, "criar", first=True)
@@ -1144,6 +1147,19 @@ class GlyphForge:
         self.canvas.bind("<Control-MouseWheel>", self.on_zoom_wheel)
         self.canvas.bind("<Control-Button-4>", lambda event: self.change_zoom(event, 1))
         self.canvas.bind("<Control-Button-5>", lambda event: self.change_zoom(event, -1))
+        # Arrastar com o botao do meio empurra a vista, e nao as pecas: com o
+        # zoom em 700% a barra de rolagem anda a cena inteira num arrasto, e a
+        # unica forma de chegar num canto era acertar a barra no pixel certo.
+        self.canvas.bind("<Button-2>", self.on_pan_press)
+        self.canvas.bind("<B2-Motion>", self.on_pan_drag)
+        self.canvas.bind("<ButtonRelease-2>", self.on_pan_release)
+        # Roda sem modificador rola; com Shift, rola de lado. O zoom continua no
+        # Ctrl+roda, que e onde todo editor o coloca.
+        self.canvas.bind("<MouseWheel>", lambda event: self.canvas.yview_scroll(-event.delta // 120, "units"))
+        self.canvas.bind(
+            "<Shift-MouseWheel>",
+            lambda event: self.canvas.xview_scroll(-event.delta // 120, "units"),
+        )
 
         self._build_inspector(inspector)
 
@@ -1881,6 +1897,17 @@ class GlyphForge:
         }.items():
             self.canvas.bind(sequence, lambda _event, move=delta: self.nudge_selection(*move))
 
+    def on_pan_press(self, event: tk.Event) -> None:
+        self.canvas.scan_mark(event.x, event.y)
+        self.canvas.configure(cursor="fleur")
+
+    def on_pan_drag(self, event: tk.Event) -> None:
+        self.canvas.scan_dragto(event.x, event.y, gain=1)
+
+    def on_pan_release(self, event: tk.Event) -> None:
+        self.canvas.configure(cursor="")
+        self.on_canvas_motion(event)
+
     def on_zoom_wheel(self, event: tk.Event) -> str:
         direction = 1 if event.delta > 0 else -1
         return self.change_zoom(event, direction)
@@ -2195,7 +2222,10 @@ class GlyphForge:
         if self.playing:
             self.playing = False
             self.play_button.configure(text="▶ Tocar")
+            # A tela ficou no quadro em que o play parou: as listas e o
+            # inspetor tem que concordar com ela antes da proxima edicao.
             self.sync_animation_lists()
+            self.sync_inspector()
 
     def tick_play(self) -> None:
         clip = self.current_clip()
@@ -2204,14 +2234,28 @@ class GlyphForge:
             return
         self.apply_pose()
         self.redraw()
+        self.highlight_strip()
         frame = clip.frame(self.frame_index)
         delay = max(20, round(1000 * max(1, frame.hold if frame else 1) / max(0.5, clip.fps)))
         last = self.frame_index is not None and self.frame_index >= len(clip.frames) - 1
         if last and not clip.loop:
             self.play_job = self.root.after(delay, self.stop_play)
             return
-        self.frame_index = ((self.frame_index or 0) + 1) % len(clip.frames)
-        self.play_job = self.root.after(delay, self.tick_play)
+        self.play_job = self.root.after(delay, self.advance_play)
+
+    def advance_play(self) -> None:
+        """Anda um quadro e desenha.
+
+        O avanco tem que vir *antes* do desenho, e nao depois: enquanto ele
+        ficava no fim do tick, `frame_index` apontava para o quadro seguinte
+        enquanto a tela mostrava o anterior. Parar o play no meio disso deixava
+        o playhead num quadro que ninguem estava vendo -- e a proxima peca
+        arrastada era gravada nele.
+        """
+        clip = self.current_clip()
+        if clip and clip.frames:
+            self.frame_index = ((self.frame_index or 0) + 1) % len(clip.frames)
+        self.tick_play()
 
     def add_clip(self) -> None:
         self.stop_play()
@@ -2373,6 +2417,25 @@ class GlyphForge:
             marks = f"\nMarcas: {', '.join(frame.marks)}" if frame.marks else ""
             Tip(button, f"{frame.name}  ({frame.hold} tempo(s)){marks}")
             self.strip_buttons.append(button)
+
+    def highlight_strip(self) -> None:
+        """So repinta qual quadro esta aceso, sem refazer a tira.
+
+        Tocar precisa acender o botao do quadro corrente, mas refazer os botoes
+        a cada quadro pisca a tira inteira -- e num clipe de 100 tempos por
+        segundo isso e trabalho a toa cinquenta vezes por segundo.
+        """
+        clip = self.current_clip()
+        for index, button in enumerate(self.strip_buttons):
+            at = None if index == 0 else index - 1
+            current = at == self.frame_index
+            frame = clip.frame(at) if clip and at is not None else None
+            button.configure(
+                relief=tk.SUNKEN if current else tk.RAISED,
+                bg="#d7e8ff"
+                if current
+                else ("#fffbe0" if frame and frame.keys else "#f0f0f0"),
+            )
 
     def sync_animation_lists(self) -> None:
         self.sync_frame_strip()

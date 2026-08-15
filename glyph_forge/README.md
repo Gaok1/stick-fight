@@ -14,6 +14,8 @@ python app.py
 
 Atalhos: `Ctrl+N` novo, `Ctrl+O` abrir, `Ctrl+S` salvar, `Ctrl+Shift+S` salvar como, `Ctrl+E` exportar tudo, `Ctrl+Z/Y` desfazer/refazer, `Ctrl+C/V` copiar/colar pecas, `Ctrl+D` duplicar, `Ctrl+A` selecionar tudo no canvas, `Ctrl+scroll` aplicar zoom sob o cursor, `Ctrl+0` voltar a 100%, setas mover, `Shift+setas` mover mais rapido, `Esc` limpar e `Delete` excluir. Com o foco no canvas, `espaco` toca ou para a animacao e `,` / `.` andam um quadro.
 
+No canvas: **arrastar com o botao do meio** empurra a vista, a roda rola, `Shift+roda` rola de lado e `Ctrl+roda` aplica zoom sob o cursor.
+
 ## O boneco do jogo
 
 ```powershell
@@ -31,7 +33,7 @@ x_ator = x_canvas - 56   |   y_ator = 64 - y_canvas
 
 ## A janela
 
-A barra de cima agrupa os comandos pelo que eles fazem -- **arquivo**, **pecas**, **entrega** na primeira linha; **criar**, **editar**, **ver** na segunda. Passar o mouse por qualquer botao mostra o que ele faz, o atalho e, quando existe, o que precisa estar selecionado.
+A barra de cima agrupa os comandos pelo que eles fazem -- **arquivo** (novo, abrir, salvar, importar, exportar, conferir) na primeira linha; **criar**, **editar**, **ver** na segunda. **Exportar** e um botao so: ele abre com as duas saidas, o pacote inteiro e a peca selecionada. Passar o mouse por qualquer botao mostra o que ele faz, o atalho e, quando existe, o que precisa estar selecionado.
 
 A direita ficam seis abas:
 
