@@ -322,6 +322,109 @@ pub const KATANA_COMBO: [Strike; 3] = [
     },
 ];
 
+/// Estoque: tudo e ponta, nada e fio.
+///
+/// Os outros combos de lamina giram o braco -- este estende. A forca de uma
+/// arma de estocada nao sai do arco, sai da mao indo para a frente e da perna
+/// que joga o corpo atras dela, e e por isso que este e o unico combo de
+/// contato em que os tres elos tem `legs`: sem o afundo, a estocada vira um
+/// soco comprido com uma barra na mao.
+///
+/// O braco de tras sobe e recua em vez de acompanhar. E contrapeso de
+/// esgrimista, e e ele que faz a pose ler de longe.
+///
+/// Desenhado quadro a quadro no Glyph Forge, em `glyph_forge/espada.py`: os
+/// numeros aqui sao os de la, transcritos.
+pub const RAPIER_COMBO: [Strike; 3] = [
+    Strike {
+        name: "THRUST",
+        // A mao recolhe ate o quadril e explode: o preparo e o unico quadro do
+        // arsenal em que o punho fica *atras* do ombro.
+        front: [
+            Arm::new(1.0, 10.0, -6.0, 9.0),
+            Arm::new(21.0, 11.0, 44.0, 11.0),
+            Arm::new(12.0, 11.0, 24.0, 12.0),
+        ],
+        back: [
+            Arm::new(-8.0, 16.0, -13.0, 24.0),
+            Arm::new(-11.0, 19.0, -19.0, 27.0),
+            Arm::new(-9.0, 17.0, -15.0, 25.0),
+        ],
+        legs: Some([
+            Leg::new(7.0, -20.0, 11.0, -31.0),
+            Leg::new(20.0, -24.0, 34.0, -31.0),
+            Leg::new(12.0, -21.0, 19.0, -31.0),
+        ]),
+        rise: 0.86,
+    },
+    Strike {
+        name: "HIGH LINE",
+        // Mesma mecanica, outra linha: a ponta sobe para o rosto. E a linha,
+        // e nao a forca, que o adversario tem que ler.
+        front: [
+            Arm::new(2.0, 17.0, -4.0, 21.0),
+            Arm::new(20.0, 17.0, 42.0, 23.0),
+            Arm::new(12.0, 14.0, 24.0, 17.0),
+        ],
+        back: [
+            Arm::new(-8.0, 15.0, -13.0, 22.0),
+            Arm::new(-12.0, 20.0, -20.0, 28.0),
+            Arm::new(-9.0, 17.0, -15.0, 25.0),
+        ],
+        legs: Some([
+            Leg::new(7.0, -20.0, 11.0, -31.0),
+            Leg::new(20.0, -24.0, 34.0, -31.0),
+            Leg::new(12.0, -21.0, 19.0, -31.0),
+        ]),
+        rise: 0.92,
+    },
+    Strike {
+        name: "FLECHE",
+        // Finta e afundo. O preparo ja arrisca meia extensao -- e a mentira --
+        // e o contato vai mais fundo que qualquer outro golpe do jogo.
+        front: [
+            Arm::new(13.0, 12.0, 26.0, 13.0),
+            Arm::new(25.0, 9.0, 52.0, 8.0),
+            Arm::new(14.0, 11.0, 28.0, 12.0),
+        ],
+        back: [
+            Arm::new(-8.0, 16.0, -13.0, 23.0),
+            Arm::new(-14.0, 21.0, -24.0, 29.0),
+            Arm::new(-10.0, 18.0, -17.0, 26.0),
+        ],
+        legs: Some([
+            Leg::new(10.0, -20.0, 16.0, -31.0),
+            Leg::new(25.0, -26.0, 43.0, -31.0),
+            Leg::new(20.0, -24.0, 34.0, -31.0),
+        ]),
+        rise: 0.79,
+    },
+];
+
+/// O M2 do estoque: a estocada que atravessa.
+///
+/// Nao encadeia. E a mesma linha do `THRUST` levada ao extremo, e paga em
+/// recuperacao: errar deixa o esgrimista esticado no chao alheio.
+pub const RAPIER_HEAVY: Strike = Strike {
+    name: "RUN THROUGH",
+    front: [
+        Arm::new(-2.0, 12.0, -11.0, 12.0),
+        Arm::new(27.0, 10.0, 58.0, 10.0),
+        Arm::new(15.0, 11.0, 30.0, 11.0),
+    ],
+    back: [
+        Arm::new(-9.0, 17.0, -15.0, 25.0),
+        Arm::new(-15.0, 22.0, -26.0, 30.0),
+        Arm::new(-11.0, 18.0, -18.0, 26.0),
+    ],
+    legs: Some([
+        Leg::new(6.0, -20.0, 9.0, -31.0),
+        Leg::new(27.0, -27.0, 47.0, -31.0),
+        Leg::new(18.0, -23.0, 30.0, -31.0),
+    ]),
+    rise: 0.74,
+};
+
 /// Giros curtos e alternados do nunchaku.
 pub const NUNCHAKU_COMBO: [Strike; 3] = [
     Strike {
@@ -603,6 +706,7 @@ pub fn strike_for(step: u8, kind: MeleeKind, style: WeaponStyle) -> &'static Str
         MeleeKind::Chain => match style {
             WeaponStyle::Knife => &KNIFE_COMBO[step as usize % KNIFE_COMBO.len()],
             WeaponStyle::Katana => &KATANA_COMBO[step as usize % KATANA_COMBO.len()],
+            WeaponStyle::FencySword => &RAPIER_COMBO[step as usize % RAPIER_COMBO.len()],
             WeaponStyle::Nunchaku => &NUNCHAKU_COMBO[step as usize % NUNCHAKU_COMBO.len()],
             WeaponStyle::Pipe => &PIPE_COMBO[step as usize % PIPE_COMBO.len()],
             _ => strike(step),
@@ -610,6 +714,7 @@ pub fn strike_for(step: u8, kind: MeleeKind, style: WeaponStyle) -> &'static Str
         MeleeKind::Heavy => match style {
             WeaponStyle::Knife => &KNIFE_HEAVY,
             WeaponStyle::Katana => &KATANA_HEAVY,
+            WeaponStyle::FencySword => &RAPIER_HEAVY,
             WeaponStyle::Nunchaku => &NUNCHAKU_HEAVY,
             _ => &HEAVY_SMASH,
         },
@@ -634,6 +739,7 @@ mod tests {
             &UNARMED_COMBO,
             &KNIFE_COMBO,
             &KATANA_COMBO,
+            &RAPIER_COMBO,
             &NUNCHAKU_COMBO,
             &PIPE_COMBO,
         ] {

@@ -14,7 +14,7 @@ use bevy::prelude::*;
 use crate::actor::{ActorLimb, ActorSkin, ActorTint, Health, Severed};
 use crate::ascii::{AsciiArt, AsciiSprite, Layer, palette};
 use crate::combat::{Damaged, Lifetime};
-use crate::physics::{Collider, Falls, Ghost, Grounded, Velocity};
+use crate::physics::{Collider, Falls, Ghost, Grounded, KILL_Y, Velocity};
 use crate::state::{AppSet, GameState, arena_live};
 
 /// Dano a partir do qual um golpe pode arrancar um membro.
@@ -275,7 +275,10 @@ fn butcher(
                 at + Vec2::Y * (fastrand::f32() * 20.0 - 6.0),
                 AsciiArt::glyph(organ, palette::BLOOD),
                 dir * (120.0 + fastrand::f32() * 260.0)
-                    + Vec2::new(fastrand::f32() * 300.0 - 150.0, 120.0 + fastrand::f32() * 320.0),
+                    + Vec2::new(
+                        fastrand::f32() * 300.0 - 150.0,
+                        120.0 + fastrand::f32() * 320.0,
+                    ),
             );
         }
         for _ in 0..16 {
@@ -327,10 +330,20 @@ fn bleed(
 fn animate_gibs(
     time: Res<Time>,
     mut commands: Commands,
-    mut gibs: Query<(&mut Gib, &mut Transform, &mut Velocity, &Grounded)>,
+    mut gibs: Query<(Entity, &mut Gib, &mut Transform, &mut Velocity, &Grounded)>,
 ) {
     let dt = time.delta_secs();
-    for (mut gib, mut transform, mut velocity, grounded) in &mut gibs {
+    for (entity, mut gib, mut transform, mut velocity, grounded) in &mut gibs {
+        // Pedaco que caiu no vao nao pousa nunca, e um pedaco que nao pousa
+        // pinga. Sem este corte ele caia para sempre soltando uma gota a cada
+        // 0,05 s -- vinte entidades com colisor por segundo, por pedaco, cada
+        // uma viva por quatro segundos e entrando na resolucao de colisao de
+        // todo quadro. Era esse o travamento que aparecia depois de algumas
+        // mortes perto de um buraco.
+        if transform.translation.y < KILL_Y {
+            commands.entity(entity).despawn();
+            continue;
+        }
         transform.rotate_z(gib.spin * dt);
         if grounded.0 {
             // Atrito: sem isto o pedaco desliza pela arena inteira para sempre.

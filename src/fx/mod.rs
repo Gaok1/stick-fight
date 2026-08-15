@@ -9,7 +9,7 @@
 use bevy::prelude::*;
 use bevy::time::{Real, Virtual};
 
-use crate::ascii::{AsciiArt, AsciiSprite, Layer, palette};
+use crate::ascii::{AsciiArt, AsciiSprite, CELL, Layer, palette};
 use crate::combat::{Damaged, Lifetime, Parried};
 use crate::physics::{Falls, Ghost, Velocity};
 use crate::state::{AppSet, GameState};
@@ -53,6 +53,178 @@ impl Effect for SparkBurst {
                 Falls,
                 Lifetime(Timer::from_seconds(
                     self.life * (0.6 + fastrand::f32() * 0.6),
+                    TimerMode::Once,
+                )),
+                DespawnOnExit(GameState::Fighting),
+            ));
+        }
+    }
+}
+
+/// Clarao da boca do cano.
+///
+/// A forma e o parametro, e nao so o tamanho. A escopeta abre um leque curto e
+/// largo, o rifle cospe uma lanca fina e comprida, a pistola solta um estalo:
+/// se os tres fossem o mesmo sopro em escalas diferentes, o disparo leria como
+/// a mesma arma vista de mais longe.
+///
+/// Cada lingua e um bloco deitado que o `Transform` estica, e nao uma string
+/// desenhada por comprimento. String por comprimento vira uma arte por arma, e
+/// duas artes de fogo escritas em dias diferentes nunca ficam do mesmo
+/// material.
+///
+/// O bloco e o cheio, e nao um traco: so o cheio ocupa a celula inteira, entao
+/// `width` vira espessura em pixels direto. Com um glifo de tinta parcial a
+/// mesma escala daria linguas quase invisiveis, e o ajuste seria adivinhar
+/// quanto de tinta cada glifo tem.
+pub struct MuzzleFlash {
+    /// Quantas linguas abrem no leque. Poucas e finas leem como lanca.
+    pub tongues: usize,
+    /// Abertura total do leque, em radianos.
+    pub spread: f32,
+    /// Comprimento da lingua central, em unidades de mundo.
+    pub reach: f32,
+    /// Espessura de cada lingua.
+    pub width: f32,
+    /// Cor do miolo do leque.
+    pub core: Color,
+    /// Cor das linguas de fora.
+    pub edge: Color,
+    /// Segundos de vida da lingua central.
+    pub life: f32,
+}
+
+impl Effect for MuzzleFlash {
+    fn emit(&self, commands: &mut Commands, at: Vec2, dir: Vec2) {
+        let dir = dir.normalize_or(Vec2::X);
+
+        for i in 0..self.tongues.max(1) {
+            // De -0.5 a 0.5, com o zero no meio: leque de numero par sai sem
+            // lingua central, e um sopro com buraco no meio le como duas armas
+            // disparando lado a lado.
+            let side = if self.tongues > 1 {
+                i as f32 / (self.tongues - 1) as f32 - 0.5
+            } else {
+                0.0
+            };
+            // As pontas do leque sao mais curtas que o meio. Todas do mesmo
+            // tamanho desenham um arco de roda dentada, nao fogo.
+            let reach = self.reach * (1.0 - side.abs() * 0.85);
+            let ray = Vec2::from_angle(side * self.spread).rotate(dir);
+            commands.spawn((
+                AsciiSprite::new(AsciiArt::glyph(
+                    '\u{2588}',
+                    if side.abs() < 0.2 {
+                        self.core
+                    } else {
+                        self.edge
+                    },
+                )),
+                Layer::Fx,
+                Transform::from_translation((at + ray * reach * 0.5).extend(0.0))
+                    .with_rotation(Quat::from_rotation_z(ray.to_angle()))
+                    .with_scale(Vec3::new(reach / CELL.x, self.width / CELL.y, 1.0)),
+                Lifetime(Timer::from_seconds(
+                    self.life * (1.0 - side.abs() * 0.6),
+                    TimerMode::Once,
+                )),
+                DespawnOnExit(GameState::Fighting),
+            ));
+        }
+
+        // O estalo branco na propria boca. E a unica parte igual em todas as
+        // armas, de proposito: o que separa uma da outra e o leque em volta
+        // dele, e ter duas coisas variando de uma vez nao separaria nada.
+        commands.spawn((
+            AsciiSprite::new(AsciiArt::glyph('\u{2666}', palette::BONE)),
+            Layer::Fx,
+            Transform::from_translation(at.extend(0.02))
+                .with_scale(Vec3::splat(0.3 + self.width / 30.0)),
+            Lifetime(Timer::from_seconds(self.life * 0.5, TimerMode::Once)),
+            DespawnOnExit(GameState::Fighting),
+        ));
+    }
+}
+
+/// Capsula ejetada: sai da culatra, cai e some.
+///
+/// Sao os mesmos quatro componentes do sangue -- `Velocity`, `Falls`, `Ghost` e
+/// `Lifetime` -- e ela existe porque e o unico pedaco do disparo que continua
+/// na tela depois de o clarao apagar.
+pub struct Casing {
+    /// Glifo da capsula.
+    pub glyph: char,
+    /// Cor do latao.
+    pub color: Color,
+    /// Forca da ejecao.
+    pub speed: f32,
+    /// Segundos ate sumir.
+    pub life: f32,
+}
+
+impl Effect for Casing {
+    fn emit(&self, commands: &mut Commands, at: Vec2, dir: Vec2) {
+        let dir = dir.normalize_or(Vec2::X);
+        // Para cima e para tras do cano, e nao para um lado fixo do mundo: a
+        // janela de ejecao e da arma, entao ela vira junto quando o boneco
+        // vira. Amarrada ao mundo, atirar para a esquerda cuspiria a capsula
+        // para dentro do proprio corpo.
+        let toss = (-dir * 0.5 + Vec2::Y * 0.95) * self.speed
+            + Vec2::new(fastrand::f32() * 44.0 - 22.0, fastrand::f32() * 34.0);
+        commands.spawn((
+            AsciiSprite::new(AsciiArt::glyph(self.glyph, self.color)),
+            Layer::Fx,
+            Transform::from_translation((at - dir * 9.0).extend(0.0))
+                .with_rotation(Quat::from_rotation_z(dir.to_angle() + 1.1))
+                .with_scale(Vec3::splat(0.5)),
+            Velocity(toss),
+            Ghost,
+            Falls,
+            Lifetime(Timer::from_seconds(self.life, TimerMode::Once)),
+            DespawnOnExit(GameState::Fighting),
+        ));
+    }
+}
+
+/// Fumaca que sobe da boca e dissolve.
+///
+/// Sem `Falls`: fumaca que cai e poeira. O que faz a nuvem crescer em vez de
+/// viajar inteira e cada bafo sair com um pouco menos de empurrao para a
+/// frente que o anterior.
+pub struct Smoke {
+    /// Quantos bafos.
+    pub puffs: usize,
+    /// Quanto ela sobe, em unidades por segundo.
+    pub rise: f32,
+    /// Quanto o primeiro bafo ainda viaja no sentido do tiro.
+    pub drift: f32,
+    /// Segundos de vida do primeiro bafo.
+    pub life: f32,
+    /// Cor da nuvem.
+    pub color: Color,
+}
+
+impl Effect for Smoke {
+    fn emit(&self, commands: &mut Commands, at: Vec2, dir: Vec2) {
+        let dir = dir.normalize_or(Vec2::X);
+        for i in 0..self.puffs {
+            let along = i as f32 / self.puffs.max(1) as f32;
+            commands.spawn((
+                AsciiSprite::new(AsciiArt::glyph(
+                    if i % 3 == 0 { '\u{2592}' } else { '\u{2591}' },
+                    self.color.with_alpha(0.5),
+                )),
+                Layer::Fx,
+                Transform::from_translation((at + dir * along * 9.0).extend(0.0))
+                    .with_scale(Vec3::splat(0.35 + along * 0.55)),
+                Velocity(
+                    dir * self.drift * (1.0 - along)
+                        + Vec2::Y * self.rise
+                        + Vec2::new(fastrand::f32() * 28.0 - 14.0, 0.0),
+                ),
+                Ghost,
+                Lifetime(Timer::from_seconds(
+                    self.life * (0.6 + along * 0.9),
                     TimerMode::Once,
                 )),
                 DespawnOnExit(GameState::Fighting),
@@ -255,10 +427,22 @@ impl Plugin for FxPlugin {
             .init_resource::<CameraTrauma>()
             .init_resource::<HitStop>()
             .add_message::<Shake>()
+            // Este roda sempre, e nao so com a arena de pe: o hit-stop pausa o
+            // relogio virtual, e quem despausa e so ele. Sair da luta durante
+            // os ~100 ms de congelamento -- apertar ESC, ou o dono anunciar o
+            // fim do round -- deixava o `Time<Virtual>` parado sem ninguem para
+            // solta-lo, e o jogo inteiro travava ate alguem voltar para uma
+            // arena. Com `stop` zerado a funcao sai na primeira linha, entao
+            // rodar fora da luta nao custa nada.
+            .add_systems(
+                Update,
+                update_hit_stop
+                    .in_set(AppSet::Animate)
+                    .before(spawn_hit_effects),
+            )
             .add_systems(
                 Update,
                 (
-                    update_hit_stop,
                     spawn_hit_effects,
                     spawn_parry_effects,
                     apply_shake_requests,

@@ -4711,6 +4711,8 @@ version = "0.1.0"
 dependencies = [
  "bevy",
  "fastrand",
+ "serde",
+ "serde_json",
  "steamworks",
 ]
 
