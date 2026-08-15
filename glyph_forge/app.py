@@ -1713,13 +1713,14 @@ class GlyphForge:
             entry = ttk.Entry(clip_form, textvariable=self.clip_vars[key], width=12)
             entry.grid(row=row, column=1, sticky=tk.EW, pady=2)
             entry.bind("<Return>", lambda _event: self.apply_clip_properties())
+            entry.bind("<FocusOut>", lambda _event: self.apply_clip_properties())
         ttk.Checkbutton(
-            clip_form, text="Repetir em ciclo", variable=self.clip_vars["loop"]
+            clip_form,
+            text="Repetir em ciclo",
+            variable=self.clip_vars["loop"],
+            command=self.apply_clip_properties,
         ).grid(row=2, column=0, columnspan=2, sticky=tk.W, pady=2)
         clip_form.columnconfigure(1, weight=1)
-        ttk.Button(parent, text="Aplicar animacao", command=self.apply_clip_properties).pack(
-            fill=tk.X, pady=(0, 2)
-        )
 
         parent = ttk.LabelFrame(holder, text=" Quadros ", padding=(8, 6))
         parent.pack(fill=tk.X)
@@ -1758,6 +1759,7 @@ class GlyphForge:
             entry = ttk.Entry(frame_form, textvariable=self.frame_vars[key], width=12)
             entry.grid(row=row, column=1, sticky=tk.EW, pady=2)
             entry.bind("<Return>", lambda _event: self.apply_frame_properties())
+            entry.bind("<FocusOut>", lambda _event: self.apply_frame_properties())
         ttk.Label(frame_form, text="Papel de cor").grid(row=2, column=0, sticky=tk.W, pady=2)
         tone_combo = ttk.Combobox(
             frame_form,
@@ -1772,12 +1774,10 @@ class GlyphForge:
         marks_entry = ttk.Entry(frame_form, textvariable=self.frame_vars["marks"], width=12)
         marks_entry.grid(row=3, column=1, sticky=tk.EW, pady=2)
         marks_entry.bind("<Return>", lambda _event: self.apply_frame_properties())
+        marks_entry.bind("<FocusOut>", lambda _event: self.apply_frame_properties())
         frame_form.columnconfigure(1, weight=1)
-        ttk.Button(parent, text="Aplicar quadro", command=self.apply_frame_properties).pack(
-            fill=tk.X, pady=(0, 6)
-        )
         ttk.Button(parent, text="Limpar quadro (voltar ao repouso)", command=self.clear_frame).pack(
-            fill=tk.X
+            fill=tk.X, pady=(4, 0)
         )
         ttk.Label(
             holder,
@@ -2349,16 +2349,25 @@ class GlyphForge:
         self.status.set(f"Quadro {frame.name} voltou ao repouso")
 
     def apply_clip_properties(self) -> None:
+        """Grava nome, cadencia e ciclo no clipe -- se algum deles mudou.
+
+        A saida antecipada nao e economia: sem ela, cada clique fora do campo
+        empilharia um passo de desfazer identico ao anterior, e `Ctrl+Z` viraria
+        uma fila de nada.
+        """
         clip = self.current_clip()
         if clip is None:
             return
-        self.checkpoint()
-        clip.name = self.clip_vars["name"].get().strip() or clip.name
+        name = self.clip_vars["name"].get().strip() or clip.name
         try:
-            clip.fps = max(0.5, float(self.clip_vars["fps"].get()))
+            fps = max(0.5, float(self.clip_vars["fps"].get()))
         except (tk.TclError, ValueError):
-            pass
-        clip.loop = bool(self.clip_vars["loop"].get())
+            fps = clip.fps
+        loop = bool(self.clip_vars["loop"].get())
+        if (name, fps, loop) == (clip.name, clip.fps, clip.loop):
+            return
+        self.checkpoint()
+        clip.name, clip.fps, clip.loop = name, fps, loop
         self.sync_animation_lists()
         self.frame_text.set(self.playhead_label())
         self.status.set(f"Animacao atualizada: {clip.name}")
@@ -2367,18 +2376,21 @@ class GlyphForge:
         frame = self.current_frame()
         if frame is None:
             return
-        self.checkpoint()
-        frame.name = self.frame_vars["name"].get().strip() or frame.name
+        name = self.frame_vars["name"].get().strip() or frame.name
         try:
-            frame.hold = max(1, int(self.frame_vars["hold"].get()))
+            hold = max(1, int(self.frame_vars["hold"].get()))
         except (tk.TclError, ValueError):
-            pass
-        frame.tone = {"corpo": "body", "ferido": "hurt", "morto": "gone"}.get(
+            hold = frame.hold
+        tone = {"corpo": "body", "ferido": "hurt", "morto": "gone"}.get(
             self.frame_vars["tone"].get(), "body"
         )
-        frame.marks = [
+        marks = [
             mark.strip() for mark in self.frame_vars["marks"].get().split(",") if mark.strip()
         ]
+        if (name, hold, tone, marks) == (frame.name, frame.hold, frame.tone, frame.marks):
+            return
+        self.checkpoint()
+        frame.name, frame.hold, frame.tone, frame.marks = name, hold, tone, marks
         self.sync_animation_lists()
         self.redraw()
         self.status.set(f"Quadro atualizado: {frame.name}")
